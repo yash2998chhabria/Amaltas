@@ -5,3 +5,4 @@
 !.elasticbeanstalk/*.global.yml
 .ebextensions
 amaltas\__pycache__
+amaltas/__pycache__/settings.cpython-37.pyc
