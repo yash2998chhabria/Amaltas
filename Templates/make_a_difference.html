@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block base %}      
+<!--     <div class="site-blocks-cover inner-page overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-5 text-center" data-aos="fade">
+          <h1 class="text-uppercase">Make a Difference</h1>
+            <span class="caption d-block text-white"><a href="#"></a></span>
+        </div>
+      </div>
+    </div>  --> 
+
+      <div class="slant-1"></div>
+
+    
+    
+  <div class="site-section first-section" data-aos="fade">
+      <div class="container">
+          <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-5">
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">Make A difference</h2>
+          </div>
+        </div> 
+        <div class="row mb-5">
+          {% for mad in mads %}
+          <div class="col-md-6 col-lg-6 mb-5">  
+            <div class="media-image">
+              <a href=""><img src="{{mad.donation_cover.url}}"alt="Image" class="img-fluid"></a>
+              <div class="media-image-body">
+                <h2 class="font-secondary text-uppercase"><a href="#">{{mad.organisation_name}}</a></h2>
+                <p>{{ mad.description }}</p>
+                <p>Contact details:{{ mad.contact_details }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block base %}      
+    <div class="site-blocks-cover inner-page overlay" style="background-image: url({% static 'content/5490.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-5 text-center" data-aos="fade">
+          <h1 class="text-uppercase">Stalls</h1>
+            <span class="caption d-block text-white"><a href="#"></a></span>
+        </div>
+      </div>
+    </div>  
+
+    <div class="slant-1"></div>
+
+    
+    
+  <div class="site-section first-section" data-aos="fade">
+      <div class="container"> 
+        <div class="row mb-5">
+          {% for stall in stalls %}
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div class="media-image">
+              <a href="{{stall.name}}"><img src="{{stall.cover.url}}"alt="Image" class="img-fluid"></a>
+              <div class="media-image-body">
+                <h2 class="font-secondary text-uppercase"><a href="{{stall.name}}">{{ stall.name }}</a></h2>
+                <p>{{ stall.description }}</p>
+                <p><a href="gallery.html">View Products</a></p>
+              </div>
+            </div>
+          </div>
+          {% endfor %} 
+      </div>
+    </div>
+  </div>  
+{% endblock %}
