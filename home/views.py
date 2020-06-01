@@ -3,6 +3,7 @@ from stalls.models import stall_frame,stall_products
 from accounts.models import EmailData
 from .forms import EmailForm
 # Create your views here.
+
 def index(request):
 	stalls = stall_frame.objects.all()
 	products = stall_products.objects.all()
