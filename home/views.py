@@ -3,6 +3,7 @@ from stalls.models import stall_frame,stall_products
 from accounts.models import EmailData
 from .forms import EmailForm
 from django_user_agents.utils import get_user_agent
+from .models import PageCounter
 # Create your views here.
 
 def index(request):
@@ -28,6 +29,11 @@ def index(request):
 		'form':form
 	}
 	user_agent = get_user_agent(request)
+	count= PageCounter.objects.all()[0] 
+	count.indexcounter += 1
+	if (count.indexcounter % 10) ==0:
+		print(count.indexcounter)
+	count.save()
 	if user_agent.is_mobile:
 		return render(request,"mobile_index.html",index_info)
 	else:	

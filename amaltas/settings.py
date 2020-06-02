@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['yash2998chhabria.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
     'django_user_agents',
     'makeadifference.apps.MakeadifferenceConfig',
     'contactus.apps.ContactusConfig',
