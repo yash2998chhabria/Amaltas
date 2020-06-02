@@ -74,17 +74,17 @@
 
     <div class="site-section ">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-md-12 text-center">
             <span class="caption d-block mb-2 font-secondary font-weight-bold">Join our mailing list to get updates</span>
             <h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
           </div>
-          <div class="col-md-12 text-center">
+          <div class="col-md-6 text-center ">
           <form action="" method="POST" class="p-5 bg-white" id="save_email">
             <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ message }}</span> 
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" form="save_email" value="Submit" class="btn btn-primary text-white px-4 py-2">Register Email</button>
+            <button type="submit" form="save_email" value="Submit" class="btn btn-primary text-white px-4 py-2">Register</button>
             </form>
           </div>  
         </div>    
