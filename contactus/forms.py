@@ -17,3 +17,12 @@ class ContactForm(forms.ModelForm):
 					'mobilenumber': forms.TextInput(attrs={'placeholder':"Enter your Mobile number here"}),
 					'message': forms.TextInput(attrs={'placeholder':'Enter your Message here'})
 					}
+
+		labels = {
+					'full_name': 'Full Name:',#Full Name:
+					'email':'Email:',#Email:
+					'mobilenumber':'Mobile Number:',#Mobile Number:
+					'message':'Message:'#Message:
+
+
+		}

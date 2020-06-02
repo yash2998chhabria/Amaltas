@@ -13,3 +13,7 @@ class EmailForm(forms.ModelForm):
 					'email': forms.TextInput(attrs={'placeholder':"Enter your Email Id here"}),
 					'whatsapp': forms.TextInput(attrs={'placeholder':"Enter your whatsapp number here"})
 					}
+		labels = {
+					'email':'',
+					'whatsapp': ''
+		}			
