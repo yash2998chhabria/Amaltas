@@ -23,16 +23,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'optf)0s1+r2go3bxsd4fg1-1)$23k8%$v4mkh&y@ysu5x8m!t+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['yash2998chhabria.pythonanywhere.com']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['yash2998chhabria.pythonanywhere.com']
 
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django_user_agents',
     'makeadifference.apps.MakeadifferenceConfig',
     'contactus.apps.ContactusConfig',
     'accounts.apps.AccountsConfig',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django_user_agents.middleware.UserAgentMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

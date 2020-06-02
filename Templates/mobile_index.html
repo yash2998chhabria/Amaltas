@@ -1,0 +1,118 @@
+{% extends 'base.html' %}  
+{% load static %}
+{% load crispy_forms_tags %}
+{% block base %}
+    <div class="slide-one-item home-slider owl-carousel">
+      
+      <div class="site-blocks-cover inner-page overlay" style="background-image: url({% static 'content/bannerfinal.png' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 text-center" data-aos="fade">
+              <!-- <h1 class="font-secondary  font-weight-bold text-uppercase">amaltas  </h1>
+              <h1 class="font-secondary  font-weight-bold text-uppercase">E-exhibition </h1>
+              <p>COVID Aids & Home to Heart Edition</p>
+              <p>5th 6th &amp; 7th JUNE 2020</p> -->
+            </div>
+          </div>
+        </div>
+      </div>   
+    </div>
+
+
+
+      
+    
+  <div class="site-section">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-12 text-center">
+          <span class="caption d-block mb-2 font-secondary font-weight-bold">Our Concept</span>
+          <!-- <h2 class="site-section-heading text-uppercase text-center font-secondary">What is Amaltas?</h2>
+ -->            <p>Amalta’s E-Exhibition is an online platform building direct connections between entrepreneurs and their customers.</p>       
+            <p>This one of a kind online exhibition is a medium to facilitate the change taking place in the current times and to continue encouraging the growth of both business owners and homeprenaurs! </p> 
+            <p>There will be a series of exhibitions hosted on our website, each accompanying an exclusive theme. </p>
+            <!-- <p>    One who visits can see whats in the market,compare and  get in touch with the Vendor directly or any enquiry.</p>  -->
+            <p>Each exhibition will be online for 72 hours.</p> 
+            <p>So let’s connect and promote each other, to grow together!</p> 
+            <!-- <p>    Connect with us to make your own stall. </p>  -->
+            <a type="submit" href="/contact_us" class="btn btn-primary text-white px-4 py-2">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+      <div class="site-section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">Stalls</span>
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">Have A Glimpse at our featured Stalls</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 block-13 nav-direction-white">
+            <div class="nonloop-block-13 owl-carousel">
+              {% for stall in stalls %}
+              {% if stall.premium %}
+              <div class="media-image">
+                <img src="{{stall.cover.url}}" alt="Image" class="img-fluid">
+                <div class="media-image-body">
+                  <h2 class="font-secondary text-uppercase">{{ stall.name }}</h2>
+                  <p>{{ stall.description }}</p>
+                  <p><a href="/stalls/{{stall.name}}" class="btn btn-primary text-white px-4">View products</a></p>
+                </div>
+              </div>
+              {% else %}
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section ">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-12 text-center">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">Join our mailing list to get updates</span>
+            <h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
+          </div>
+          <div class="col-md-6 text-center ">
+          <form action="" method="POST" class="p-5 bg-white" id="save_email">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ message }}</span> 
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" form="save_email" value="Submit" class="btn btn-primary text-white px-4 py-2">Register</button>
+            </form>
+          </div>  
+        </div>    
+      </div>
+    </div>   
+       <!--  <div class="site-section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">Categories</span>
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">Our categories change every week</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 block-13 nav-direction-white">
+            <div class="nonloop-block-13 owl-carousel">
+              {% for product in present_categories %}
+              <div class="media-image">
+                <img src="{{ product.product_image.url }}" alt="Image" class="img-fluid">
+                <div class="media-image-body">
+                  <h2 class="font-secondary text-uppercase">{{ product.category }}</h2>
+                  <p><a href="categories/{{product.category}}" class="btn btn-primary text-white px-4">View products</a></p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+{% endblock %}         

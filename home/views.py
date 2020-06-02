@@ -2,6 +2,7 @@ from django.shortcuts import render
 from stalls.models import stall_frame,stall_products
 from accounts.models import EmailData
 from .forms import EmailForm
+from django_user_agents.utils import get_user_agent
 # Create your views here.
 
 def index(request):
@@ -26,7 +27,11 @@ def index(request):
 		'message':message,
 		'form':form
 	}
-	return render(request,"index.html",index_info)
+	user_agent = get_user_agent(request)
+	if user_agent.is_mobile:
+		return render(request,"mobile_index.html",index_info)
+	else:	
+		return render(request,"index.html",index_info)
 
 def aboutus(request):
 	return render(request,"about_us.html")
