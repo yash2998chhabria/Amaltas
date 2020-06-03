@@ -72,6 +72,33 @@
       </div>
     </div>
 
+    <div class="site-section first-section" data-aos="fade">
+      <div class="container">
+          {% for stall in stalls %}
+          {% if stall.poweredby_stall %}
+          <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-5">
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">Poweredby:{{stall.name}}</h2>
+          </div>
+        </div> 
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
+            <div class="media-image">
+              <a href=""><img src="{{stall.cover.url}}"alt="Image" class="img-fluid"></a>
+              <div class="media-image-body">
+                <h2 class="font-secondary text-uppercase"><a href="#">{{ stall.name }}</a></h2>
+                <p>{{ stall.description }}</p>
+                <p><a href="/stalls/{{stall.name}}" class="btn btn-primary text-white px-4">View products</a></p>             
+              </div>
+            </div>
+          </div>
+          {% else %}
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
     <div class="site-section ">
       <div class="container">
         <div class="row justify-content-center">

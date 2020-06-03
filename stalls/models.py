@@ -7,7 +7,7 @@ class stall_frame(models.Model):
 	description = models.TextField(default="",null=False)
 	contact_stall = models.TextField(default="",null=False)
 	premium = models.BooleanField(default=False,null=False)
-
+	poweredby_stall = models.BooleanField(default=False,null=False)
 	def __str__(self):
 		return self.name	
 
