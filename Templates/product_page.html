@@ -17,7 +17,11 @@
           <div class="col-md-6 blog-content">
          <h2 class="lead">{{ product.product_name }}</h2>
               <p><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></p>
+              {% if product.price == 0 %}
+                <h3 class="site-section-heading font-secondary mb-5">Contact Stall for Price of the Product</h3>
+              {% else %}
                 <h3 class="site-section-heading font-secondary mb-5">Price: Rs{{ product.price }}</h3>
+              {% endif %}
               <p>Categories:  <a href="/categories/{{product.category}}">{{ product.category }}</a></p>
           </div>
           
