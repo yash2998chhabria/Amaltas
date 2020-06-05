@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import stall_frame,stall_products
-from django_user_agents.utils import get_user_agent
+
 # Create your views here.
 def stalls(request):
 	stall= stall_frame.objects.all()
@@ -19,10 +19,8 @@ def products(request,name):
 			'products': current_products,
 			'stall': stall
 			}
-			if user_agent.is_mobile:
-				return render(request,"products_mobile.html",prod)
-			else:	
-				return render(request,'products.html',prod)	
+			return render(request,'products.html',prod)	
+			
 	for pro in product:
 		if str(name) == str(pro.product_name):
 			for stall in stalls:
