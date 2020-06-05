@@ -2,6 +2,8 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block base %}
+
+
     <div class="slide-one-item home-slider owl-carousel">
       
       <div class="site-blocks-cover inner-page overlay" style="background-image: url({% static 'content/desktop.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
@@ -41,7 +43,7 @@
     </div>
   </div> 
 
-    <div class="site-section first-section" data-aos="fade">
+    <div class="site-section" data-aos="fade">
       <div class="container">
           {% for stall in stalls %}
           {% if stall.poweredby_stall %}
