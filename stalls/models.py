@@ -1,6 +1,17 @@
 from django.db import models
 
 # Create your models here.
+
+class product_category(models.Model):
+	categories = models.CharField(max_length=30,default="",null=False)
+	def __str__(self):	
+			return self.categories	
+
+class stall_city(models.Model):
+	name = models.CharField(max_length=100,default="",null=False)
+	def __str__(self):	
+			return self.name
+
 class stall_frame(models.Model):
 	name = models.CharField(max_length=100,default="",null=False)
 	cover = models.ImageField(upload_to='coverimages',default="",null=False) 
@@ -8,6 +19,8 @@ class stall_frame(models.Model):
 	contact_stall = models.TextField(default="",null=False)
 	premium = models.BooleanField(default=False,null=False)
 	poweredby_stall = models.BooleanField(default=False,null=False)
+	city = models.ForeignKey(stall_city,on_delete=models.CASCADE,default=1)
+
 	def __str__(self):
 		return self.name	
 
@@ -15,7 +28,7 @@ class stall_products(models.Model):
 	product_name = models.CharField(max_length=50,default="",null=False)
 	price = models.IntegerField(default = 0,null=False)
 	product_image = models.ImageField(upload_to='products_images',default="",null=False)
-	category = models.CharField(max_length=30,default="",null=False)
+	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1)
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE)
 
 	def __str__(self):
