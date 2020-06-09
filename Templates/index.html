@@ -83,7 +83,7 @@
               {% for stall in stalls %}
               {% if stall.premium %}
               <div class="media-image">
-                <img src="{{stall.cover.url}}" alt="Image" class="img-fluid">
+                <a href="/stalls/{{stall.name}}"><img src="{{stall.cover.url}}" alt="Image" class="img-fluid"></a>
                 <div class="media-image-body">
                   <h2 class="font-secondary text-uppercase">{{ stall.name }}</h2>
                   <p>{{ stall.description }}</p>
