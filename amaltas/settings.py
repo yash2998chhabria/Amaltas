@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['www.amaltas-exhibition.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'cities.apps.CitiesConfig',
     'home.apps.HomeConfig',
     'django_user_agents',
     'makeadifference.apps.MakeadifferenceConfig',

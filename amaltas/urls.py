@@ -24,7 +24,8 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('stalls/',include('stalls.urls')),
     path('categories/',include('category.urls')),
-    path('contact_us/',include('contactus.urls')), 
-    path('makeadifference/',include('makeadifference.urls'))
+    path('contactus/',include('contactus.urls')), 
+    path('makeadifference/',include('makeadifference.urls')),
+    path('cities/',include('cities.urls'))
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

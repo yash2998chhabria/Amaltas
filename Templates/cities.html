@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block base %}      
+<!--     <div class="site-blocks-cover inner-page overlay" style="background-image: url({% static 'content/5490.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-5 text-center" data-aos="fade">
+          <h1 class="text-uppercase">Stalls</h1>
+            <span class="caption d-block text-white"><a href="#"></a></span>
+        </div>
+      </div>
+    </div>  
+ -->   
+    
+  <div class="site-section" data-aos="fade">
+      <div class="container">
+        <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-5">
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">Cities</h2>
+          </div>
+        </div>  
+        <div class="row mb-5">
+          {% for city in cities %}
+          <div class="col-md-6 col-lg-6 mb-5">
+            <div class="media-image">
+              <a href="{{ city.name }}"><img src="{{city.city_image.url}}"alt="Image" class="img-fluid"></a>
+              <div class="media-image-body">
+                <h2 class="font-secondary text-uppercase"><a href="{{ city.name }}">{{ city.name }}</a></h2>
+                <p><a href="{{ city.name }}">View Stalls</a></p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>  
+
+
+<!--     <div class="site-section" data-aos="fade">
+      <div class="container">
+          <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-5">
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">Join us Next Week</h2>
+          </div>
+        </div> 
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
+            <div class="media-image">
+              <a href=""><img src="{% static 'content/banner_desktop.png' %}"alt="Image" class="img-fluid"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  -->     
+{% endblock %}
