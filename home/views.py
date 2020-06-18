@@ -12,7 +12,7 @@ def index(request):
 	present_categories = []
 	check_categories = []
 	message = ''
-	#load_first = True 
+	load_first = ['1','2']
 	form = EmailForm(None)
 	for product in products:
 		if (product.category not in check_categories):
@@ -28,7 +28,7 @@ def index(request):
 		'present_categories':present_categories,
 		'message':message,
 		'form':form,
-		#'load_first': load_first
+		'load_first': load_first
 	}
 	user_agent = get_user_agent(request)
 	count= PageCounter.objects.all()[0] 
