@@ -33,5 +33,5 @@ class stall_products(models.Model):
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE)
 
 	def __str__(self):
-			return self.product_name	
+			return self.product_name,self.stall_name
 
