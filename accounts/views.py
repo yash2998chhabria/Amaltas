@@ -14,7 +14,7 @@ def registeremail:
 '''
 # Create your views here.
 def login(request):
-	return render(request,"login.html")
+	return render(request,"loginpage.html")
 
 def register(request):
 	if request.method == 'POST':
