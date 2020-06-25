@@ -26,6 +26,7 @@ urlpatterns = [
     path('categories/',include('category.urls')),
     path('contactus/',include('contactus.urls')), 
     path('makeadifference/',include('makeadifference.urls')),
-    path('cities/',include('cities.urls'))
+    path('cities/',include('cities.urls')),
+    path('exhibitor/',include('exhibitor.urls'))
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Amaltas &mdash; Exhibition Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+    <link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+  </head>
+  <body>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="{% static 'content/amaltas_logo150.ico' %}">
+    </div>
+
+    <!-- Login Form -->
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="text" id="login" class="fadeIn second" name="Exhibitor ID" placeholder="Exhibitor ID">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="Exhibitor Key">
+      <input type="submit" class="fadeIn fourth" value="Log In">      
+    </form>
+
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+    {% for message in messages %}
+    <p class="underlineHover"> {{message}}</p>
+    {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+   
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>  
+  </body>
+</html>

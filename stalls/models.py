@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class product_category(models.Model):
@@ -14,6 +14,10 @@ class stall_city(models.Model):
 			return self.name
 			
 class stall_frame(models.Model):
+	stall_user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE, default=1
+    )
 	name = models.CharField(max_length=100,default="",null=False)
 	cover = models.ImageField(upload_to='coverimages',default="",null=False) 
 	description = models.TextField(default="",null=False)

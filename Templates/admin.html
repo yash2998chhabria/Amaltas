@@ -1,0 +1,70 @@
+{% extends 'admin_base.html' %}  
+{% load static %}
+{% block base %}
+    <div class="site-section ">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-12 text-center">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold text-center"></span>
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">{{request.user}} Admin Page</h2>
+          </div>
+          <div class="col-md-6 text-center ">
+
+		<h5 class="caption d-block mb-2 font-secondary font-weight-bold text-center" >Stall Frame</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block text-white" href="">Create/Edit Stall Frame</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Stall-name</th>
+					<th>Contact details</th>
+					<th>City</th>
+					<th>Description</th>
+				</tr>
+
+					<tr>
+						<td>{{ frame.name }}</td>
+						<td>{{ frame.contact_stall }}</td>
+						<td>{{ frame.city }}</td>
+						<td>{{ frame.description }}</td>
+					</tr>
+
+
+			</table>
+		</div>
+        </div>
+        {% if frame %}
+        <div class="col-md-6 text-center ">
+		<h5 class="caption d-block mb-2 font-secondary font-weight-bold text-center">Stall Products</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block text-white" href="">Add Stall Product</a>	
+			<table class="table table-sm">
+				<tr>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Category</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				
+					<tr>
+						<td>product</td>
+						<td>date created</td>
+						<td>status</td>
+						<td><a class="btn btn-sm btn-info" href="">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+
+					</tr>
+				
+
+		
+			</table>
+		</div>
+		</div>
+    	{% endif %}
+      </div>
+    </div> 
+{% endblock %}	
