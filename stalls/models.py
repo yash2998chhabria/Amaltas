@@ -34,7 +34,7 @@ class stall_products(models.Model):
 	price = models.IntegerField(default = 0,null=False)
 	product_image = models.ImageField(upload_to='products_images',default="",null=False)
 	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1)
-	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE)
+	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE,default=1)
 
 	def __str__(self):
 			return self.product_name

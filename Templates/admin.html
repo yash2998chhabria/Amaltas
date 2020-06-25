@@ -11,9 +11,10 @@
           <div class="col-md-6 text-center ">
 
 		<h5 class="caption d-block mb-2 font-secondary font-weight-bold text-center" >Stall Frame</h5>
-		<hr>
-		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block text-white" href="">Create/Edit Stall Frame</a>
+		<hr>	
+		{% if frame %}
+		<div class="card card-body">	
+			<a class="btn btn-primary  btn-sm btn-block text-white" href="/exhibitor/editstallframe">Edit Stall Frame</a>
 			<table class="table table-sm">
 				<tr>
 					<th>Stall-name</th>
@@ -33,12 +34,12 @@
 			</table>
 		</div>
         </div>
-        {% if frame %}
+
         <div class="col-md-6 text-center ">
 		<h5 class="caption d-block mb-2 font-secondary font-weight-bold text-center">Stall Products</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block text-white" href="">Add Stall Product</a>	
+			<a class="btn btn-primary  btn-sm btn-block text-white" href="/exhibitor/createstallproduct">Add Stall Product</a>	
 			<table class="table table-sm">
 				<tr>
 					<th>Product Name</th>
@@ -48,23 +49,27 @@
 					<th>Remove</th>
 				</tr>
 
-				
+				{% for product in products %}
 					<tr>
-						<td>product</td>
-						<td>date created</td>
-						<td>status</td>
-						<td><a class="btn btn-sm btn-info" href="">Update</a></td>
-
-						<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+						<td>{{product.product_name}}</td>
+						<td>{{product.price}}</td>
+						<td>{{product.category}}</td>
+						<td><a class="btn btn-sm btn-info" href="/exhibitor/editstallproduct/{{product.product_name}}">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="/exhibitor/deletestallproduct/{{product.product_name}}">Delete</a></td>
 
 					</tr>
-				
+				{% endfor %}
 
 		
 			</table>
 		</div>
 		</div>
+		{% else %}
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block text-white" href="/exhibitor/createstallframe">Create Stall Frame</a>
+		</div>
     	{% endif %}
       </div>
     </div> 
+</div>
 {% endblock %}	
