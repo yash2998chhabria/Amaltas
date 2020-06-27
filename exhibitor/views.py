@@ -64,9 +64,10 @@ def editstallproduct(request,product_name):
 	if request.method== 'POST':
 		form = EditStallProductsForm(request.POST, request.FILES, instance=product)
 		if form.is_valid():
+			price = form.cleaned_data['price']
 			form.save()
 			frame = stall_frame.objects.filter(stall_user=request.user.id)
-			stall_products.objects.filter(product_name=product_name).update(stall_name=frame[0].id)
+			stall_products.objects.filter(product_name=product_name,price=price).update(stall_name=frame[0].id)
 			return redirect('login')
 	context= {
 			'form':form,
@@ -93,10 +94,11 @@ def createstallproduct(request):
 	if request.method=='POST':
 		form = EditStallProductsForm(request.POST, request.FILES)
 		if form.is_valid():
-			product_name = form.cleaned_data['product_name']
+			price = form.cleaned_data['price']
+			contact_stall = form.cleaned_data['contact_stall']
 			form.save()
 			frame = stall_frame.objects.filter(stall_user=request.user.id)
-			stall_products.objects.filter(product_name=product_name).update(stall_name=frame[0].id)
+			stall_products.objects.filter(product_name=product_name,price=price).update(stall_name=frame[0].id)
 			return redirect('login')
 	context = {
 			'form':form,
