@@ -60,13 +60,17 @@
             <a type="submit" href="/contactus" class="btn btn-primary text-white px-4 py-2">Contact us</a>
         </div>
       </div>
-    </div>
-  </div> 
+      <p>
+      <p>
+      <p>
+<!--     </div>
+  </div>  -->
 
-     <div class="site-section" data-aos="fade">
-      <div class="container">
+<!--      <div class="site-section" data-aos="fade">
+      <div class="container"> -->
            {% for stall in stalls %}
-          {% if stall.poweredby_stall %}
+           {% if stall.stall_visible_on_website %}
+           {% if stall.poweredby_stall %}
           <div class="row">    
           <div class="col-md-12 col-lg-12 mb-5">
             <span class="caption d-block mb-2 font-secondary font-weight-bold text-center">Stalls</span>
@@ -84,13 +88,16 @@
               </div>
             </div>
           </div>
+        </div>
           {% else %}
           {% endif %}
+          {% endif %}
           {% endfor %}
-        </div>
 
 
-
+          {% for stall in stalls %}
+          {% if stall.stall_visible_on_website %}
+          {% if stall.premium %}
 
         <div class="row">
           <div class="col-md-12 text-center">
@@ -100,8 +107,6 @@
         <div class="row">
           <div class="col-md-11 block-13 nav-direction-white mx-auto">
             <div class="nonloop-block-13 owl-carousel">
-              {% for stall in stalls %}
-              {% if stall.premium %}
               <div class="media-image">
                 <a href="/stalls/{{stall.name}}"><img src="{{stall.cover.url}}" alt="Image" class="img-fluid"></a>
                 <div class="media-image-body">
@@ -110,12 +115,13 @@
                   <p><a href="/stalls/{{stall.name}}" class="btn btn-primary text-white px-4">View products</a></p>
                 </div>
               </div>
-              {% else %}
-              {% endif %}
-              {% endfor %}
             </div>
           </div>
         </div>
+            {% else %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
       </div>
     </div>    
  
