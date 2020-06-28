@@ -117,6 +117,13 @@ def deletestallproduct(request,product_name):
 	product.delete()
 	return redirect('login')
 
+@login_required(login_url='login')
+def deletestallframe(request,stall_name):
+	stall = stall_frame.objects.get(name=stall_name)
+	stall.delete()
+	return redirect('login')
+
+
 @login_required
 def demo(request,name):
 	product = stall_products.objects.all()

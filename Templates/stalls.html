@@ -19,9 +19,17 @@
           <div class="col-md-12 col-lg-12 mb-5">
             <h2 class="site-section-heading text-uppercase text-center font-secondary">Stalls</h2>
           </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
+            <div class="media-image">
+              <a href="Rakhi_d.jpg"><img src="{% static 'content/desktopss.jpg' %}"alt="Image" class="img-fluid"></a>
+            </div>
+          </div>
         </div>  
         <div class="row mb-5">
           {% for stall in stalls %}
+          {% if stall.stall_visible_on_website %}
           {% if stall.poweredby_stall %}
           <div class="col-md-6 col-lg-4 mb-5">
             <div class="media-image">
@@ -34,9 +42,11 @@
             </div>
           </div>
           {% endif %}
+          {% endif %}
           {% endfor %}
 
           {% for stall in stalls %}
+          {% if stall.stall_visible_on_website %}
           {% if stall.premium %}
           <div class="col-md-6 col-lg-4 mb-5">
             <div class="media-image">
@@ -49,8 +59,11 @@
             </div>
           </div>
           {% endif %}
+          {% endif %}
           {% endfor %}
+
           {% for stall in stalls %}
+          {% if stall.stall_visible_on_website %}
           {% if stall.premium == False %}
           {% if stall.poweredby_stall == False %}
           <div class="col-md-6 col-lg-4 mb-5">
@@ -63,6 +76,7 @@
               </div>
             </div>
           </div>
+          {% endif %}
           {% endif %}
           {% endif %}
           {% endfor %}  

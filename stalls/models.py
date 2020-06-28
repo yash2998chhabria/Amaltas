@@ -25,7 +25,8 @@ class stall_frame(models.Model):
 	premium = models.BooleanField(default=False,null=False)
 	poweredby_stall = models.BooleanField(default=False,null=False)
 	city = models.ForeignKey(stall_city,on_delete=models.CASCADE,default =1)
-
+	stall_visible_on_website = models.BooleanField(default=False,null=False)
+	
 	def __str__(self):
 		return self.name	
 

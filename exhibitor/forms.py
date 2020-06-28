@@ -10,15 +10,18 @@ class EditStallFrameForm(forms.ModelForm):
 		'cover',
 		'description',
 		'contact_stall',
-		'city'
+		'city',
+		'stall_visible_on_website'
 		]
 		widgets={
-				'stall_user': forms.HiddenInput()
+				'stall_user': forms.HiddenInput(),
+				'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
 		}
 		help_texts = {
 				'name': "stall name's should not be the same as product names",
 				'cover':"please upload only a 16:9 aspect ratio image(if not, it will get cropped)",
-				'description':"please restrict the description to one line and around 10 words or less"
+				'description':"please restrict the description to one line and around 10 words or less",
+				'stall_visible_on_website': "You can change this only during an exhibition"
 		}
 
 class EditStallProductsForm(forms.ModelForm):
