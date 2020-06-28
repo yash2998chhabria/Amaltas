@@ -12,5 +12,5 @@ path('createstallproduct/',views.createstallproduct,name="createstallproduct"),
 path('editstallproduct/<str:product_name>',views.editstallproduct,name="editstallproduct"),
 path('deletestallproduct/<str:product_name>',views.deletestallproduct,name="deletestallproduct"),
 path('deletestallframe/<str:stall_name>',views.deletestallframe,name="deletestallframe"),
-path('<str:name>',views.demo,name="demo"),
+path('demo/<str:name>',views.demo,name="demo"),
 ] 
