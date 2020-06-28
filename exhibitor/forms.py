@@ -36,7 +36,7 @@ class EditStallProductsForm(forms.ModelForm):
 				#'stall_name': forms.TextInput(attrs={'disabled': True}),
 		}
 		help_texts = {
-				'product_name':'please try not to repeat product names.product names should not be the same as stall names',
+				'product_name':'please try not to repeat product names. Product names should not be the same as stall names',
 				'price':'if price is not required leave the field as 0',
-				'product_image':'product images must of a sqaure aspect ratio(if not,it will get cropped)'
+				'product_image':'product images must be of a sqaure aspect ratio(if not,it will get cropped)'
 		}

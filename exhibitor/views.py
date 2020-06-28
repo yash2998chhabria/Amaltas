@@ -100,7 +100,7 @@ def createstallproduct(request):
 	if request.method=='POST':
 		form = EditStallProductsForm(request.POST, request.FILES)
 		if form.is_valid():
-			contact_stall = form.cleaned_data['contact_stall']
+			product_name = form.cleaned_data['product_name']
 			form.save()
 			frame = stall_frame.objects.filter(stall_user=request.user.id)
 			stall_products.objects.filter(product_name=product_name).update(stall_name=frame[0].id)
@@ -117,3 +117,28 @@ def deletestallproduct(request,product_name):
 	product.delete()
 	return redirect('login')
 
+@login_required
+def demo(request,name):
+	product = stall_products.objects.all()
+	stalls = stall_frame.objects.all()
+	for stall in stalls:
+		if str(name) == str(stall.name):			
+			current_products = []
+			for pro in product:
+				if str(pro.stall_name) == str(name):
+					current_products.append(pro)			
+			prod = {
+			'products': current_products,
+			'stall': stall
+			}
+			return render(request,'admin-products.html',prod)	
+			
+	for pro in product:
+		if str(name) == str(pro.product_name):
+			for stall in stalls:
+				if str(pro.stall_name)==str(stall.name):
+					prod={
+					'product': pro,
+					'stall': stall
+					} 				
+					return render(request,"admin-product_page.html",prod)
