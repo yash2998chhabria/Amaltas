@@ -15,7 +15,7 @@ class EditStallFrameForm(forms.ModelForm):
 		]
 		widgets={
 				'stall_user': forms.HiddenInput(),
-				#'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
+				'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
 		}
 		help_texts = {
 				'name': "stall name's should not be the same as product names",
