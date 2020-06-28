@@ -47,7 +47,7 @@
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
             <a href="{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></a>
             <div class="media-image-body">
-                <h4 class="font-secondary"><a href=""><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
+                <h4 class="font-secondary text-uppercase"><a href=""><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
             </div>    
           </div>      
   {% endfor %} 
@@ -67,8 +67,7 @@
         <div class="row mb-5">
           <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
               <form action="#" class="search-form">
-                <div class="form-group">        
-                    <h2 class="lead"><span>Contact Stall:</span></h2>
+                <div class="form-group">                
                     <h4 class="lead">{{ stall.name }}</h4>
                     <p>{{ stall.contact_stall }}</p>
                 </div>
