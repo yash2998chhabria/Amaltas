@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import EditStallFrameForm,EditStallProductsForm
 from stalls.models import stall_frame, stall_products
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def loginpage(request):
 	if request.user.is_authenticated:
@@ -40,10 +41,12 @@ def loginpage(request):
 				return 	render(request,"loginpage.html")
 		return 	render(request,"loginpage.html")
 
+@login_required(login_url='login')
 def logoutuser(request):
 	logout(request)
 	return redirect('login')
 
+@login_required(login_url='login')
 def editstallframe(request):
 	frame = stall_frame.objects.get(stall_user=request.user.id)
 	form = EditStallFrameForm(instance=frame)
@@ -58,6 +61,7 @@ def editstallframe(request):
 			}	
 	return render(request,"edit_stall.html",context)
 
+@login_required(login_url='login')
 def editstallproduct(request,product_name):
 	product = stall_products.objects.get(product_name=product_name)
 	form = EditStallProductsForm(instance=product)
@@ -74,6 +78,7 @@ def editstallproduct(request,product_name):
 	}
 	return render(request,"edit_stall.html",context)
 
+@login_required(login_url='login')
 def createstallframe(request):
 	form = EditStallFrameForm()
 	if request.method=='POST':
@@ -86,8 +91,10 @@ def createstallframe(request):
 				'form':form,
 				'heading': 'Create Your Stall Frame'
 			 }					
-	return render(request,"edit_stall.html",context)	
+	return render(request,"edit_stall.html",context)
 
+
+@login_required(login_url='login')
 def createstallproduct(request):
 	form = EditStallProductsForm()
 	if request.method=='POST':
@@ -104,6 +111,7 @@ def createstallproduct(request):
 			}
 	return render(request,"edit_stall.html",context)
 
+@login_required(login_url='login')
 def deletestallproduct(request,product_name):
 	product = stall_products.objects.get(product_name=product_name)
 	product.delete()
