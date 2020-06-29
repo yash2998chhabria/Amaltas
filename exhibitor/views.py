@@ -14,10 +14,10 @@ def loginpage(request):
 			context = {'frame':frame[0],
 				    'products':products
 				 }
-			return render(request,"admin.html",context)
+			return render(request,"exhibitor-admin.html",context)
 		else:
 			context= {'frame':None}
-			return render(request,"admin.html",context)	
+			return render(request,"exhibitor-admin.html",context)	
 	else:	
 		if request.method == 'POST':
 			username = request.POST.get('Exhibitor ID')
@@ -32,10 +32,10 @@ def loginpage(request):
 					context = { 'frame':frame[0],
 						    'products':products
 						 }
-					return render(request,"admin.html",context)		 
+					return render(request,"exhibitor-admin.html",context)		 
 				else:		 
 					context= {'frame':None}		 
-					return render(request,"admin.html",context)		 
+					return render(request,"exhibitor-admin.html",context)		 
 			else:
 				messages.info(request,"Exhibitor ID or password is incorrect")	
 				return 	render(request,"loginpage.html")

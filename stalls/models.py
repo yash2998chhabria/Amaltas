@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import Users
 # Create your models here.
 
 class product_category(models.Model):
@@ -26,7 +26,6 @@ class stall_frame(models.Model):
 	poweredby_stall = models.BooleanField(default=False,null=False)
 	city = models.ForeignKey(stall_city,on_delete=models.CASCADE,default =1)
 	stall_visible_on_website = models.BooleanField(default=False,null=False)
-	
 	def __str__(self):
 		return self.name	
 
