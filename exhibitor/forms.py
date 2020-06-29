@@ -21,7 +21,7 @@ class EditStallFrameForm(forms.ModelForm):
 				'name': "stall name's should not be the same as product names",
 				'cover':"please upload only a 16:9 aspect ratio image(if not, it will get cropped)",
 				'description':"please restrict the description to one line and around 10 words or less",
-				'stall_visible_on_website': "You can change this only during an exhibition"
+				'stall_visible_on_website': "This is work only during an exhibition"
 		}
 
 class EditStallProductsForm(forms.ModelForm):
