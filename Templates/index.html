@@ -1,6 +1,7 @@
 {% extends 'base.html' %}  
 {% load static %}
 {% load crispy_forms_tags %}
+{% load thumbnail %}
 {% block base %}
 
 
@@ -108,7 +109,11 @@
           <div class="col-md-11 block-13 nav-direction-white mx-auto">
             <div class="nonloop-block-13 owl-carousel">
               <div class="media-image">
-                <a href="/stalls/{{stall.name}}"><img src="{{stall.cover.url}}" alt="Image" class="img-fluid"></a>
+              <a href="/stalls/{{stall.name}}">
+               {% thumbnail stall.cover "480x360" crop="center" as im %}
+               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               {% endthumbnail %}
+              </a>
                 <div class="media-image-body">
                   <h2 class="font-secondary text-uppercase">{{ stall.name }}</h2>
                   <p>{{ stall.description }}</p>

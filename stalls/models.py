@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import Users
+from django.contrib.auth.models import User
 # Create your models here.
 
 class product_category(models.Model):
@@ -15,7 +15,7 @@ class stall_city(models.Model):
 			
 class stall_frame(models.Model):
 	stall_user = models.OneToOneField(
-        User,
+        User ,
         on_delete=models.CASCADE, default=1
     )
 	name = models.CharField(max_length=100,default="",null=False)

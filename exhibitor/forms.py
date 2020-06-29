@@ -15,7 +15,7 @@ class EditStallFrameForm(forms.ModelForm):
 		]
 		widgets={
 				'stall_user': forms.HiddenInput(),
-				'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
+				#'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
 		}
 		help_texts = {
 				'name': "stall name's should not be the same as product names",
@@ -41,5 +41,5 @@ class EditStallProductsForm(forms.ModelForm):
 		help_texts = {
 				'product_name':'please try not to repeat product names. Product names should not be the same as stall names',
 				'price':'if price is not required leave the field as 0',
-				'product_image':'product images must be of a sqaure aspect ratio(if not,it will get cropped)'
+				#'product_image':'product images must be of a sqaure aspect ratio(if not,it will get cropped)'
 		}
