@@ -5,15 +5,29 @@ from .forms import EditStallFrameForm,EditStallProductsForm
 from stalls.models import stall_frame, stall_products
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 def loginpage(request):
 	if request.user.is_authenticated:
 		frame = stall_frame.objects.filter(stall_user=request.user.id)
 		products = None
-		if frame:	
+		if frame:
+			disabled = False	
 			products = stall_products.objects.filter(stall_name=frame[0].id)
-			context = {'frame':frame[0],
-				    'products':products
-				 }
+			check_premium = frame[0].premium
+			check_poweredby = frame[0].poweredby_stall
+			if check_poweredby and len(products)>49:
+				disabled = True
+			elif check_premium and len(products)>39:
+				disabled = True 	
+			elif check_poweredby == False and check_premium == False and len(products)>29:
+				disabled = True
+
+			context = {
+					   'frame':frame[0],
+				       'products':products,
+				       'disabled':disabled
+					 }
+
 			return render(request,"exhibitor-admin.html",context)
 		else:
 			context= {'frame':None}
@@ -27,11 +41,23 @@ def loginpage(request):
 				login(request, user)
 				frame = stall_frame.objects.filter(stall_user=request.user.id)
 				products = None
-				if frame:	
-					products = stall_products.objects.filter(stall_name= frame[0].id)		
-					context = { 'frame':frame[0],
-						    'products':products
-						 }
+				if frame:
+					disabled = False	
+					products = stall_products.objects.filter(stall_name=frame[0].id)
+					check_premium = frame[0].premium
+					check_poweredby = frame[0].poweredby_stall
+					if check_poweredby and len(products)>49:
+						disabled = True
+					elif check_premium and len(products)>39:
+						disabled = True 	
+					elif check_poweredby == False and check_premium == False and len(products)>29:
+						disabled = True
+
+					context = {
+							   'frame':frame[0],
+						       'products':products,
+						       'disabled':disabled
+							 }
 					return render(request,"exhibitor-admin.html",context)		 
 				else:		 
 					context= {'frame':None}		 

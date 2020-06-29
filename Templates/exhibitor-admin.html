@@ -43,7 +43,11 @@
 		<h5 class="caption d-block mb-2 font-secondary font-weight-bold text-center">Stall Products</h5>
 		<hr>
 		<div class="card card-body">
+			{% if not disabled  %}
 			<a class="btn btn-primary  btn-sm btn-block text-white" href="/exhibitor/createstallproduct">Add Stall Product</a>	
+			{% else %}
+			<a class="btn btn-secondary btn-sm btn-block text-white" >Max Products added for stall type</a>
+			{% endif %}
 			<table class="table table-sm">
 				<tr>
 					<th>Product Name</th>
