@@ -23,7 +23,9 @@
           </div>
         </div>
       </div>
+          {% if visibility %}
           {% for stall in stalls %}
+          {% if stall.stall_visible_on_website %}
           {% if stall.poweredby_stall %}
       <div class="site-blocks-cover inner-page overlay" style="background-image: url({{stall.cover.url}});" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
@@ -36,7 +38,9 @@
       </div>
           {% else %}
           {% endif %}
+          {% endif %}
           {% endfor %}
+          {% endif %}
 
     </div>
   {% endif %}    
@@ -44,7 +48,7 @@
   {% with load_first=0 %} 
   
   {% if load_first == 0  %} 
-    
+   
   <div class="site-section">
     <div class="container">
       <div class="row ">
@@ -66,7 +70,7 @@
       <p>
 <!--     </div>
   </div>  -->
-
+           {% if visibility %}
 <!--      <div class="site-section" data-aos="fade">
       <div class="container"> -->
            {% for stall in stalls %}
@@ -129,6 +133,8 @@
             {% endif %}
             {% endif %}
             {% endfor %}
+
+            {% endif %}
       </div>
     </div>    
  

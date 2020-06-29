@@ -3,10 +3,11 @@ from stalls.models import stall_frame,stall_products
 from accounts.models import EmailData
 from .forms import EmailForm
 from django_user_agents.utils import get_user_agent
-from .models import PageCounter
+from .models import PageCounter,MakeVisible
 # Create your views here.
 
 def index(request):
+	visibility = MakeVisible.objects.all()[0].start_exhibition
 	stalls = stall_frame.objects.all()
 	products = stall_products.objects.all()
 	present_categories = []
@@ -28,7 +29,8 @@ def index(request):
 		'present_categories':present_categories,
 		'message':message,
 		'form':form,
-		'load_first': load_first
+		'load_first': load_first,
+		'visibility':visibility
 	}
 	user_agent = get_user_agent(request)
 	count= PageCounter.objects.all()[0] 
