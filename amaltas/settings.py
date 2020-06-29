@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [   
+INSTALLED_APPS = [
 
     'cities.apps.CitiesConfig',
     'home.apps.HomeConfig',
