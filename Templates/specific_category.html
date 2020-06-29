@@ -1,9 +1,9 @@
 {% extends 'base.html' %}  
 {% load static %}
-
+{% load thumbnail %}
 {% block base %}
 
-
+{% if visibility %}
 
    <!--  <div class="site-blocks-cover inner-page overlay" style="background-image: url({% static 'content/tryo.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">  
       <div class="row align-items-center justify-content-center">
@@ -31,14 +31,19 @@
         <div class="row">
 
   {% for product in products %}     
-          <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
-            <a href="{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></a>
+          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
+            <a href="{{ product.product_name }}" >
+               {% thumbnail product.product_image "480x360" crop="center" as im %}
+               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               {% endthumbnail %}
+            </a>
             <div class="media-image-body">
                 <h4 class="font-secondary"><a href=""><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
             </div>    
           </div>      
   {% endfor %} 
         </div>
-      </div>
-    </div>
+
+
+{% endif %}
 {% endblock %}
