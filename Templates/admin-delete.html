@@ -13,6 +13,7 @@
           <div class="col-md-6 text-center ">
           <form action="" method="POST" class="p-5 bg-white" id="Delete">
             {% csrf_token %}
+            <p>{{ warning }}</p>
             <button type="submit" form="Delete" value="Submit" class="btn btn-primary text-white px-4 py-2">Delete</button>
             </form>
            <a href="/exhibitor/login"><button class="btn btn-primary text-white px-4 py-2">Back to admin</button></a> 

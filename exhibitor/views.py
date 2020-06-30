@@ -143,7 +143,8 @@ def deletestallproduct(request,product_name):
 		product = stall_products.objects.get(product_name=product_name)
 		product.delete()
 		return redirect('login')
-	context = { 'name':product_name }
+	context = { 'name':product_name,
+				'warning': 'The product will be permanently deleted if you choose to delete' }
 	return render(request,"admin-delete.html",context)	
 
 @login_required(login_url='login')
@@ -152,7 +153,8 @@ def deletestallframe(request,stall_name):
 		stall = stall_frame.objects.get(name=stall_name)
 		stall.delete()
 		return redirect('login')
-	context = { 'name':stall_name }
+	context = { 'name':stall_name,
+				'warning':'If you delete the stall all the products will also get deleted' }
 	return render(request,"admin-delete.html",context)
 
 @login_required
