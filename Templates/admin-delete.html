@@ -1,0 +1,23 @@
+{% extends 'admin_base.html' %}  
+{% load static %}
+
+{% block base %}
+
+    <div class="site-section ">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-12 text-center">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">Are you sure you want to DELETE {{name}}</span>
+            <h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
+          </div>
+          <div class="col-md-6 text-center ">
+          <form action="" method="POST" class="p-5 bg-white" id="Delete">
+            {% csrf_token %}
+            <button type="submit" form="Delete" value="Submit" class="btn btn-primary text-white px-4 py-2">Delete</button>
+            </form>
+           <a href="/exhibitor/login"><button class="btn btn-primary text-white px-4 py-2">Back to admin</button></a> 
+          </div>  
+        </div>    
+      </div>
+    </div> 
+{% endblock %}

@@ -139,16 +139,21 @@ def createstallproduct(request):
 
 @login_required(login_url='login')
 def deletestallproduct(request,product_name):
-	product = stall_products.objects.get(product_name=product_name)
-	product.delete()
-	return redirect('login')
+	if request.method=='POST':
+		product = stall_products.objects.get(product_name=product_name)
+		product.delete()
+		return redirect('login')
+	context = { 'name':product_name }
+	return render(request,"admin-delete.html",context)	
 
 @login_required(login_url='login')
 def deletestallframe(request,stall_name):
-	stall = stall_frame.objects.get(name=stall_name)
-	stall.delete()
-	return redirect('login')
-
+	if request.method=='POST':
+		stall = stall_frame.objects.get(name=stall_name)
+		stall.delete()
+		return redirect('login')
+	context = { 'name':stall_name }
+	return render(request,"admin-delete.html",context)
 
 @login_required
 def demo(request,name):
