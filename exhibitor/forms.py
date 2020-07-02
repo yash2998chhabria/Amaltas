@@ -18,7 +18,7 @@ class EditStallFrameForm(forms.ModelForm):
 				#'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
 		}
 		help_texts = {
-				'name': "stall name's should not be the same as product names",
+				'name': "stall name's should not be the same as product names, product names should not be repeated",
 				'cover':"please upload only a 16:9 aspect ratio image(if not, it will get cropped)",
 				'description':"please restrict the description to one line and around 10 words or less",
 				'stall_visible_on_website': "This will work only during an exhibition"
