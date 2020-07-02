@@ -120,7 +120,7 @@
               <div class="media-image">
               <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "480x270" crop="center" as im %}
-               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               <img src="{{ im.url|resolution:"0.5x" }}"alt="Image" class="img-fluid">
                {% endthumbnail %}
               </a>
                 <div class="media-image-body">
