@@ -86,9 +86,11 @@
            {% if stall.stall_visible_on_website %}
            {% if stall.poweredby_stall %}            
             <div class="media-image">
+              <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "858x480" crop="center" as im %}
                <img src="{{ im.url }}"alt="Image" class="img-fluid">
                {% endthumbnail %}
+             </a>
               <div class="media-image-body">
                 <h2 class="font-secondary text-uppercase"><a href="/stalls/{{stall.name}}">{{ stall.name }}</a></h2>
                 <p>{{ stall.description }}</p>
