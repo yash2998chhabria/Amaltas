@@ -73,9 +73,7 @@
            {% if visibility %}
 <!--      <div class="site-section" data-aos="fade">
       <div class="container"> -->
-           {% for stall in stalls %}
-           {% if stall.stall_visible_on_website %}
-           {% if stall.poweredby_stall %}
+
           <div class="row">    
           <div class="col-md-12 col-lg-12 mb-5">
             <span class="caption d-block mb-2 font-secondary font-weight-bold text-center">Stalls</span>
@@ -84,6 +82,9 @@
         </div> 
         <div class="row mb-5">
           <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
+           {% for stall in stalls %}
+           {% if stall.stall_visible_on_website %}
+           {% if stall.poweredby_stall %}            
             <div class="media-image">
                {% thumbnail stall.cover "858x480" crop="center" as im %}
                <img src="{{ im.url }}"alt="Image" class="img-fluid">
