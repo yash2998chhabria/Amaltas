@@ -26,7 +26,7 @@ SECRET_KEY = 'optf)0s1+r2go3bxsd4fg1-1)$23k8%$v4mkh&y@ysu5x8m!t+'
 DEBUG = False
 
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['www.amaltas-exhibition.com']
 
 
@@ -154,3 +154,5 @@ CACHES = {
 }
 
 USER_AGENTS_CACHE = 'default'
+
+THUMBNAIL_QUALITY = 60
