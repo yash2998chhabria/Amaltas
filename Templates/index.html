@@ -113,10 +113,10 @@
 
         <div class="row">
           <div class="col-md-11 block-13 nav-direction-white mx-auto">
+            <div class="nonloop-block-13 owl-carousel">
           {% for stall in stalls %}
           {% if stall.stall_visible_on_website %}
-          {% if stall.premium %}
-            <div class="nonloop-block-13 owl-carousel">
+          {% if stall.premium %}              
               <div class="media-image">
               <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "480x360" crop="center" as im %}
