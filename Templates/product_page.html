@@ -3,6 +3,14 @@
 {% extends 'base.html' %}  
 {% load static %}
 
+{% block seohead %}
+<title>Amaltas Online Exhibition-{{ stall.name }}:{{ product.product_name }}</title>
+<!-- <meta name=”description” content=””> -->
+<!-- <link rel=”canonical” href=”https://www.amaltas-exhibiton.com/” /> -->
+<meta name=”robots” content=”index, follow”>
+{% endblock %}
+
+
 {% block base %}
 {% if visibility %}
 
@@ -17,7 +25,7 @@
         <div class="row">
           <div class="col-md-6 blog-content">
          <h2 class="lead text-uppercase">{{ product.product_name }}</h2>
-              <p><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></p>
+              <p><img src="{{ product.product_image.url }}" alt="{{ stall.name }}:{{ product.product_name }}" class="img-fluid"></p>
 <!--               {% if product.price == 0 %}
                 <h3 class="site-section-heading font-secondary mb-5">Contact Stall for Price of the Product</h3>
               {% else %}

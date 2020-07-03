@@ -2,6 +2,17 @@
 {% load static %}
 {% load thumbnail %}
 
+
+
+{% block seohead %}
+<title>Shop now on Amaltas to find innovative products. All stalls are run by entrepreneurs and all products are made in India. Special stalls have been set up for Rakhi 2020 to fulfil your online exhibition needs!</title>
+<!-- <meta name=”description” content=””> -->
+<link rel=”canonical” href=”https://www.amaltas-exhibition.com/stalls/” />
+<meta name=”robots” content=”index, follow”>
+{% endblock %}
+
+
+
 {% block base %}      
 <!--     <div class="site-blocks-cover inner-page overlay" style="background-image: url({% static 'content/5490.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="row align-items-center justify-content-center">
@@ -29,7 +40,7 @@
             <div class="media-image">
               <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "480x270" crop="center" as im %}
-               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               <img src="{{ im.url }}"alt="{{stall.name}}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
               </a>
               <div class="media-image-body">
@@ -50,7 +61,7 @@
             <div class="media-image">
               <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "480x270" crop="center" as im %}
-               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               <img src="{{ im.url }}"alt="{{stall.name}}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
               </a>
               <div class="media-image-body">
@@ -72,7 +83,7 @@
             <div class="media-image">
               <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "480x270" crop="center" as im %}
-               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               <img src="{{ im.url }}"alt="{{stall.name}}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
               </a>
               <div class="media-image-body">

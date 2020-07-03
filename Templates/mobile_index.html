@@ -2,6 +2,14 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load thumbnail %}  
+
+{% block seohead %}
+<title>Shop now on Amaltas to find the best gourmet products curated for you by entrepreneurs all over India. We run online exhibitions that enhance your online shopping experience. Visit our page to find exquisite products and deals for Rakhi 2020.</title>
+<meta name=”description” content="Amaltas E-Exhibition is an online shopping experience that helps customers connect with talented and reliable entrepreneurs who sell exquisite, high-quality products all over India. Our products range from clothes, accessories, festive special items such as Rakhi, handicrafts and more!. After successfully organising more than 20 physical exhibitions over the past 7 years, Amaltas has built this one of a kind online exhibition to keep our loyal customers and stall owners happy and adapt to the circumstances we live in today. There will be a series of exhibitions hosted on our website, each accompanying an exclusive theme. Each exhibition will be online for 72 hours">
+<link rel=”canonical” href=”https://www.amaltas-exhibiton.com/” />
+<meta name=”robots” content=”index, follow”>
+{% endblock %}
+
 {% block base %}
 
 
@@ -60,9 +68,10 @@
             <p>There will be a series of exhibitions hosted on our website, each accompanying an exclusive theme. </p>
             <!-- <p>    One who visits can see whats in the market,compare and  get in touch with the Vendor directly or any enquiry.</p>  -->
             <p>Each exhibition will be online for 72 hours.</p> 
-            <p>So let’s connect and promote each other, to grow together!</p>  
+            <p>So let’s connect and promote each other, to grow together!</p> 
             <!-- <p>    Connect with us to make your own stall. </p>  -->
             <a type="submit" href="/contactus" class="btn btn-primary text-white px-4 py-2">Contact us</a>
+            
         </div>
       </div>
       <p>
@@ -73,7 +82,9 @@
            {% if visibility %}
 <!--      <div class="site-section" data-aos="fade">
       <div class="container"> -->
-
+           {% for stall in stalls %}
+           {% if stall.stall_visible_on_website %}
+           {% if stall.poweredby_stall %}
           <div class="row">    
           <div class="col-md-12 col-lg-12 mb-5">
             <span class="caption d-block mb-2 font-secondary font-weight-bold text-center">Stalls</span>
@@ -82,15 +93,12 @@
         </div> 
         <div class="row mb-5">
           <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
-           {% for stall in stalls %}
-           {% if stall.stall_visible_on_website %}
-           {% if stall.poweredby_stall %}            
             <div class="media-image">
               <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "858x480" crop="center" as im %}
-               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               <img src="{{ im.url }}" alt="{{ stall.name }}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
-             </a>
+              </a> 
               <div class="media-image-body">
                 <h2 class="font-secondary text-uppercase"><a href="/stalls/{{stall.name}}">{{ stall.name }}</a></h2>
                 <p>{{ stall.description }}</p>
@@ -112,16 +120,17 @@
             <h2 class="site-section-heading text-uppercase text-center font-secondary ">Have A Glimpse at our Premium Stalls</h2>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-11 block-13 nav-direction-white mx-auto">
             <div class="nonloop-block-13 owl-carousel">
           {% for stall in stalls %}
           {% if stall.stall_visible_on_website %}
-          {% if stall.premium %}               
+          {% if stall.premium %}              
               <div class="media-image">
               <a href="/stalls/{{stall.name}}">
                {% thumbnail stall.cover "480x270" crop="center" as im %}
-               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               <img src="{{ im.url }}"alt="{{ stall.name }}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
               </a>
                 <div class="media-image-body">
