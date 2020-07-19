@@ -35,8 +35,7 @@ class EditStallProductsForm(forms.ModelForm):
 		'stall_name'
 				]
 		widgets = {
-				#'stall_name': forms.HiddenInput(),
-				#'stall_name': forms.TextInput(attrs={'disabled': True}),
+				'stall_name': forms.TextInput({'id':'putstallname','value':'','type':'hidden'}),
 		}
 		help_texts = {
 				'product_name':'please try not to repeat product names. Product names should not be the same as stall names',

@@ -44,7 +44,7 @@
 		<hr>
 		<div class="card card-body">
 			{% if not disabled  %}
-			<a class="btn btn-primary  btn-sm btn-block text-white" href="/exhibitor/createstallproduct">Add Stall Product</a>	
+			<a class="btn btn-primary  btn-sm btn-block text-white" href="/exhibitor/createstallproduct/{{ frame.name }}">Add Stall Product</a>	
 			{% else %}
 			<a class="btn btn-secondary btn-sm btn-block text-white" >Max Products added for stall type</a>
 			{% endif %}
@@ -60,8 +60,8 @@
 					<tr>
 						<td>{{product.product_name}}</td>
 						<td>{{product.price}}</td>
-						<td><a class="btn btn-sm btn-info" href="/exhibitor/editstallproduct/{{product.product_name}}">Update</a></td>
-						<td><a class="btn btn-sm btn-danger" href="/exhibitor/deletestallproduct/{{product.product_name}}">Delete</a></td>
+						<td><a class="btn btn-sm btn-info" href="/exhibitor/editstallproduct/{{product.id}}">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="/exhibitor/deletestallproduct/{{product.id}}">Delete</a></td>
 
 					</tr>
 				{% endfor %}

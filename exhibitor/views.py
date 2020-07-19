@@ -89,17 +89,18 @@ def editstallframe(request):
 	return render(request,"edit_stall.html",context)
 
 @login_required(login_url='login')
-def editstallproduct(request,product_name):
-	product = stall_products.objects.get(product_name=product_name)
+def editstallproduct(request,pk):
+	product = stall_products.objects.get(id=pk)
 	form = EditStallProductsForm(instance=product)
 	if request.method== 'POST':
 		form = EditStallProductsForm(request.POST, request.FILES, instance=product)
 		if form.is_valid():
 			form.save()
 			frame = stall_frame.objects.filter(stall_user=request.user.id)
-			stall_products.objects.filter(product_name=product_name).update(stall_name=frame[0].id)
+			stall_products.objects.filter(id=pk).update(stall_name=frame[0].id)
 			return redirect('login')
 	context= {
+			'stall': stall_frame.objects.get(name=product.stall_name),
 			'form':form,
 			'heading':'Edit Your Product Information'
 	}
@@ -122,7 +123,7 @@ def createstallframe(request):
 
 
 @login_required(login_url='login')
-def createstallproduct(request):
+def createstallproduct(request,stallname):
 	form = EditStallProductsForm()
 	if request.method=='POST':
 		form = EditStallProductsForm(request.POST, request.FILES)
@@ -130,21 +131,22 @@ def createstallproduct(request):
 			product_name = form.cleaned_data['product_name']
 			form.save()
 			frame = stall_frame.objects.filter(stall_user=request.user.id)
-			stall_products.objects.filter(product_name=product_name).update(stall_name=frame[0].id)
+			#stall_products.objects.filter(product_name=product_name).update(stall_name=frame[0].id)
 			return redirect('login')
 	context = {
+			'stall': stall_frame.objects.get(name=stallname),
 			'form':form,
 			'heading': 'Create Your Stall Product'
 			}
 	return render(request,"edit_stall.html",context)
 
 @login_required(login_url='login')
-def deletestallproduct(request,product_name):
+def deletestallproduct(request,pk):
+	product = stall_products.objects.get(id=pk)
 	if request.method=='POST':
-		product = stall_products.objects.get(product_name=product_name)
 		product.delete()
 		return redirect('login')
-	context = { 'name':product_name,
+	context = { 'name': product.product_name,
 				'warning': 'The product will be permanently deleted if you choose to delete' }
 	return render(request,"admin-delete.html",context)	
 

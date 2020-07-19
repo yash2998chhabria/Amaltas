@@ -16,7 +16,11 @@
             {{ form|crispy }}
             <button type="submit" form="save_stallframe" value="Submit" class="btn btn-primary text-white px-4 py-2">Save Changes</button>
             </form> 
-          </div>  
+          </div>
+          <script>
+            var name = "{{ stall.id }}";
+            document.getElementById("putstallname").value = name;
+          </script>  
         </div>    
       </div>
     </div> 
