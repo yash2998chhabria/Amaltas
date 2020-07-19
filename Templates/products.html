@@ -53,9 +53,9 @@
 
   {% for product in products %}     
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
-            <a href="{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="{{stall.name}}:{{ product.product_name }}" class="img-fluid"></a>
+            <a href="{{ stall.name }}/{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="{{stall.name}}:{{ product.product_name }}" class="img-fluid"></a>
             <div class="media-image-body">
-                <h4 class="font-secondary text-uppercase"><a href=""><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
+                <h4 class="font-secondary text-uppercase"><a href="{{ stall.name }}/{{ product.product_name }}"><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
             </div>    
           </div>      
   {% endfor %} 

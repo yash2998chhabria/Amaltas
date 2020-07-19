@@ -13,6 +13,7 @@ def stalls(request):
 
 	return render(request,"stalls.html",context)
 
+'''
 def products(request,name):
 	product = stall_products.objects.all()
 	stalls = stall_frame.objects.all()
@@ -40,3 +41,36 @@ def products(request,name):
 					'visibility':visibility
 					} 				
 					return render(request,"product_page.html",prod)
+'''
+
+def products(request,stallname):
+	stall = stall_frame.objects.get(name=stallname)
+	print(stall)
+	product = stall_products.objects.all()
+	visibility = MakeVisible.objects.all()[0].start_exhibition
+	current_products = []
+	for pro in product:
+		if str(pro.stall_name) == stallname:
+			current_products.append(pro)
+		prod = {
+			'products': current_products,
+			'stall': stall,
+			'visibility':visibility
+			}
+	return render(request,'products.html',prod)
+
+
+
+def productpage(request,stallname,productname):
+	stall = stall_frame.objects.get(name=stallname)
+	product = stall_products.objects.get(product_name=productname)
+	visibility = MakeVisible.objects.all()[0].start_exhibition
+	prod = {
+		'product': product,
+		'stall': stall,
+		'visibility':visibility
+	}	
+
+	return render(request,'product_page.html',prod)
+
+
