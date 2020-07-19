@@ -34,7 +34,7 @@ def loginpage(request):
 			return render(request,"exhibitor-admin.html",context)	
 	else:	
 		if request.method == 'POST':
-			username = request.POST.get('Exhibitor ID')
+			username = request.POST.get('Exhibitor')
 			password = request.POST.get('password')
 			user = authenticate(request, username = username, password=password)
 			if user is not None:
@@ -66,6 +66,7 @@ def loginpage(request):
 				messages.info(request,"Exhibitor ID or password is incorrect")	
 				return 	render(request,"loginpage.html")
 		return 	render(request,"loginpage.html")
+
 
 @login_required(login_url='login')
 def logoutuser(request):

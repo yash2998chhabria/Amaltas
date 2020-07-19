@@ -22,11 +22,11 @@
     </div>
 
     <!-- Login Form -->
-    <form action="" method="POST">
+    <form id="login_user" method="POST">
       {% csrf_token %}
-      <input type="text" id="login" class="fadeIn second" name="Exhibitor ID" placeholder="Exhibitor ID">
+      <input type="text" id="login" class="fadeIn second" name="Exhibitor" placeholder="Exhibitor ID">
       <input type="text" id="password" class="fadeIn third" name="password" placeholder="Exhibitor Key">
-      <input type="submit" class="fadeIn fourth" value="Log In">      
+      <input type="submit" form="login_user" class="fadeIn fourth" value="Log In">     
     </form>
 
 
