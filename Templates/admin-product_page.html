@@ -13,7 +13,7 @@
   <div class="site-section first-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 blog-content">
+          <div class="col-md-6 blog-content mx-auto">
          <h2 class="lead text-uppercase">{{ product.product_name }}</h2>
               <p><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></p>
 <!--               {% if product.price == 0 %}
@@ -23,15 +23,17 @@
               {% endif %} -->
               <!-- <p>Categories:  <a href="/categories/{{product.category}}">{{ product.category }}</a></p> -->
           </div>
-          
+
           <div class="col-md-6 sidebar mx-auto">
             <div class="sidebar-box">
               <form action="#" class="search-form">
                 <div class="form-group">
-                    <h2 class="site-section-heading font-secondary mb-5"><span>Contact Stall:</span></h2>        
-                    <h4 class="lead">{{ stall.name }}</h4>
-                    <p>{{ stall.contact_stall }}</p>
-                    <h2 class="lead text-uppercase"><span>{% if product.price == 0 %}Contact Stall for Price of {{product.product_name}}{% else %}PRICE OF {{product.product_name}} : &#8377;{{ product.price }}{% endif %}</span></h2>       
+                    <h2 class="site-section-heading font-secondary mb-5">Contact {{ stall.name }}: <span class="font-secondary" >{{ stall.contact_stall }}</span></h2>        
+                    <h3 class="lead text-uppercase ">{% if product.price == 0 %}Contact Stall for Price{% else %}Price: &#8377;{{ product.price }}{% endif %}</h3>  
+                    <p> </p>
+                    <p><a type="submit" href="https://wa.me/918329584644" class="btn btn-primary text-white px-4 py-2"><i class="fa fa-whatsapp" style="font-size:24px"></i> Order</a></p>
+
+                          
                 </div>
               </form>
             </div>
