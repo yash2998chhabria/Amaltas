@@ -1,5 +1,5 @@
 .card-img-top {
-    height: 100vw;
+    height: 110vw;
     object-fit: cover;
 }
   /* Small devices (landscape phones, 576px and up) */
@@ -11,7 +11,7 @@
   /* Medium devices (tablets, 768px and up) */
   @media (min-width: 768px) {
     .card-img-top {
-        height: 60vw;
+        height: 50vw;
     }
   }
   /* Large devices (desktops, 992px and up) */
