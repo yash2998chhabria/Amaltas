@@ -5,13 +5,13 @@
   /* Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) {
     .card-img-top {
-        height: 50vw;
+        height: 60vw;
     }
   }
   /* Medium devices (tablets, 768px and up) */
   @media (min-width: 768px) {
     .card-img-top {
-        height: 50vw;
+        height: 60vw;
     }
   }
   /* Large devices (desktops, 992px and up) */
