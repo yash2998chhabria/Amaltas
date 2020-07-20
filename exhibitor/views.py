@@ -97,7 +97,7 @@ def editstallproduct(request,pk):
 		if form.is_valid():
 			form.save()
 			frame = stall_frame.objects.filter(stall_user=request.user.id)
-			stall_products.objects.filter(id=pk).update(stall_name=frame[0].id)
+			#stall_products.objects.filter(id=pk).update(stall_name=frame[0].id)
 			return redirect('login')
 	context= {
 			'stall': stall_frame.objects.get(name=product.stall_name),

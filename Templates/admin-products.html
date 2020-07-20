@@ -4,7 +4,6 @@
 {% block base %}
 
 
-
 <!--     <div class="site-blocks-cover inner-page overlay" style="background-image: url({{ stall.cover.url }});" data-aos="fade" data-stellar-background-ratio="0.5">  
       <div class="row align-items-center justify-content-center">
         <div class="col-md-5 text-center" data-aos="fade">
@@ -24,13 +23,13 @@
             <h2 class="site-section-heading text-uppercase text-center font-secondary">{{ stall.name }}</h2>
           </div>
         </div>  
-        <div class="row mb-5">
+<!--         <div class="row mb-5">
           <div class="col-md-12 col-lg-12 mb-5 mx-auto">  
             <div class="media-image">
               <img src="{{ stall.cover.url }}"alt="Image" class="img-fluid">
             </div>
           </div>
-        </div>
+        </div> -->
     </div>
     <!-- </div>
     <div class="site-section "> -->
@@ -42,14 +41,23 @@
           </div>
         </div> -->
         <div class="row">
-
-  {% for product in products %}     
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
+  {% for product in products %}
+        <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-delay="">
+          <div class="card" >
+            <a href="{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="card-img-top embed-responsive-item" ></a>
+            <div class="card-body">
+              <h3 class="card-title text-uppercase font-secondaryx">{{ product.product_name }}</h3>
+              <p class="card-text">{% if product.price == 0 %}Contact Stall for Price{% else %}Price: &#8377;{{ product.price }}{% endif %}</p>
+              <a href="{{ product.product_name }}" class="btn btn-primary text-white">View Product</a>
+            </div>
+          </div>
+        </div>         
+<!--           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
             <a href="{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></a>
             <div class="media-image-body">
                 <h4 class="font-secondary text-uppercase"><a href="{{ product.product_name }}"><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
             </div>    
-          </div>      
+          </div>    -->   
   {% endfor %} 
         </div>
       </div>
