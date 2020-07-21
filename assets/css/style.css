@@ -1344,7 +1344,8 @@ a {
 .media-image {
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
-  transition: .3s all ease-in-out; }
+  transition: .3s all ease-in-out; 
+}
   .media-image .media-image-body {
     padding: 30px; }
   .media-image h2 {
