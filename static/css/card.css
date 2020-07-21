@@ -8,6 +8,25 @@
     height: 100vw;  
     object-fit: cover;
 }
+
+.bor {
+        padding: 10px;
+        margin: 10px;
+        font-size: 20px;
+        line-height: 1.7;
+        font-family: sans-serif;
+        width: fit-content;
+      }  
+
+
+.bor img {
+        border-width: 20px;
+        border-style: solid;
+        border-image-source: url("border-image-4.png");
+        border-image-slice:13 13 13 13;
+        border-image-width:13px 13px 13px 13px;
+        border-image-repeat:repeat repeat;
+      }
   /* Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) {
     .card-img-top {
@@ -60,21 +79,4 @@
     }    
   }
 
-.bor {
-        padding: 10px;
-        margin: 10px;
-        font-size: 20px;
-        line-height: 1.7;
-        font-family: sans-serif;
-        width: fit-content;
-      }  
 
-
-.bor img {
-        border-width: 20px;
-        border-style: solid;
-        border-image-source: url("border-image-4.png");
-        border-image-slice:13 13 13 13;
-        border-image-width:13px 13px 13px 13px;
-        border-image-repeat:repeat repeat;
-      }
