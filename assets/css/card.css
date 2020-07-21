@@ -8,6 +8,25 @@
     height: 100vw;  
     object-fit: cover;
 }
+
+.bor {
+        padding: 10px;
+        margin: 10px;
+        font-size: 20px;
+        line-height: 1.7;
+        font-family: sans-serif;
+        width: fit-content;
+      }  
+
+
+.bor img {
+        border-width: 20px;
+        border-style: solid;
+        border-image-source: url("border-image-4.png");
+        border-image-slice:13 13 13 13;
+        border-image-width:13px 13px 13px 13px;
+        border-image-repeat:repeat repeat;
+      }
   /* Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) {
     .card-img-top {
@@ -40,8 +59,8 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top:auto;
-        margin-bottom:auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
         width: 50%
     }
   }
@@ -54,26 +73,10 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top:auto;
-        margin-bottom:auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
         width: 50%
     }    
   }
 
-  .stallframe {
-    border-image-source: url("https://mdn.mozillademos.org/files/6017/border-image-6.svg");
-    border-image-slice:27 27 27 27;
-    border-image-width:20px 20px 20px 20px;
-    border-image-outset:0px 0px 0px 0px;
-    border-image-repeat:stretch stretch;
-  }
 
-
-.bor img {
-        border-width: 20px;
-        border-style: solid;
-        border-image-source: url("https://mdn.mozillademos.org/files/6013/border-image-4.png");
-        border-image-slice:13 13 13 13;
-        border-image-width:13px 13px 13px 13px;
-        border-image-repeat:repeat repeat;
-      }
