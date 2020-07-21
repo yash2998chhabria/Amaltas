@@ -172,7 +172,8 @@ def demo(request,name):
 					current_products.append(pro)			
 			prod = {
 			'products': current_products,
-			'stall': stall
+			'stall': stall,
+			'contactno': int(str(stall.contact_no)[1:])
 			}
 			return render(request,'admin-products.html',prod)	
 			
@@ -182,6 +183,7 @@ def demo(request,name):
 				if str(pro.stall_name)==str(stall.name):
 					prod={
 					'product': pro,
-					'stall': stall
+					'stall': stall,
+					'contactno': int(str(stall.contact_no)[1:])
 					} 				
 					return render(request,"admin-product_page.html",prod)

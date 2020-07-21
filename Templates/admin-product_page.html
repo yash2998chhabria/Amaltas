@@ -13,8 +13,8 @@
   <div class="site-section first-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 blog-content mx-auto">
-         <h2 class="lead text-uppercase">{{ product.product_name }}</h2>
+          <div class="col-md-6 blog-content mx-auto text-center">
+         <h2 class="lead text-uppercase ">{{ product.product_name }}</h2>
               <p><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></p>
 <!--               {% if product.price == 0 %}
                 <h3 class="site-section-heading font-secondary mb-5">Contact Stall for Price of the Product</h3>
@@ -28,10 +28,11 @@
             <div class="sidebar-box">
               <form action="#" class="search-form">
                 <div class="form-group">
-                    <h2 class="site-section-heading font-secondary mb-5">Contact {{ stall.name }}: <span class="font-secondary" >{{ stall.contact_stall }}</span></h2>        
+                    <h2 class="site-section-heading font-secondary text-uppercase mb-5">Contact {{ stall.name }} @ <span class="font-secondary" >{{ contactno }} to buy {{ product.product_name }}</span></h2>   
+                    <h3 lead text-uppercase >Addition Contact details:</h3><p>{{ stall.contact_stall }}</p>  
                     <h3 class="lead text-uppercase ">{% if product.price == 0 %}Contact Stall for Price{% else %}Price: &#8377;{{ product.price }}{% endif %}</h3>  
                     <p> </p>
-                    <p><a type="submit" href="https://wa.me/918329584644" class="btn btn-primary text-white px-4 py-2"><i class="fa fa-whatsapp" style="font-size:24px"></i> Order</a></p>
+                    <p><a type="submit" href="https://wa.me/{{ contactno }}?text=hello%20I%20saw%20your%20product:{{ product.product_name }}%20on%20www.amaltas-exhibition.com.%20I%20would%20like%20to%20purchase%20it." class="btn btn-primary text-white px-4 py-2"><i class="fa fa-whatsapp" style="font-size:24px"></i> Order</a></p>
 
                           
                 </div>

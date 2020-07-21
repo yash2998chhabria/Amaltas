@@ -9,6 +9,7 @@ class EditStallFrameForm(forms.ModelForm):
 		'name',
 		'cover',
 		'description',
+		'contact_no',
 		'contact_stall',
 		'city',
 		'stall_visible_on_website'
@@ -18,10 +19,12 @@ class EditStallFrameForm(forms.ModelForm):
 				#'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
 		}
 		help_texts = {
+				'contact_no':"Enter your Whatsapp contact number. Customers will contact you directly using this number",
 				'name': "stall name's should not be the same as product names, product names should not be repeated",
 				'cover':"please upload only a 16:9 aspect ratio image(if not, it will get cropped)",
 				'description':"please restrict the description to one line and around 10 words or less",
-				'stall_visible_on_website': "This will work only during an exhibition"
+				'stall_visible_on_website': "This will work only during an exhibition",
+				'contact_stall':"Additional Contact Details"
 		}
 
 class EditStallProductsForm(forms.ModelForm):
