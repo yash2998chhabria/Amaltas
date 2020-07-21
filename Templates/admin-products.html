@@ -1,6 +1,95 @@
 {% extends 'admin_base.html' %}  
 {% load static %}
 
+{% block css %}
+<style>
+.center {
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.card-img-top {
+    height: 100vw;  
+    object-fit: cover;
+}
+
+.bor {
+        padding: 10px;
+        margin: 10px;
+        font-size: 20px;
+        line-height: 1.7;
+        font-family: sans-serif;
+        width: fit-content;
+      }  
+
+
+.bor img {
+        border-width: 20px;
+        border-style: solid;
+        border-image-source: url("https://mdn.mozillademos.org/files/6013/border-image-4.png");
+        border-image-slice:13 13 13 13;
+        border-image-width:13px 13px 13px 13px;
+        border-image-repeat:repeat repeat;
+      }
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) {
+    .card-img-top {
+        height: 50vw;
+    }
+    .center {
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+  }
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    .card-img-top {
+        height: 50vw;
+    }
+    .center {
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }        
+    
+  }
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .card-img-top {
+        height: 20vw;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%
+    }
+  }
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 992px) {
+    .card-img-top {
+        height: 20vw;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%
+    }    
+  }
+
+
+  
+</style>
+{% endblock %}
+
+
 {% block base %}
 
 
