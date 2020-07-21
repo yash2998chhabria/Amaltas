@@ -40,8 +40,8 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top:auto;
-        margin-bottom:auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
         width: 50%
     }
   }
@@ -54,19 +54,20 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top:auto;
-        margin-bottom:auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
         width: 50%
     }    
   }
 
-  .stallframe {
-    border-image-source: url("https://mdn.mozillademos.org/files/6017/border-image-6.svg");
-    border-image-slice:27 27 27 27;
-    border-image-width:20px 20px 20px 20px;
-    border-image-outset:0px 0px 0px 0px;
-    border-image-repeat:stretch stretch;
-  }
+.bor {
+        padding: 10px;
+        margin: 10px;
+        font-size: 20px;
+        line-height: 1.7;
+        font-family: sans-serif;
+        width: fit-content;
+      }  
 
 
 .bor img {
