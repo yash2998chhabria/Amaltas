@@ -1,10 +1,22 @@
+.center {
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .card-img-top {
+    height: 100vw;  
     object-fit: cover;
 }
   /* Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) {
     .card-img-top {
-        height: 60vw;
+        height: 50vw;
+    }
+    .center {
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
     }
   }
   /* Medium devices (tablets, 768px and up) */
@@ -12,16 +24,56 @@
     .card-img-top {
         height: 50vw;
     }
+    .center {
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }        
+    
   }
   /* Large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
     .card-img-top {
-        height: 25vw;
+        height: 20vw;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:auto;
+        margin-bottom:auto;
+        width: 50%
     }
   }
   /* Extra large devices (large desktops, 1200px and up) */
   @media (min-width: 992px) {
     .card-img-top {
-        height: 25vw;
+        height: 20vw;
     }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:auto;
+        margin-bottom:auto;
+        width: 50%
+    }    
   }
+
+  .stallframe {
+    border-image-source: url("https://mdn.mozillademos.org/files/6017/border-image-6.svg");
+    border-image-slice:27 27 27 27;
+    border-image-width:20px 20px 20px 20px;
+    border-image-outset:0px 0px 0px 0px;
+    border-image-repeat:stretch stretch;
+  }
+
+
+.bor img {
+        border-width: 20px;
+        border-style: solid;
+        border-image-source: url("https://mdn.mozillademos.org/files/6013/border-image-4.png");
+        border-image-slice:13 13 13 13;
+        border-image-width:13px 13px 13px 13px;
+        border-image-repeat:repeat repeat;
+      }

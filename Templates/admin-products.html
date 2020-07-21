@@ -4,35 +4,42 @@
 {% block base %}
 
 
-<!--     <div class="site-blocks-cover inner-page overlay" style="background-image: url({{ stall.cover.url }});" data-aos="fade" data-stellar-background-ratio="0.5">  
-      <div class="row align-items-center justify-content-center">
+    <div class="site-blocks-cover inner-page overlay" style="background:#AFD275; " data-aos="fade" data-stellar-background-ratio="0.5">  
+        <div class="row mb-0 row align-items-center justify-content-center" >
+          <div class="col-md-12 col-lg-12 bor">  
+            <div class="media-image center" >
+              <img src="{{ stall.cover.url }}"alt="Image" class="img-fluid">
+            </div>
+          </div>
+        </div> 
+<!--       <div class="row align-items-center justify-content-center">
         <div class="col-md-5 text-center" data-aos="fade">
           <h1 class="text-uppercase">
             {{ stall.name }}
           </h1>
           <span class="caption d-block text-white"><a href="#"></a></span>
         </div>
-      </div>
-    </div>  --> 
+      </div> -->
+    </div>   
     
-   <div class="site-section" data-aos="fade"> 
+<!--    <div class="site-section" style="background: #E0C23E; " data-aos="fade"> 
    <div class="container">
-          <div class="row">    
-          <div class="col-md-12 col-lg-12 mb-5 text-center">
-            <span class="caption d-block mb-2 font-secondary font-weight-bold">Product Gallery</span>
-            <h2 class="site-section-heading text-uppercase text-center font-secondary">{{ stall.name }}</h2>
+         <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-2 text-center">
+            <h2 class="site-section-heading text-uppercase text-center text-white font-secondary">{{ stall.name }}</h2>
           </div>
         </div>  
-<!--         <div class="row mb-5">
-          <div class="col-md-12 col-lg-12 mb-5 mx-auto">  
-            <div class="media-image">
+       <div class="row mb-0" >
+          <div class="col-md-12 col-lg-12 ">  
+            <div class="media-image center" >
               <img src="{{ stall.cover.url }}"alt="Image" class="img-fluid">
             </div>
           </div>
-        </div> -->
+        </div> 
     </div>
-    <!-- </div>
-    <div class="site-section "> -->
+  </div> -->
+    <!-- </div>-->
+    <div class="site-section ">
       <div class="container">
 <!--         <div class="row mb-5">
           <div class="col-md-12 text-center" data-aos="fade">
@@ -40,14 +47,18 @@
             <h2 class="site-section-heading text-uppercase text-center font-secondary">{{ stall.name }}</h2>  
           </div>
         </div> -->
+        <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-5 text-center">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">Product Gallery</span>
+          </div>
         <div class="row">
   {% for product in products %}
-        <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-delay="">
+        <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="">
           <div class="card" >
             <a href="{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="card-img-top embed-responsive-item" ></a>
             <div class="card-body">
-              <h3 class="card-title text-uppercase font-secondaryx">{{ product.product_name }}</h3>
-              <p class="card-text">{% if product.price == 0 %}Contact Stall for Price{% else %}Price: &#8377;{{ product.price }}{% endif %}</p>
+              <h4 class="card-title text-uppercase font-secondaryx">{{ product.product_name }}</h4>
+              <p class="card-text" >{% if product.price == 0 %}Contact Stall for Price{% else %}Price: &#8377;{{ product.price }}{% endif %}</p>
               <a href="{{ product.product_name }}" class="btn btn-primary text-white">View Product</a>
             </div>
           </div>
