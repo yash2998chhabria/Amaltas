@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sorl.thumbnail',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -155,4 +156,7 @@ CACHES = {
 
 USER_AGENTS_CACHE = 'default'
 
-THUMBNAIL_QUALITY = 50
+THUMBNAIL_QUALITY = 60
+
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'IN'
