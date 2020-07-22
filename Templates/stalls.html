@@ -43,17 +43,19 @@
     </div>   -->
   
     <div class="site-section" style="padding-top: 20px;" data-aos="fade">
-      <div class="container">    
+      <div class="container">
+      {% if visibility %} 
+          {% for stall in stalls %}
+          {% if stall.stall_visible_on_website %}
+          {% if stall.poweredby_stall %}   
         <div class="row">    
           <div class="col-md-12 col-lg-12 mb-0">
             <h2 class="site-section-heading text-uppercase text-center font-secondary">Powered by:</h2>
           </div>
         </div>
-        {% if visibility %}
+        
         <div class="row mb-2 " style="padding-top: 5px;">
-          {% for stall in stalls %}
-          {% if stall.stall_visible_on_website %}
-          {% if stall.poweredby_stall %}
+
           <div class="col-md-6 col-lg-6 mb-2 mx-auto">
             <div class="media-image bor mx-auto">
               <a href="/stalls/{{stall.name}}">
@@ -76,13 +78,13 @@
         {% endif %} 
 
 
-
+        {% if visibility %}
         <div class="row" style="padding-top: 5px;">    
           <div class="col-md-12 col-lg-12 mb-2">
             <h2 class="site-section-heading text-uppercase text-center font-secondary">Premium Stalls</h2>
           </div>
         </div>
-        {% if visibility %}
+        
         <div class="row mb-5">
           {% for stall in stalls %}
           {% if stall.stall_visible_on_website %}
@@ -123,13 +125,13 @@
           </div>  
         </div>    
 
-
+        {% if visibility %}
         <div class="row">    
           <div class="col-md-12 col-lg-12 mb-2">
             <h2 class="site-section-heading text-uppercase text-center font-secondary">More Stalls</h2>
           </div>
         </div>
-        {% if visibility %}
+        
         <div class="row mb-2">          
           {% for stall in stalls %}
           {% if stall.stall_visible_on_website %}
