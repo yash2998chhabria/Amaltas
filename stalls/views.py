@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import stall_frame,stall_products
+from .models import stall_frame,stall_products,product_category,stall_city
 from home.models import MakeVisible
 
 # Create your views here.
@@ -8,7 +8,9 @@ def stalls(request):
 	visibility = MakeVisible.objects.all()[0].start_exhibition
 	context = {
 				'stalls': stall,
-				'visibility':visibility
+				'visibility':visibility,
+				'categories':product_category.objects.all(),
+				'cities': stall_city.objects.all()				
 				}
 
 	return render(request,"stalls.html",context)
@@ -55,7 +57,9 @@ def products(request,stallname):
 		prod = {
 			'products': current_products,
 			'stall': stall,
-			'visibility':visibility
+			'visibility':visibility,
+			'categories':product_category.objects.all(),
+			'cities': stall_city.objects.all()			
 			}
 	return render(request,'products.html',prod)
 
@@ -68,7 +72,9 @@ def productpage(request,stallname,productname):
 	prod = {
 		'product': product,
 		'stall': stall,
-		'visibility':visibility
+		'visibility':visibility,
+		'categories':product_category.objects.all(),
+		'cities': stall_city.objects.all()		
 	}	
 
 	return render(request,'product_page.html',prod)

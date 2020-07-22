@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from stalls.models import stall_frame,stall_products
+from stalls.models import stall_frame,stall_products,product_category,stall_city
 from home.models import MakeVisible
 # Create your views here.
 
@@ -17,14 +17,18 @@ def categorize(request,name):
 					prod={
 					'product': product,
 					'stall': stall,
-					'visibility':visibility
+					'visibility':visibility,
+					'categories':product_category.objects.all(),
+					'cities': stall_city.objects.all()
 					} 				
 					return render(request,"product_page.html",prod)
 	if	len(prod_list) !=0:				
 		prod_info ={
 			'products':prod_list,
 			'category':name,
-			'visibility':visibility
+			'visibility':visibility,
+			'categories':product_category.objects.all(),
+			'cities': stall_city.objects.all()
 		}		
 		return render(request,'specific_category.html',prod_info)	
 
@@ -40,7 +44,9 @@ def display_all(request):
 			present_categories.append(product)
 	context = {
 				'present_categories':present_categories,
-				'visibility':visibility
+				'visibility':visibility,
+				'categories':product_category.objects.all(),
+				'cities': stall_city.objects.all()				
 				}				
 	return render(request,"all_categories.html",context)
 							

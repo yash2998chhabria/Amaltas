@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from stalls.models import stall_city,stall_frame
+from stalls.models import stall_city,stall_frame,product_category,stall_city
 from home.models import MakeVisible
 # Create your views here.
 def all_cities(request):
@@ -10,7 +10,9 @@ def all_cities(request):
 	sorted_cities=sorted(cities,key=get_name)
 	city_list = {
 	'cities':sorted_cities,
-	'visibility':visibility
+	'visibility':visibility,
+	'categories':product_category.objects.all(),
+    'cities': stall_city.objects.all()
 	}
 	return render(request,'cities.html',city_list)
 
@@ -23,6 +25,8 @@ def city_stalls(request,city_name):
 			current_stalls.append(stall)
 	context = {
 				'stalls':current_stalls,
-				'visibility':visibility
+				'visibility':visibility,
+				'categories':product_category.objects.all(),
+    			'cities': stall_city.objects.all()
 			}		
 	return render(request,"stalls.html",context)

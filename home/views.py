@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from stalls.models import stall_frame,stall_products
+from stalls.models import stall_frame,stall_products,product_category,stall_city
 from accounts.models import EmailData
 from .forms import EmailForm
 from django_user_agents.utils import get_user_agent
@@ -13,7 +13,6 @@ def index(request):
 	present_categories = []
 	check_categories = []
 	message = ''
-	load_first = ['1','2']
 	form = EmailForm(None)
 	for product in products:
 		if (product.category not in check_categories):
@@ -29,8 +28,9 @@ def index(request):
 		'present_categories':present_categories,
 		'message':message,
 		'form':form,
-		'load_first': load_first,
-		'visibility':visibility
+		'visibility':visibility,
+		'categories':product_category.objects.all(),
+		'cities': stall_city.objects.all()
 	}
 	user_agent = get_user_agent(request)
 	count= PageCounter.objects.all()[0] 
