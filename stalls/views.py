@@ -69,7 +69,8 @@ def products(request,stallname):
 			'stall': stall,
 			'visibility':visibility,
 			'categories':product_category.objects.all(),
-			'cities': stall_city.objects.all()			
+			'cities': stall_city.objects.all(),
+			'contactno': int(str(stall.contact_no)[1:])		
 			}
 	return render(request,'products.html',prod)
 
@@ -84,7 +85,8 @@ def productpage(request,stallname,productname):
 		'stall': stall,
 		'visibility':visibility,
 		'categories':product_category.objects.all(),
-		'cities': stall_city.objects.all()		
+		'cities': stall_city.objects.all(),
+		'contactno': int(str(stall.contact_no)[1:])
 	}	
 
 	return render(request,'product_page.html',prod)
