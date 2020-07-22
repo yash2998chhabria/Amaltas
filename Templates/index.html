@@ -12,23 +12,23 @@
   
 {% block nav %}
 <li class="has-children">
-    <a href="categories/">Categories</a>
+    <a href="/categories" >Categories</a>
     <ul class="dropdown arrow-top">
      {% for categorie in categories %} 
-    <li><a href="categories/{{ categorie }}">{{ categorie }}</a></li>
+    <li><a href="/categories/{{ categorie }}">{{ categorie }}</a></li>
     {% endfor %}
     <li class="has-children">
-      <a href="cities/">Cities</a>
+      <a href="/cities">Cities</a>
       <ul class="dropdown arrow-top">
       {% for city in cities %} 
-      <li><a href="cities/{{ city }}">{{ city }}</a></li>
+      <li><a href="/cities/{{ city }}">{{ city }}</a></li>
       {% endfor %}
       </ul>
     </li>
     </ul>
 </li>
 <li><a href="/makeadifference">Make A Difference</a></li>
-<li><a href="/stalls"><span class="d-inline-block bg-primary active text-white btn btn-primary">Visit Stalls</span></a></li>
+<li><a href="/stalls"><span class="d-inline-block bg-primary text-white btn btn-primary">Visit Stalls</span></a></li>
 {% endblock %}
 
 {% block base %}
