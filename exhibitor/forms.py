@@ -22,7 +22,7 @@ class EditStallFrameForm(forms.ModelForm):
 				'contact_no':"Enter your Whatsapp contact number. Customers will contact you directly using this number",
 				'name': "limit the name to one or two words",
 				'cover':"please upload only a 16:9 aspect ratio image(if not, it will get cropped)",
-				'description':"please restrict the description to one line and around 10 words or less",
+				'description':"please restrict the description to around 30 words or less",
 				'stall_visible_on_website': "This will work only during an exhibition",
 				'contact_stall':"Additional Contact Details"
 		}
