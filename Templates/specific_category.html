@@ -24,7 +24,7 @@
 
 {% block base %}
 
-{% if visibility %}
+
 
    <!--  <div class="site-blocks-cover inner-page overlay" style="background-image: url({% static 'content/tryo.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">  
       <div class="row align-items-center justify-content-center">
@@ -43,16 +43,16 @@
     
     <div class="site-section">
       <div class="container">
+{% if visibility %}        
         <div class="row mb-5">
           <div class="col-md-12 text-center" data-aos="fade">
             <span class="caption d-block mb-2 font-secondary font-weight-bold">Photo Gallery</span>
             <h2 class="site-section-heading text-uppercase text-center font-secondary">{{ category }}</h2>
           </div>
         </div>
-        <div class="row">
-
+        <div class="row mb-2">
   {% for product in products %}     
-        <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="">
+        <div class="col-md-6 col-lg-3 mb-2" data-aos="fade-up" data-aos-delay="">
           <div class="card border border-success ml-1 mr-1"  >
             <div class="embed-responsive embed-responsive-1by1 ">
             <a href="/categories/{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="card-img-top embed-responsive-item" ></a>
@@ -68,7 +68,19 @@
         </div>        
   {% endfor %} 
         </div>
+{% endif %}        
+        <div class="row mb-2">
+          <div class="col-md-6 col-lg-6 mb-2 mx-auto">  
+            <div class="media-image">
+              <a href=""><img src="{% static 'content/gs-d.jpeg' %}"alt="Image" class="img-fluid"></a>
+            </div>
+          </div>
+        </div>  
+
+      </div>
+    </div>
 
 
-{% endif %}
+
+
 {% endblock %}

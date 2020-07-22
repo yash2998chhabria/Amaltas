@@ -50,4 +50,8 @@ def aboutus(request):
 	return render(request,"about_us.html")
 
 def termsandconditions(request):
-	return render(request,"terms_and_conditions.html")	
+	context = {
+		'categories':product_category.objects.all(),
+		'cities': stall_city.objects.all(),	
+	}
+	return render(request,"terms_and_conditions.html",context)	

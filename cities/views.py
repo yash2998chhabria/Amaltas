@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from stalls.models import stall_city,stall_frame,product_category,stall_city
 from home.models import MakeVisible
+from home.forms import EmailForm
+
 # Create your views here.
 def all_cities(request):
 	visibility = MakeVisible.objects.all()[0].start_exhibition

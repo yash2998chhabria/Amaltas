@@ -1,5 +1,28 @@
 {% extends 'base.html' %}  
 {% load static %}
+
+{% block nav %}
+<li class="has-children">
+    <a href="#" >Categories</a>
+    <ul class="dropdown arrow-top">
+     {% for categorie in categories %} 
+    <li><a href="/categories/{{ categorie }}">{{ categorie }}</a></li>
+    {% endfor %}
+    <li class="has-children">
+      <a href="#">Cities</a>
+      <ul class="dropdown arrow-top">
+      {% for city in cities %} 
+      <li><a href="/cities/{{ city }}">{{ city }}</a></li>
+      {% endfor %}
+      </ul>
+    </li>
+    </ul>
+</li>
+
+{% endblock %}
+
+
+
 {% block base %}
   <div class="site-section ">
       <div class="container">
