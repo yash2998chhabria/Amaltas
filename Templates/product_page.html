@@ -12,13 +12,13 @@
 
 {% block nav %}
 <li class="has-children">
-    <a href="/categories" >Categories</a>
+    <a href="" >Categories</a>
     <ul class="dropdown arrow-top">
      {% for categorie in categories %} 
     <li><a href="/categories/{{ categorie }}">{{ categorie }}</a></li>
     {% endfor %}
     <li class="has-children">
-      <a href="/cities">Cities</a>
+      <a href="">Cities</a>
       <ul class="dropdown arrow-top">
       {% for city in cities %} 
       <li><a href="/cities/{{ city }}">{{ city }}</a></li>
