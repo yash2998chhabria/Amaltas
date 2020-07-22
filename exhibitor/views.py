@@ -173,7 +173,7 @@ def demo(request,name):
 			prod = {
 			'products': current_products,
 			'stall': stall,
-			'contactno': int(str(stall.contact_no)[1:])
+			'contactno': float(str(stall.contact_no)[1:])
 			}
 			return render(request,'admin-products.html',prod)	
 			
@@ -184,6 +184,6 @@ def demo(request,name):
 					prod={
 					'product': pro,
 					'stall': stall,
-					'contactno': int(str(stall.contact_no)[1:])
+					'contactno': float(str(stall.contact_no)[1:])
 					} 				
 					return render(request,"admin-product_page.html",prod)
