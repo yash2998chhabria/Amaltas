@@ -19,7 +19,8 @@ def categorize(request,name):
 					'stall': stall,
 					'visibility':visibility,
 					'categories':product_category.objects.all(),
-					'cities': stall_city.objects.all()
+					'cities': stall_city.objects.all(),
+					'contactno': int(str(stall.contact_no)[1:])	
 					} 				
 					return render(request,"product_page.html",prod)
 	if	len(prod_list) !=0:				
@@ -29,7 +30,7 @@ def categorize(request,name):
 			'visibility':visibility,
 			'categories':product_category.objects.all(),
 			'cities': stall_city.objects.all()
-			
+
 		}		
 		return render(request,'specific_category.html',prod_info)	
 
