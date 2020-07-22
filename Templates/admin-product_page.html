@@ -29,7 +29,8 @@
               <form action="#" class="search-form">
                 <div class="form-group">
                     <h2 class="site-section-heading font-secondary text-uppercase mb-5">Contact {{ stall.name }} @ <span class="font-secondary" >{{ contactno }} to buy {{ product.product_name }}</span></h2>   
-                    <h3 lead text-uppercase >Additional Contact details: </h3><span>{{ stall.contact_stall }}</span>
+                    <h3 lead text-uppercase >Additional Contact details: <span>{{ stall.contact_stall }}</span></h3>
+                    <p></p>
                     <h3 class="lead text-uppercase ">{% if product.price == 0 %}Contact Stall for Price{% else %}Price: &#8377;{{ product.price }}{% endif %}</h3>  
                     <p> </p>
                     <p><a type="submit" href="https://wa.me/{{ contactno }}?text=hello%20I%20saw%20your%20product:{{ product.product_name }}%20on%20www.amaltas-exhibition.com.%20I%20would%20like%20to%20purchase%20it." class="btn btn-primary text-white px-4 py-2"><i class="fa fa-whatsapp" style="font-size:24px"></i> Order</a></p>
