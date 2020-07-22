@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from io import BytesIO
 from PIL import Image
 from django.core.files import File
-from phonenumber_field.modelfields import PhoneNumberField
+from django.core.files.uploadedfile import InMemoryUploadedFile
 # Create your models here.
 
 class product_category(models.Model):
@@ -23,7 +23,7 @@ def compress(image):
     im_io = BytesIO() 
     im.save(im_io, 'JPEG', quality=60) 
     im_io.seek(0)
-    new_image = File(im_io, name=image.name)
+    new_image = InMemoryUploadedFile(im_io,'ImageField', "%s.jpg" % image.name.split('.')[0], 'image/jpeg', sys.getsizeof(im_io), None)
     return new_image			
 
 class stall_frame(models.Model):
