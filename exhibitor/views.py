@@ -113,7 +113,7 @@ def createstallframe(request):
 		form = EditStallFrameForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			stall_frame.objects.filter(stall_user=1).update(stall_user=request.user.id)
+			#stall_frame.objects.filter(stall_user=1).update(stall_user=request.user.id)
 			return redirect('login')
 	context = {
 				'form':form,
