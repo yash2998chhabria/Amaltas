@@ -2,6 +2,9 @@
 {% load static %}
 {% load thumbnail %}
 
+
+
+
 {% block nav %}
 <li class="has-children">
     <a href="/categories" class="active">Categories</a>
@@ -50,10 +53,10 @@
         {% if visibility %}
         <div class="row mb-5">
           {% for product in present_categories %}
-          <div class="col-md-6 col-lg-4 mb-5">
-            <div class="media-image">
+          <div class="col-6 col-md-6 col-lg-3  mb-5">
+            <div class="media-image bor">
               <a href="{{product.category}}">
-               {% thumbnail product.product_image "480x360" crop="center" as im %}
+               {% thumbnail product.product_image "360x360" crop="center" as im %}
                <img src="{{ im.url }}"alt="Image" class="img-fluid">
                {% endthumbnail %}
               </a>
@@ -66,13 +69,13 @@
           {% endfor %} 
       </div>
         {% endif %}
-        <div class="row mb-5">
+<!--         <div class="row mb-5">
           <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
             <div class="media-image">
               <a href=""><img src="{% static 'content/Rakhi_d.jpg' %}"alt="Image" class="img-fluid"></a>
             </div>
           </div>
-        </div> 
+        </div>  -->
 
     </div>
   </div>  

@@ -30,7 +30,7 @@ class stall_frame(models.Model):
         User ,
         on_delete=models.CASCADE, default=1
     )
-	name = models.CharField(max_length=100,default="",null=False)
+	name = models.CharField(max_length=15,default="",null=False)
 	cover = models.ImageField(upload_to='coverimages',default="",null=False) 
 	description = models.CharField(max_length=300,default="",null=False)
 	contact_no = PhoneNumberField(default="9999999999")
