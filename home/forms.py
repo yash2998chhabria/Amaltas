@@ -9,7 +9,7 @@ class EmailForm(forms.ModelForm):
 		]
 		
 		widgets = {
-					'whatsapp': forms.TextInput(attrs={'placeholder':"Enter your whatsapp number here"})
+					'whatsapp': forms.TextInput(attrs={'placeholder':"Enter your whatsapp number here",'value':""})
 					}
 		labels = {
 					'whatsapp': ''

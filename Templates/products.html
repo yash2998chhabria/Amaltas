@@ -8,40 +8,83 @@
 <meta name=”robots” content=”index, follow”>
 {% endblock %}
 
+{% block nav %}
+<li class="has-children">
+    <a href="/categories" >Categories</a>
+    <ul class="dropdown arrow-top">
+     {% for categorie in categories %} 
+    <li><a href="/categories/{{ categorie }}">{{ categorie }}</a></li>
+    {% endfor %}
+    <li class="has-children">
+      <a href="/cities">Cities</a>
+      <ul class="dropdown arrow-top">
+      {% for city in cities %} 
+      <li><a href="/cities/{{ city }}">{{ city }}</a></li>
+      {% endfor %}
+      </ul>
+    </li>
+    </ul>
+</li>
+{% endblock %}
+
 
 {% block base %}
-
 {% if visibility %}
 
-<!--     <div class="site-blocks-cover inner-page overlay" style="background-image: url({{ stall.cover.url }});" data-aos="fade" data-stellar-background-ratio="0.5">  
-      <div class="row align-items-center justify-content-center">
+   <div class="site-section" style="background:#AFD275; " data-aos="fade"> 
+   <div class="container">
+         <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-2 text-center">
+            <h2 class="site-section-heading text-uppercase text-center text-white font-secondary">{{ stall.name }}</h2>
+          </div>
+        </div>  
+       <div class="row mb-0" >
+          <div class="col-md-12 col-lg-12 ">  
+            <div class="media-image center bor" >
+              <img src="{{ stall.cover.url }}"alt="Image" class="img-fluid">
+            </div>
+          </div>
+        </div> 
+    </div>
+  </div> 
+
+   
+<!--     <div class="site-blocks-cover inner-page overlay" style="background:#AFD275; " data-aos="fade" data-stellar-background-ratio="0.5">
+
+        <div class="row mt-0 mb-0 row align-items-center justify-content-center" >
+          <div class="col-md-12 col-lg-12 bor">
+          <div class="text-center" >  
+
+          </div>   
+            <div class="media-image center " >
+              <img src="{{ stall.cover.url }}"alt="Image" class="img-fluid">
+            </div>
+          </div>
+        </div>  
+       <div class="row align-items-center justify-content-center">
         <div class="col-md-5 text-center" data-aos="fade">
           <h1 class="text-uppercase">
             {{ stall.name }}
           </h1>
           <span class="caption d-block text-white"><a href="#"></a></span>
         </div>
-      </div>
-    </div>  --> 
-    
-   <div class="site-section" data-aos="fade"> 
-   <div class="container">
-          <div class="row">    
-          <div class="col-md-12 col-lg-12 mb-5 text-center">
-            <span class="caption d-block mb-2 font-secondary font-weight-bold">Product Gallery</span>
-            <h2 class="site-section-heading text-uppercase text-center font-secondary">{{ stall.name }}</h2>
-          </div>
-        </div>  
-        <div class="row mb-5">
-          <div class="col-md-12 col-lg-12 mb-5 mx-auto">  
-            <div class="media-image">
-              <img src="{{ stall.cover.url }}"alt="Image" class="img-fluid">
-            </div>
-          </div>
+      </div> 
+    </div>    -->
+  <div class="site-section ">
+    <div class="container"> 
+      <div class="row ">
+        <div class="col-md-12 text-center">
+          <span class="caption d-block mb-2 font-secondary font-weight-bold">What Makes us Special?</span>
+          <!-- <h2 class="site-section-heading text-uppercase text-center font-secondary">What is Amaltas?</h2>
+ -->            <p>{{ stall.description }}</p>
         </div>
-    </div>
-    <!-- </div>
-    <div class="site-section "> -->
+      </div>
+     </div>
+  </div>      
+
+<hr />
+    <!-- </div>-->
+    <div class="site-section ">
       <div class="container">
 <!--         <div class="row mb-5">
           <div class="col-md-12 text-center" data-aos="fade">
@@ -49,18 +92,42 @@
             <h2 class="site-section-heading text-uppercase text-center font-secondary">{{ stall.name }}</h2>  
           </div>
         </div> -->
-        <div class="row">
 
-  {% for product in products %}     
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
-            <a href="{{ stall.name }}/{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="{{stall.name}}:{{ product.product_name }}" class="img-fluid"></a>
+      </div>
+        <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-5 text-center">
+            <!-- <h2 class="text-uppercase text-center font-secondary">{{ stall.name }}</h2> -->
+            <p class="caption d-block mb-2 font-secondary font-weight-bold">{{ stall.name }} Product Gallery</p>
+          </div>
+        </div>  
+        <div class="row">
+  {% for product in products %}
+        <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="">
+          <div class="card border border-success ml-1 mr-1"  >
+            <div class="embed-responsive embed-responsive-1by1 ">
+            <a href="{{ stall.name }}/{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="card-img-top embed-responsive-item" ></a>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title text-uppercase font-secondary">{{ product.product_name }}</h6>
+              <hr>
+              <div style="float:left;">
+              <p class="card-text" >{% if product.price == 0 %} {% else %}Price: &#8377;{{ product.price }}{% endif %}</p>
+              </div>
+              <div style="float:right;">
+              <a href="https://wa.me/{{ contactno }}?text=Hello%20I%20saw%20your%20product:{{ product.product_name }}%20on%20www.amaltas-exhibition.com.%20I%20would%20like%20to%20purchase%20it." class="btn btn-primary text-white"><i class="fa fa-whatsapp" style="font-size:24px"></i> ShopNow</a>
+              </div>
+            </div>
+          </div>
+        </div>         
+
+<!--           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
+            <a href="{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="img-fluid"></a>
             <div class="media-image-body">
-                <h4 class="font-secondary text-uppercase"><a href="{{ stall.name }}/{{ product.product_name }}"><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
+                <h4 class="font-secondary text-uppercase"><a href="{{ product.product_name }}"><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
             </div>    
-          </div>      
+          </div>    -->   
   {% endfor %} 
         </div>
-      </div>
     </div>
 
 
@@ -76,14 +143,15 @@
           <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
               <form action="#" class="search-form">
                 <div class="form-group">                
-                    <h4 class="lead">{{ stall.name }}</h4>
-                    <p>{{ stall.contact_stall }}</p>
+                    <h2 class="site-section-heading text-uppercase font-secondary mb-5">Contact {{ stall.name }} @ <span class="font-secondary" >{{ contactno }}</span></h2>   
+                    <h3 lead text-uppercase >Additional Contact details: <span>{{ stall.contact_stall }}</span></h3>
                 </div>
               </form>
           </div>
         </div>
       </div>
     </div> 
+ 
 
 {% endif %}
 {% endblock %}

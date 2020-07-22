@@ -86,14 +86,14 @@
         <div class="row mt-0 mb-0 row align-items-center justify-content-center" >
           <div class="col-md-12 col-lg-12 bor">
           <div class="text-center" >  
-            <!-- <h2 class="text-uppercase  mb-2 text-white font-weight-bold text-center font-secondary">{{ stall.name }}</h1> -->
-<!--           </div>   
+
+          </div>   
             <div class="media-image center " >
               <img src="{{ stall.cover.url }}"alt="Image" class="img-fluid">
             </div>
           </div>
-        </div>  -->
-<!--       <div class="row align-items-center justify-content-center">
+        </div>  
+       <div class="row align-items-center justify-content-center">
         <div class="col-md-5 text-center" data-aos="fade">
           <h1 class="text-uppercase">
             {{ stall.name }}
@@ -143,10 +143,10 @@
               <h6 class="card-title text-uppercase font-secondary">{{ product.product_name }}</h6>
               <hr>
               <div style="float:left;">
-              <p class="card-text" >{% if product.price == 0 %}Contact Stall {% else %}Price: &#8377;{{ product.price }}{% endif %}</p>
+              <p class="card-text" >{% if product.price == 0 %} {% else %}Price: &#8377;{{ product.price }}{% endif %}</p>
               </div>
               <div style="float:right;">
-              <a href="https://wa.me/{{ contactno }}?text=hello%20I%20saw%20your%20product:{{ product.product_name }}%20on%20www.amaltas-exhibition.com.%20I%20would%20like%20to%20purchase%20it." class="btn btn-primary text-white"><i class="fa fa-whatsapp" style="font-size:24px"></i> Order</a>
+              <a href="https://wa.me/{{ contactno }}?text=Hello%20I%20saw%20your%20product:{{ product.product_name }}%20on%20www.amaltas-exhibition.com.%20I%20would%20like%20to%20purchase%20it." class="btn btn-primary text-white"><i class="fa fa-whatsapp" style="font-size:24px"></i> ShopNow</a>
               </div>
             </div>
           </div>

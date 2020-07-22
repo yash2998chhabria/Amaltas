@@ -1,14 +1,24 @@
 from django.shortcuts import render
 from .models import stall_frame,stall_products,product_category,stall_city
 from home.models import MakeVisible
+from home.forms import EmailForm
 
 # Create your views here.
 def stalls(request):
 	stall= stall_frame.objects.all()
 	visibility = MakeVisible.objects.all()[0].start_exhibition
+	form = EmailForm(None)
+	message = ''
+	if request.method=='POST':
+		form = EmailForm(request.POST)
+		if form.is_valid():
+			form.save()
+			message = 'Thank you. We will send you updates soon'
 	context = {
 				'stalls': stall,
 				'visibility':visibility,
+				'message':message,
+				'form':form,
 				'categories':product_category.objects.all(),
 				'cities': stall_city.objects.all()				
 				}
