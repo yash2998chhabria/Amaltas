@@ -52,16 +52,23 @@
         <div class="row">
 
   {% for product in products %}     
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
-            <a href="{{ product.product_name }}" >
-               {% thumbnail product.product_image "480x360" crop="center" as im %}
-               <img src="{{ im.url }}"alt="Image" class="img-fluid">
-               {% endthumbnail %}
-            </a>
-            <div class="media-image-body">
-                <h4 class="font-secondary"><a href=""><span class="d-block mb-3">{{ product.product_name }}</span></a></h4>
-            </div>    
-          </div>      
+        <div class="col-md-6 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="">
+          <div class="card border border-success ml-1 mr-1"  >
+            <div class="embed-responsive embed-responsive-1by1 ">
+            <a href="{{ stall.name }}/{{ product.product_name }}" ><img src="{{ product.product_image.url }}" alt="Image" class="card-img-top embed-responsive-item" ></a>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title text-uppercase font-secondary">{{ product.product_name }}</h6>
+              <hr>
+              <div style="float:left;">
+              <p class="card-text" >{% if product.price == 0 %} {% else %}Price: &#8377;{{ product.price }}{% endif %}</p>
+              </div>
+              <div style="float:right;">
+              <a href="https://wa.me/{{ contactno }}?text=Hello%20I%20saw%20your%20product:{{ product.product_name }}%20on%20www.amaltas-exhibition.com.%20I%20would%20like%20to%20purchase%20it." class="btn btn-primary text-white"><i class="fa fa-whatsapp" style="font-size:24px"></i> ShopNow</a>
+              </div>
+            </div>
+          </div>
+        </div>        
   {% endfor %} 
         </div>
 
