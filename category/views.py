@@ -8,11 +8,13 @@ def categorize(request,name):
 	products = stall_products.objects.all()
 	stalls = stall_frame.objects.all()
 	prod_list = []
+	itproduct=False
 	for product in products:
 		if str(product.category) == str(name):
 			prod_list.append(product)
 		elif str(product.product_name) == str(name):
 			for stall in stalls:
+				itproduct = True
 				if str(product.stall_name)==str(stall.name):
 					prod={
 					'product': product,
@@ -23,7 +25,7 @@ def categorize(request,name):
 					'contactno': int(str(stall.contact_no)[1:])	
 					} 				
 					return render(request,"product_page.html",prod)
-	if	len(prod_list) !=0:				
+	if not itproduct:
 		prod_info ={
 			'products':prod_list,
 			'category':name,
