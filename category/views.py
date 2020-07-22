@@ -29,6 +29,7 @@ def categorize(request,name):
 			'visibility':visibility,
 			'categories':product_category.objects.all(),
 			'cities': stall_city.objects.all()
+			
 		}		
 		return render(request,'specific_category.html',prod_info)	
 
