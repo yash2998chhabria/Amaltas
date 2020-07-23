@@ -108,7 +108,7 @@ def editstallproduct(request,pk):
 
 @login_required(login_url='login')
 def createstallframe(request):
-	form = EditStallFrameForm()
+	form = EditStallFrameForm(None)
 	if request.method=='POST':
 		form = EditStallFrameForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -124,7 +124,7 @@ def createstallframe(request):
 
 @login_required(login_url='login')
 def createstallproduct(request,stallname):
-	form = EditStallProductsForm()
+	form = EditStallProductsForm(None)
 	if request.method=='POST':
 		form = EditStallProductsForm(request.POST, request.FILES)
 		if form.is_valid():
