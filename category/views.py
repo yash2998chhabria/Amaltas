@@ -11,7 +11,11 @@ def categorize(request,name):
 	itproduct=False
 	for product in products:
 		if str(product.category) == str(name):
-			prod_list.append(product)
+			for stall in stalls:
+				if str(product.stall_name)==str(stall.name):
+					if stall.stall_visible_on_website:
+						prod_list.append(product)	
+			#remeber to add the change
 		elif str(product.product_name) == str(name):
 			for stall in stalls:
 				itproduct = True

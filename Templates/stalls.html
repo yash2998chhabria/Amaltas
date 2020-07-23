@@ -108,23 +108,7 @@
           {% endif %}
           {% endfor %}
         </div>
-        {% endif %} 
-
-  
-        <div class="row justify-content-center">
-          <div class="col-md-12 text-center">
-            <span class="caption d-block mb-2 font-secondary font-weight-bold">Register to get Updates!</span>
-            <h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
-          </div>
-          <div class="col-md-6 text-center ">
-          <form action="" method="POST" class="p-5 bg-white" id="save_email">
-            <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ message }}</span> 
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" form="save_email" value="Submit" class="btn btn-primary text-white px-4 py-2">Register</button>
-            </form>
-          </div>  
-        </div>    
+        {% endif %}   
 
         {% if visibility %}
         <div class="row">    
@@ -159,6 +143,21 @@
         </div>
         {% endif %} 
 
+
+        <div class="row justify-content-center">
+          <div class="col-md-12 text-center">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">Register to get Updates!</span>
+            <h2 class="site-section-heading text-uppercase text-center font-secondary"></h2>
+          </div>
+          <div class="col-md-6 text-center ">
+          <form action="" method="POST" class="p-5 bg-white" id="save_email">
+            <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ message }}</span> 
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" form="save_email" value="Submit" class="btn btn-primary text-white px-4 py-2">Register</button>
+            </form>
+          </div>  
+        </div>  
 
 
         <div class="row mb-2">
