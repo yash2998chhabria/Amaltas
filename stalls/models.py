@@ -6,6 +6,7 @@ from PIL import Image
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
+
 # Create your models here.
 
 class product_category(models.Model):
@@ -45,9 +46,9 @@ class stall_frame(models.Model):
 	stall_visible_on_website = models.BooleanField(default=False,null=False) 
 
 	def save(self, *args, **kwargs):
-		new_image = compress(self.cover)
-		self.cover = new_image
-		super().save(*args, **kwargs)     
+		if self.cover:
+			self.cover = self.compress(self.cover)
+		super(stall_frame, self).save(*args, **kwargs)
 
 	def __str__(self):
 		return self.name
@@ -60,10 +61,11 @@ class stall_products(models.Model):
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE,default=1)
 
 	def save(self, *args, **kwargs):
-		new_image = compress(self.product_image)
-		self.product_image = new_image
-		super().save(*args, **kwargs)  
-		
+		if self.product_image:
+			self.product_image = self.compress(self.product_image)
+		super(stall_products, self).save(*args, **kwargs)
+
+
 	def __str__(self):
 			return self.product_name
 
