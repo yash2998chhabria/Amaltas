@@ -105,7 +105,7 @@ def editstallproduct(request,pk):
 			'form':form,
 			'heading':'Edit Your Product Information'
 	}
-	return render(request,"edit_stall.html",context)
+	return render(request,"edit_products.html",context)
 
 @login_required(login_url='login')
 def createstallframe(request):
@@ -115,7 +115,7 @@ def createstallframe(request):
 		form = EditStallFrameForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			stall_frame.objects.filter(stall_user=1).update(stall_user=request.user.id)
+			#stall_frame.objects.filter(stall_user=1).update(stall_user=request.user.id)
 			return redirect('login')
 	context = {
 				'stall':stall,
@@ -141,7 +141,7 @@ def createstallproduct(request,stallname):
 			'form':form,
 			'heading': 'Create Your Stall Product'
 			}
-	return render(request,"edit_stall.html",context)
+	return render(request,"edit_products.html",context)
 
 @login_required(login_url='login')
 def deletestallproduct(request,pk):

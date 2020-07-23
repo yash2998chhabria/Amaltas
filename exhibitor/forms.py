@@ -15,7 +15,7 @@ class EditStallFrameForm(forms.ModelForm):
 		'stall_visible_on_website'
 		]
 		widgets={
-				'stall_user': forms.HiddenInput(),
+				'stall_user': forms.TextInput({'id':'putstallname','value':'','type':'hidden'}),
 				#'stall_visible_on_website': forms.TextInput(attrs={'disabled': True})
 		}
 		help_texts = {
