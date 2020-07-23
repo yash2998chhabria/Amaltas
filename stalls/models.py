@@ -50,6 +50,15 @@ class stall_frame(models.Model):
 			self.cover = self.compress(self.cover)
 		super(stall_frame, self).save(*args, **kwargs)
 
+	def compress(self,image):
+		im = Image.open(image)
+		im = im.convert('RGB')
+		im_io = BytesIO() 
+		im.save(im_io, 'JPEG', quality=60)
+		im_io.seek(0)
+		new_image = InMemoryUploadedFile(im_io,'ImageField', "%s.jpg" % image.name.split('.')[0], 'image/jpeg', sys.getsizeof(im_io), None)
+		return new_image		
+
 	def __str__(self):
 		return self.name
 
@@ -64,6 +73,15 @@ class stall_products(models.Model):
 		if self.product_image:
 			self.product_image = self.compress(self.product_image)
 		super(stall_products, self).save(*args, **kwargs)
+
+	def compress(self,image):
+		im = Image.open(image)
+		im = im.convert('RGB')
+		im_io = BytesIO() 
+		im.save(im_io, 'JPEG', quality=60)
+		im_io.seek(0)
+		new_image = InMemoryUploadedFile(im_io,'ImageField', "%s.jpg" % image.name.split('.')[0], 'image/jpeg', sys.getsizeof(im_io), None)
+		return new_image		
 
 
 	def __str__(self):
