@@ -15,7 +15,6 @@ def categorize(request,name):
 				if str(product.stall_name)==str(stall.name):
 					if stall.stall_visible_on_website:
 						prod_list.append(product)	
-			#remeber to add the change
 		elif str(product.product_name) == str(name):
 			for stall in stalls:
 				itproduct = True
