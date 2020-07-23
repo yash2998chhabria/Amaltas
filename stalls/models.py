@@ -46,8 +46,7 @@ class stall_frame(models.Model):
 	stall_visible_on_website = models.BooleanField(default=False,null=False) 
 
 	def save(self, *args, **kwargs):
-		if self.cover:
-			self.cover = self.compress(self.cover)
+		self.cover = self.compress(self.cover)
 		super(stall_frame, self).save(*args, **kwargs)
 
 	def compress(self,image):
@@ -70,8 +69,7 @@ class stall_products(models.Model):
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE,default=1)
 
 	def save(self, *args, **kwargs):
-		if self.product_image:
-			self.product_image = self.compress(self.product_image)
+		self.product_image = self.compress(self.product_image)
 		super(stall_products, self).save(*args, **kwargs)
 
 	def compress(self,image):
