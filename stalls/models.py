@@ -38,7 +38,7 @@ class stall_frame(models.Model):
 	name = models.CharField(max_length=30,default="",null=False)
 	cover = models.ImageField(upload_to='coverimages',default="",null=False) 
 	description = models.CharField(max_length=300,default="",null=False)
-	contact_no = PhoneNumberField()
+	contact_no = PhoneNumberField(default="9999999999")
 	contact_stall = models.CharField(max_length=300,default="",null=False)
 	premium = models.BooleanField(default=False,null=False)
 	poweredby_stall = models.BooleanField(default=False,null=False)
