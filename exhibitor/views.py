@@ -75,7 +75,7 @@ def logoutuser(request):
 
 @login_required(login_url='login')
 def editstallframe(request):
-	stall = stall_frame.objects.get(stall_user=request.user.id)
+	frame = stall_frame.objects.get(stall_user=request.user.id)
 	form = EditStallFrameForm(instance=frame)
 	if request.method== 'POST':
 		form = EditStallFrameForm(request.POST, request.FILES, instance=frame)
@@ -83,7 +83,6 @@ def editstallframe(request):
 			form.save()
 			return redirect('login')		
 	context = {
-				'stall':stall,
 				'form':form,
 				'heading': 'Edit Your Stall Frame'
 			}	
@@ -110,7 +109,6 @@ def editstallproduct(request,pk):
 @login_required(login_url='login')
 def createstallframe(request):
 	form = EditStallFrameForm(None)
-	stall = stall_frame.objects.get(stall_user=request.user.id)
 	if request.method=='POST':
 		form = EditStallFrameForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -118,7 +116,6 @@ def createstallframe(request):
 			#stall_frame.objects.filter(stall_user=1).update(stall_user=request.user.id)
 			return redirect('login')
 	context = {
-				'stall':stall,
 				'form':form,
 				'heading': 'Create Your Stall Frame'
 			 }					
@@ -133,7 +130,7 @@ def createstallproduct(request,stallname):
 		if form.is_valid():
 			product_name = form.cleaned_data['product_name']
 			form.save()
-			frame = stall_frame.objects.filter(stall_user=request.user.id)
+			#frame = stall_frame.objects.filter(stall_user=request.user.id)
 			#stall_products.objects.filter(product_name=product_name).update(stall_name=frame[0].id)
 			return redirect('login')
 	context = {
