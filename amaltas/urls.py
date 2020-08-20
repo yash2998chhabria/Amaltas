@@ -27,6 +27,8 @@ urlpatterns = [
     path('contactus/',include('contactus.urls')), 
     path('makeadifference/',include('makeadifference.urls')),
     path('cities/',include('cities.urls')),
-    path('exhibitor/',include('exhibitor.urls'))
+    path('exhibitor/',include('exhibitor.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('api.urls')),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from io import BytesIO
 from PIL import Image
+from ckeditor.fields import RichTextField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
@@ -87,3 +88,7 @@ class stall_products(models.Model):
 	def __str__(self):
 			return self.product_name
 
+class Article(models.Model):
+	title = models.CharField(max_length=100)
+	snippet= models.CharField(max_length=200)
+	content = RichTextField(blank=True, null=True)
