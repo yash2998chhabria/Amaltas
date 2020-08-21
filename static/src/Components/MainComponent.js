@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
-import axios from 'axios';
-
-
-
-
+//import axios from 'axios';
 
 class Main extends Component {
     constructor(props) {
@@ -51,9 +47,20 @@ class Main extends Component {
     //     axios.get('http://127.0.0.1:8000/api/article/')
     //     .then(res => { this.setState({
     //         list: res.data
-    //     })
-    //     console.log(list)})
-    //
+    //     }) })
+    //     .catch(err => { this.setState({error: err})})
+    //     console.log(list)
+    // }
+    componentDidMount() {
+        fetch('http://127.0.0.1:8000/api/article/')
+        .then(res => res.json())
+        .then((data) => {
+          this.setState({ list : data })
+          console.log(this.state.list)
+        })
+        .catch(console.log)
+      }        
+    
 
     render() {
         const menu = this.state.dishes.map((dish) => {
