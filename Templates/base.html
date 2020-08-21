@@ -4,9 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
     {% block seohead %}    
     {% endblock %}
     
@@ -185,6 +183,6 @@
   <script src="{% static 'js/aos.js' %}"></script>
 
   <script src="{% static 'js/main.js' %}"></script>
-  <script type="text/babel" src="{% static 'react/src/Yms.js' %}"></script> 
+  <script src="{% static 'dist/app.bundle.js' %}"></script>
   </body>
 </html>
