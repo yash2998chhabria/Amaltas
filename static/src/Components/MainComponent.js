@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
 //import axios from 'axios';
+import { baseUrl } from '../shared/baseUrl';
 
 class Main extends Component {
     constructor(props) {
@@ -52,7 +53,7 @@ class Main extends Component {
     //     console.log(list)
     // }
     componentDidMount() {
-        fetch('http://127.0.0.1:8000/api/article/')
+        fetch(baseUrl + 'api/article/')
         .then(res => res.json())
         .then((data) => {
           this.setState({ list : data })
