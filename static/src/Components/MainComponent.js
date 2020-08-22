@@ -29,7 +29,7 @@ class Main extends Component {
                 {
                 "id": 1,
                 "title": "cncn",
-                "content": "<p>snc ns fnnnnd ndndd< em>ddd djndvndk dvllsv</em></p>"
+                "content": "<h1>snc ns fnnnnd ndndd ddd djndvndk dvllsv</em></h1>"
             },
             {
                 "id": 2,

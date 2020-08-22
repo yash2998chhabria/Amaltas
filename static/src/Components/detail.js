@@ -4,7 +4,7 @@ import { Card, CardImg, CardBody, CardText, CardTitle, } from 'reactstrap';
 
 
 
-function RenderBlog(blog) {
+function RenderBlog({blog}  ) {
   return (
     <div className="col-12 col-md-5 m-1" >
       <Card>
@@ -12,10 +12,11 @@ function RenderBlog(blog) {
         <CardImg top width="100%" src="" alt="Card image cap" />
         <CardBody>
           <CardTitle>{blog.title}</CardTitle>
-          {/* <CardText>{ReactHtmlParser(blog.content)}</CardText> */}
+          <CardText>{ReactHtmlParser(blog.content)}</CardText>
         </CardBody>
 
       </Card>
+      {/* {ReactHtmlParser(blog.content)} */}
     </div>
   )
 }
@@ -24,7 +25,7 @@ function RenderBlog(blog) {
 
 
 const BlogDetail = (props) => {
-  // console.log(props.blog)
+  console.log(props.blog)
 
 
   return (
