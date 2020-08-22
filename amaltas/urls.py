@@ -14,21 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('home.urls')),
-    path('accounts/',include('accounts.urls')),
-    path('stalls/',include('stalls.urls')),
-    path('categories/',include('category.urls')),
-    path('contactus/',include('contactus.urls')), 
-    path('makeadifference/',include('makeadifference.urls')),
-    path('cities/',include('cities.urls')),
-    path('exhibitor/',include('exhibitor.urls')),
+    path('', include('home.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('stalls/', include('stalls.urls')),
+    path('categories/', include('category.urls')),
+    path('contactus/', include('contactus.urls')),
+    path('makeadifference/', include('makeadifference.urls')),
+    path('cities/', include('cities.urls')),
+    path('exhibitor/', include('exhibitor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
+    re_path(r'^(?:.*)/?$', TemplateView.as_view(template_name="index.html"))
+
 ]
-urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+urlpatterns = urlpatterns + \
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
