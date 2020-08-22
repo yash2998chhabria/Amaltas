@@ -8,6 +8,7 @@ import { Loading } from './LoadingComponent';
 import BlogList from './list'
 import BlogDetail from './detail'
 import { Switch, Route,  withRouter } from "react-router-dom";
+import Home from './HomeComponent';
 
 const mapStateToProps = state => {
     return {
@@ -111,23 +112,12 @@ class Main extends Component {
     // }
     render() {
         // const { data } = this.state;
-        const menu = () => {
-             this.props.dishes.dishes.map((dish) => {
-            return (
-              <div key={dish.id} className="col-12 mt-5">
-                <Media tag="li">
-                  <Media left middle>
-                      <Media object src={dish.image} alt={dish.name} />
-                  </Media>
-                  <Media body className="ml-5">
-                    <Media heading>{dish.name}</Media>
-                    <p>{dish.description}</p>
-                  </Media>
-                </Media>
-              </div>
+        const HomePage = () => {
+            return(
+                <Home 
+                />
             );
-        });        
-    }
+          }
 
         const BlogPage = () => {
             return (
@@ -157,9 +147,9 @@ class Main extends Component {
 
                 <Switch>
 
-                    <Route path='' component={BlogPage} />
+                    <Route exact path='/' component={BlogPage} />
                     <Route exact path='/blog/:blogId' component={BlogDetailPage} />
-                    <Route path='/menu' component={menu} />
+                    <Route exact path='/home' component={HomePage} />
 
                 </Switch>
 
