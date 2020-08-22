@@ -3,12 +3,19 @@ import { Media } from 'reactstrap';
 //import axios from 'axios';
 import { baseUrl } from '../shared/baseUrl';
 import { connect } from 'react-redux';
+import { fetchDishes } from '../redux/ActionCreators';
+import { Loading } from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
-      dishes: state.dishes,
+        dishes: state.dishes,
     }
   }
+  const mapDispatchToProps = dispatch => ({
+  
+    fetchDishes: () => { dispatch(fetchDishes()) }
+  
+  });
 
 class Main extends Component {
     constructor(props) {
@@ -26,18 +33,20 @@ class Main extends Component {
     //     console.log(list)
     // }
     componentDidMount() {
-        fetch(baseUrl + 'api/article/')
-        .then(res => res.json())
-        .then((data) => {
-          this.setState({ list : data })
-          console.log(this.state.list)
-        })
-        .catch(console.log)
+        this.props.fetchDishes();
+        console.log(this.props);
+        // fetch(baseUrl + 'api/article/')
+        // .then(res => res.json())
+        // .then((data) => {
+        //   this.setState({ list : data })
+        //   console.log(this.state.list)
+        // })
+        // .catch(console.log)
       }        
     
 
     render() {
-        const menu = this.props.dishes.map((dish) => {
+        const menu = this.props.dishes.dishes.map((dish) => {
             return (
               <div key={dish.id} className="col-12 mt-5">
                 <Media tag="li">
@@ -53,9 +62,28 @@ class Main extends Component {
             );
         });
 
+        // if (this.props.dishes.isLoading) {
+        //     return (
+        //       <div className="container">
+        //         <div className="row">
+        //           <Loading />
+        //         </div>
+        //       </div>
+        //     );
+        //   } else if (this.props.dishes.errMess) {
+        //     return (
+        //       <div className="container">
+        //         <div className="row">
+        //           <div className="col-12">
+        //             <h4>{props.dishes.errMess}</h4>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     );
+        //   } else      
         return (
           <div className="container">
-            <div className="row">
+            <div className="row">                
               <Media list>
                   {menu}
               </Media>
@@ -65,4 +93,7 @@ class Main extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Main);
+export default   connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Main);
