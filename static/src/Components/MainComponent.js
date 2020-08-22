@@ -137,8 +137,10 @@ class Main extends Component {
                 <BlogDetail 
                     blog={this.props.dishes.dishes.filter(
                     blog => blog.id === parseInt(match.params.blogId, 10)
-                    )[0]
-                } 
+                    )[0]}
+                    blogLoading={this.props.dishes.isLoading}
+                    blogErrMess={this.props.dishes.errMess}
+                
                 />
 
 

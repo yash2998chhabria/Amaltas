@@ -11,7 +11,6 @@ function RenderStall({ blog }) {
           <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
           <CardBody>
             <CardTitle>{blog.id}</CardTitle>
-
             <CardText>{blog.content}</CardText>
             <Button>Visit</Button>
           </CardBody>
