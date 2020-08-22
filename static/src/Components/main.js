@@ -1,11 +1,11 @@
-import React from 'react'
+import React , { Component } from 'react'
 import Axios from 'axios'
 import BlogList from './list'
 import BlogDetail from './detail'
 import { Switch, Route } from 'react-router-dom';
 
 
-class Main extends React.Component {
+class Mainfake extends Component {
 
     constructor(props) {
         super(props);
@@ -74,4 +74,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+export default Mainfake;

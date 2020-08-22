@@ -5,6 +5,9 @@ import { baseUrl } from '../shared/baseUrl';
 import { connect } from 'react-redux';
 import { fetchDishes } from '../redux/ActionCreators';
 import { Loading } from './LoadingComponent';
+import BlogList from './list'
+import BlogDetail from './detail'
+import { Switch, Route,  withRouter } from "react-router-dom";
 
 const mapStateToProps = state => {
     return {
@@ -21,7 +24,23 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list : [],
+            data: [
+                {
+                "id": 1,
+                "title": "cncn",
+                "content": "<p>snc ns fnnnnd ndndd< em>ddd djndvndk dvllsv</em></p>"
+            },
+            {
+                "id": 2,
+                "title": "hsvhufshufuz",
+                "content": "snvjsnjs"
+            },
+            {
+                "id": 3,
+                "title": "hsvhufshufuz",
+                "content": "snvjsnjs"
+            }],
+            
         }
     }   
     // componentDidMount() {
@@ -34,7 +53,6 @@ class Main extends Component {
     // }
     componentDidMount() {
         this.props.fetchDishes();
-        console.log(this.props);
         // fetch(baseUrl + 'api/article/')
         // .then(res => res.json())
         // .then((data) => {
@@ -45,8 +63,56 @@ class Main extends Component {
       }        
     
 
+    // render() {
+    //     const menu = this.props.dishes.dishes.map((dish) => {
+    //         return (
+    //           <div key={dish.id} className="col-12 mt-5">
+    //             <Media tag="li">
+    //               <Media left middle>
+    //                   <Media object src={dish.image} alt={dish.name} />
+    //               </Media>
+    //               <Media body className="ml-5">
+    //                 <Media heading>{dish.name}</Media>
+    //                 <p>{dish.description}</p>
+    //               </Media>
+    //             </Media>
+    //           </div>
+    //         );
+    //     });
+
+    //     if (this.props.dishes.isLoading) {
+    //         return (
+    //           <div className="container">
+    //             <div className="row">
+    //               <Loading />
+    //             </div>
+    //           </div>
+    //         );
+    //       } else if (this.props.dishes.errMess) {
+    //         return (
+    //           <div className="container">
+    //             <div className="row">
+    //               <div className="col-12">
+    //                 <h4>{props.dishes.errMess}</h4>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         );
+    //       } else      
+    //     return (
+    //       <div className="container">
+    //         <div className="row">                
+    //           <Media list>
+    //               {menu}
+    //           </Media>
+    //         </div>
+    //       </div>
+    //     );
+    // }
     render() {
-        const menu = this.props.dishes.dishes.map((dish) => {
+        // const { data } = this.state;
+        const menu = () => {
+             this.props.dishes.dishes.map((dish) => {
             return (
               <div key={dish.id} className="col-12 mt-5">
                 <Media tag="li">
@@ -60,40 +126,52 @@ class Main extends Component {
                 </Media>
               </div>
             );
-        });
-
-        // if (this.props.dishes.isLoading) {
-        //     return (
-        //       <div className="container">
-        //         <div className="row">
-        //           <Loading />
-        //         </div>
-        //       </div>
-        //     );
-        //   } else if (this.props.dishes.errMess) {
-        //     return (
-        //       <div className="container">
-        //         <div className="row">
-        //           <div className="col-12">
-        //             <h4>{props.dishes.errMess}</h4>
-        //           </div>
-        //         </div>
-        //       </div>
-        //     );
-        //   } else      
-        return (
-          <div className="container">
-            <div className="row">                
-              <Media list>
-                  {menu}
-              </Media>
-            </div>
-          </div>
-        );
+        });        
     }
+
+        const BlogPage = () => {
+            return (
+                <BlogList blogs={this.state.data}
+                />
+            );
+        }
+
+        const BlogDetailPage = ({ match }) => {
+            // const z = parseInt(match.params.blogId, 10);
+            // console.log(z);
+            return (
+
+                <BlogDetail blog={this.state.data.filter(
+                    blog => blog.id === parseInt(match.params.blogId, 10)
+                    )[0]
+                } 
+                />
+
+
+            );
+
+
+        }
+        return (
+            <div>
+
+                <Switch>
+
+                    <Route path='' component={BlogPage} />
+                    <Route exact path='/blog/:blogId' component={BlogDetailPage} />
+                    <Route path='/menu' component={menu} />
+
+                </Switch>
+
+            </div>
+
+        );
+    }    
 }
 
-export default   connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Main);
+export default withRouter(
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(Main)
+  );
