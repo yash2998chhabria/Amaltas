@@ -31,7 +31,8 @@ urlpatterns = [
     path('exhibitor/', include('exhibitor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
-    re_path(r'^(?:.*)/?$', TemplateView.as_view(template_name="index.html"))
+    re_path(r'^(?:.*)/?$', TemplateView.as_view(template_name="index.html")),
+    path('ckeditor',include('ckeditor_uploader.urls'),)
 
 ]
 urlpatterns = urlpatterns + \
