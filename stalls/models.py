@@ -89,6 +89,6 @@ class stall_products(models.Model):
 			return self.product_name
 
 class Article(models.Model):
-	title = models.CharField(max_length=100)
-	snippet= models.CharField(max_length=200)
+	title = models.CharField(max_length=80)
+	snippet= models.CharField(max_length=80)
 	content = RichTextField(blank=True, null=True)
