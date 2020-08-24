@@ -26,7 +26,6 @@ pathspec==0.5.9
 phonenumbers==8.12.6
 Pillow==7.1.2
 psycopg2==2.8.5
-pypiwin32==223
 python-dateutil==2.8.0
 python-memcached==1.59
 python-resize-image==1.1.19
