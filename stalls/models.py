@@ -6,6 +6,7 @@ from PIL import Image
 from ckeditor.fields import RichTextField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 # Create your models here.
@@ -91,7 +92,7 @@ class stall_products(models.Model):
 class Article(models.Model):
 	title = models.CharField(max_length=80)
 	snippet= models.CharField(max_length=80)
-	content = RichTextField(blank=True, null=True)
+	content = RichTextUploadingField(blank=True, null=True)
 	featured = models.BooleanField(default=False)
 	date = models.DateTimeField(auto_now_add=True)
 
