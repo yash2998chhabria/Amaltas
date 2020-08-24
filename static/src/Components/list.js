@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Card, CardImg, CardBody, CardText, CardTitle, Button } from 'reactstrap';
-import { Link } from 'react-router-dom'
-import { Loading } from '../Components/LoadingComponent'
+import { Link } from 'react-router-dom';
+import { Loading } from '../Components/LoadingComponent';
 
 function RenderStall({ blog }) {
   return (
