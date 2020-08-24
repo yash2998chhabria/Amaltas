@@ -12,7 +12,7 @@ import Home from './HomeComponent';
 
 const mapStateToProps = state => {
     return {
-        dishes: state.dishes,
+        dishes : state.dishes,
     }
   }
   const mapDispatchToProps = dispatch => ({
@@ -25,22 +25,22 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
-                {
-                "id": 1,
-                "title": "cncn",
-                "content": "<h1>snc ns fnnnnd ndndd ddd djndvndk dvllsv</em></h1>"
-            },
-            {
-                "id": 2,
-                "title": "hsvhufshufuz",
-                "content": "snvjsnjs"
-            },
-            {
-                "id": 3,
-                "title": "hsvhufshufuz",
-                "content": "snvjsnjs"
-            }],
+            // data: [
+            //     {
+            //     "id": 1,
+            //     "title": "cncn",
+            //     "content": "<p>snc ns fnnnnd ndndd< em>ddd djndvndk dvllsv</em></p>"
+            // },
+            // {
+            //     "id": 2,
+            //     "title": "hsvhufshufuz",
+            //     "content": "snvjsnjs"
+            // },
+            // {
+            //     "id": 3,
+            //     "title": "hsvhufshufuz",
+            //     "content": "snvjsnjs"
+            // }],
             
         }
     }   
@@ -121,7 +121,10 @@ class Main extends Component {
 
         const BlogPage = () => {
             return (
-                <BlogList blogs={this.state.data}
+                <BlogList
+                blogs={this.props.dishes.dishes}
+                blogLoading={this.props.dishes.isLoading}
+                blogErrMess={this.props.dishes.errMess}
                 />
             );
         }
@@ -131,10 +134,13 @@ class Main extends Component {
             // console.log(z);
             return (
 
-                <BlogDetail blog={this.state.data.filter(
+                <BlogDetail 
+                    blog={this.props.dishes.dishes.filter(
                     blog => blog.id === parseInt(match.params.blogId, 10)
-                    )[0]
-                } 
+                    )[0]}
+                    blogLoading={this.props.dishes.isLoading}
+                    blogErrMess={this.props.dishes.errMess}
+                
                 />
 
 
