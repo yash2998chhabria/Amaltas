@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from stalls import views
+from django.conf.urls import url
+from home import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
@@ -32,8 +33,9 @@ urlpatterns = [
     path('exhibitor/', include('exhibitor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
-    re_path(r'^(?:.*)/?$', TemplateView.as_view(template_name="index.html")),
-    path('ckeditor',include('ckeditor_uploader.urls'),)
+    # re_path(r'^(?:.*)/?$', TemplateView.as_view(template_name="index.html")),
+    url(r'^(?:.*)/?$', views.index),
+    path('ckeditor',include('ckeditor_uploader.urls'))
 
 ]
 urlpatterns = urlpatterns + \

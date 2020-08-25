@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'optf)0s1+r2go3bxsd4fg1-1)$23k8%$v4mkh&y@ysu5x8m!t+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['www.amaltas-exhibition.com']
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['www.amaltas-exhibition.com']
 
 
 # Application definition
@@ -54,9 +54,11 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'corsheaders',
-
 ]
-CKEDITOR_UPLOAD_PATH="upload/"
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+
 
 MIDDLEWARE = [
     'django_user_agents.middleware.UserAgentMiddleware',
@@ -178,3 +180,4 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
