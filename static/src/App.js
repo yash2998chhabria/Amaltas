@@ -8,18 +8,18 @@ import { BrowserRouter } from 'react-router-dom';
 const store = ConfigureStore();
 
 class App extends Component {
-    render(){
-        return(
+    render() {
+        return (
             <Provider store={store}>
-            <BrowserRouter>    
-            <div>
-            <h1>This is JSX. LETS FUCK SHIT UP</h1>
-            <Main />
-            </div>
-            </BrowserRouter>
+                <BrowserRouter>
+                    <div>
+                        <h1 style={{ textAlign: "center", marginTop: "30px" }}>Blog</h1>
+                        <Main />
+                    </div>
+                </BrowserRouter>
             </Provider>
         );
-    }    
+    }
 }
 
 export default App;
