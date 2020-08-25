@@ -56,8 +56,8 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
-
+SITE_ID = 1
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
 
 MIDDLEWARE = [
@@ -156,7 +156,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR,"media")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
+CKEDITOR_UPLOAD_PATH = "uploads/"
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',

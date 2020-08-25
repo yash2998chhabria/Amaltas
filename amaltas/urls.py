@@ -16,14 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls import url
-from home import views
+from stalls import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
+    path('ckeditor/',include('ckeditor_uploader.urls')),
     path('accounts/', include('accounts.urls')),
     path('stalls/', include('stalls.urls')),
     path('categories/', include('category.urls')),
@@ -34,8 +36,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
     # re_path(r'^(?:.*)/?$', TemplateView.as_view(template_name="index.html")),
-    url(r'^(?:.*)/?$', views.index),
-    path('ckeditor',include('ckeditor_uploader.urls'))
+    # url(r'^(?:.*)/?$', views.index),
+   
 
 ]
 urlpatterns = urlpatterns + \
