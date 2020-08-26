@@ -17,10 +17,12 @@ def index(request):
     check_categories = []
     message = ''
     form = ContactForm(None)
+    '''
     for product in products:
         if (product.category not in check_categories):
             check_categories.append(product.category)
             present_categories.append(product)
+    '''        
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -28,7 +30,7 @@ def index(request):
             message = 'Thank you for the message. We will get in touch with you soon'
     index_info = {
         'stalls': stalls,
-        'present_categories': present_categories,
+        #'present_categories': present_categories,
         'message': message,
         'form': form,
         'visibility': visibility,
