@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def reactor(request):
-    return render(request, "index.html")
+    return render(request, "blog.html")

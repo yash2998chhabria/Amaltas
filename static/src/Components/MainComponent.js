@@ -162,7 +162,7 @@ class Main extends Component {
             <div>
                 <Switch>
 
-                    <Route exact path='/' component={BlogPage} />
+                    <Route exact path='/blog/' component={BlogPage} />
                     <Route exact path='/blog/:blogId' component={BlogDetailPage} />
                     <Route exact path='/home' component={HomePage} />
 

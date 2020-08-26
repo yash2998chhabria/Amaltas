@@ -5,7 +5,7 @@ export const Loading = () => {
 
         <div className="load" style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
             <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-            <p style={{ marginTop: "20px", marginLeft: "5px" }}>Loading . . .</p>
+            <p style={{ marginTop: "20px", marginLeft: "5px" }}></p>
 
         </div>
     );
