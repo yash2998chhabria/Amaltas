@@ -13,7 +13,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: [/\.js$/],
+                test: /\.js$/,
 
                 exclude: /node_modules/,
                 use: [
@@ -22,9 +22,9 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             presets: ['@babel/react']
-                        },
+                        }
 
-                    },
+                    }
 
                 ]
             }

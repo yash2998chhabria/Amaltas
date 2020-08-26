@@ -2,9 +2,11 @@ import React from 'react';
 
 export const Loading = () => {
     return (
-        <div className="col align-self-center">
-            <span className="fa fa-spinner fa-pulse fa-3x fa-fw text-primary"></span>
-            <p>Loading . . .</p>
+
+        <div className="load" style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <p style={{ marginTop: "20px", marginLeft: "5px" }}>Loading . . .</p>
+
         </div>
     );
 };

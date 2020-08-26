@@ -7,19 +7,21 @@ import { fetchDishes } from '../redux/ActionCreators';
 import { Loading } from './LoadingComponent';
 import BlogList from './list'
 import BlogDetail from './detail'
-import { Switch, Route,  withRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import Home from './HomeComponent';
+import FeatBlog from './featuredBlog';
+
 
 const mapStateToProps = state => {
     return {
-        dishes : state.dishes,
+        dishes: state.dishes,
     }
-  }
-  const mapDispatchToProps = dispatch => ({
-  
+}
+const mapDispatchToProps = dispatch => ({
+
     fetchDishes: () => { dispatch(fetchDishes()) }
-  
-  });
+
+});
 
 class Main extends Component {
     constructor(props) {
@@ -41,9 +43,9 @@ class Main extends Component {
             //     "title": "hsvhufshufuz",
             //     "content": "snvjsnjs"
             // }],
-            
+
         }
-    }   
+    }
     // componentDidMount() {
     //     axios.get('http://127.0.0.1:8000/api/article/')
     //     .then(res => { this.setState({
@@ -61,8 +63,8 @@ class Main extends Component {
         //   console.log(this.state.list)
         // })
         // .catch(console.log)
-      }        
-    
+    }
+
 
     // render() {
     //     const menu = this.props.dishes.dishes.map((dish) => {
@@ -113,44 +115,52 @@ class Main extends Component {
     render() {
         // const { data } = this.state;
         const HomePage = () => {
-            return(
-                <Home 
+            return (
+                <Home
                 />
             );
-          }
+        }
 
         const BlogPage = () => {
             return (
                 <BlogList
-                blogs={this.props.dishes.dishes}
-                blogLoading={this.props.dishes.isLoading}
-                blogErrMess={this.props.dishes.errMess}
+                    blogs={this.props.dishes.dishes}
+                    blogLoading={this.props.dishes.isLoading}
+                    blogErrMess={this.props.dishes.errMess}
                 />
             );
         }
+
+
+
 
         const BlogDetailPage = ({ match }) => {
             // const z = parseInt(match.params.blogId, 10);
             // console.log(z);
             return (
+                <div>
 
-                <BlogDetail 
-                    blog={this.props.dishes.dishes.filter(
-                    blog => blog.id === parseInt(match.params.blogId, 10)
-                    )[0]}
-                    blogLoading={this.props.dishes.isLoading}
-                    blogErrMess={this.props.dishes.errMess}
-                
-                />
+                    <BlogDetail
+                        blog={this.props.dishes.dishes.filter(
+                            blog => blog.id === parseInt(match.params.blogId, 10)
+                        )[0]}
+                        blogLoading={this.props.dishes.isLoading}
+                        blogErrMess={this.props.dishes.errMess}
 
+                    />
+                </div>
 
             );
 
 
         }
+
+
+
+
         return (
             <div>
-
+                <FeatBlog dishes={this.props.dishes.dishes.filter((data) => data.id === 6)[0]} />
                 <Switch>
 
                     <Route exact path='/' component={BlogPage} />
@@ -162,12 +172,12 @@ class Main extends Component {
             </div>
 
         );
-    }    
+    }
 }
 
 export default withRouter(
     connect(
-      mapStateToProps,
-      mapDispatchToProps
+        mapStateToProps,
+        mapDispatchToProps
     )(Main)
-  );
+);

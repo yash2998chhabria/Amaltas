@@ -4,49 +4,65 @@ import { Link } from 'react-router-dom'
 import { Loading } from '../Components/LoadingComponent'
 
 
+
+
 function RenderStall({ blog }) {
   return (
-    <div>
 
+    <div>
       <Link to={`/blog/${blog.id}`}>
 
         <div className="blog">
           <img src={"https://learnwebcode.github.io/json-example/images/cat-2.jpg"} alt="img" />
-          <div className="desc" style={{ marginTop: "20px" }}>
+          <div className="desc" style={{ marginTop: "2px" }}>
+            <h6 style={{ fontSize: "15px" }}>26/07/1999</h6>
+            <h6 style={{ textDecoration: "none", fontSize: "17px" }}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pr</h6>
 
-            <h6 style={{ textDecoration: "none", fontSize: "17px" }}>Lorem ipsum dolor!</h6>
-
-            <h6 style={{ color: "black", fontSize: "22px", fontWeight: "normal" }}>Lorem ipsum, dolor sit amet coectetur ingit.?</h6>
-            <h6 style={{ fontStyle: "italic", marginTop: "15px" }}>Author</h6><h6 style={{ fontSize: "15px" }}>26/07/1999</h6>
+            <h6 style={{ color: "black", fontSize: "22px", fontWeight: "normal" }}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident quia perferendis</h6>
+            <h6 style={{ fontStyle: "italic", marginTop: "15px" }}>Author</h6>
           </div>
         </div>
-      </Link>
 
+      </Link>
     </div>
-  );
+
+
+
+
+  )
 
 }
 
 
 const BlogList = (props) => {
+  // const FeatB = props.blogs.filter((data) => {
+  //   data.id === 6; return (
+  //     <div></div>
+  //   )
+  // })[0];
 
+
+  console.log(props);
   const blogss = props.blogs.map((blog) => {
+
     return (
-      <div key={blog.id}>
-        <RenderStall blog={blog} />
+      <div>
+
+        <div key={blog.id}>
+          <RenderStall blog={blog} />
+        </div>
+
       </div>
     );
   });
 
+
+
   if (props.blogLoading) {
     return (
-      <div className="container">
-        <div className="row">
 
-          <Loading />
+      <Loading />
 
-        </div>
-      </div>
     );
   } else if (props.blogErrMess) {
     return (
@@ -58,15 +74,21 @@ const BlogList = (props) => {
         </div>
       </div>
     );
-  } else
+  }
+
+  else
     return (
 
 
       <div className="cont">
+        {/* {FeatB} */}
         {blogss}
       </div>
 
     )
+
 }
+
+
 
 export default BlogList
