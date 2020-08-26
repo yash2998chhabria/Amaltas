@@ -1,0 +1,11 @@
+.filterDiv {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
+
+  #buttoncate {
+  margin-top: 10px;
+  }
