@@ -13,7 +13,7 @@ class App extends Component {
             <Provider store={store}>
                 <BrowserRouter>
                     <div>
-                        <h1 style={{ textAlign: "center", marginTop: "30px" }}>BlogF</h1>
+                        {/* <h1 style={{ textAlign: "center", marginTop: "30px" }}>Blog</h1> */}
                         <Main />
                     </div>
                 </BrowserRouter>
