@@ -3,7 +3,16 @@ import ReactHtmlParser from 'html-react-parser';
 import { Card, CardImg, CardBody, CardText, CardTitle, } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 
-
+const blohim = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+}
+const intim = {
+  height: "210px",
+  width: "240px",
+  margin: "5px",
+}
 function RenderBlog({ blog }) {
   return (
     <div>
@@ -18,8 +27,8 @@ function RenderBlog({ blog }) {
             <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>Author</h6>
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <img src={blog.blogimg} alt="img" />
+        <div style={blohim}>
+          <img src={blog.blogimg} style={intim} alt="img" />
         </div>
       </div>
 

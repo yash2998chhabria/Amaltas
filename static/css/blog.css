@@ -24,12 +24,13 @@
 .desc2{
     margin-left: 60px;
 }
-img{
+.blog img{
     height: 140px;
     width: 160px;
     margin: 5px;
     /* border-radius: 15px; */
 }
+
 .imb img{
     width: 475px;
     height: 400px;
