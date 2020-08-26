@@ -19,7 +19,7 @@ function RFeat({ blog }) {
                       </div>
                   </div>
                   <div class="imb">
-                      <img src={"https://learnwebcode.github.io/json-example/images/cat-2.jpg"} alt="img" />
+                      <img src={blog.blogimg} alt="img" />
                   </div>
               </div>
           </Link>
@@ -30,13 +30,15 @@ function RFeat({ blog }) {
 
 
 function RenderStall({ blog }) {
+  
   return (
-
+    
     <div>
       <Link to={`/blog/${blog.id}`}>
 
         <div className="blog">
-          <img src={"https://learnwebcode.github.io/json-example/images/cat-2.jpg"} alt="img" />
+          <img src={blog.blogimg} alt="img" />
+         
           <div className="desc" style={{ marginTop: "2px" }}>
             <h6 style={{ fontSize: "15px" }}>{blog.date}</h6>
   <h6 style={{ textDecoration: "none", fontSize: "17px" }}>{blog.title}</h6>
@@ -65,20 +67,18 @@ const BlogList = (props) => {
   // })[0];
 
   const feat = props.blogs.map((blog) => {
-
+    if(blog.featured){
     return (
       
 
         <div key={blog.id}>
-          { blog.featured?
+          
           <div> <RFeat blog={blog} /></div>
-          :
-          <br/>
-         }
+         
         </div>
 
       
-    );
+    );}
   });
   console.log(props);
   const blogss = props.blogs.map((blog) => {

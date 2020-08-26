@@ -7,8 +7,11 @@ import { Loading } from './LoadingComponent';
 function RenderBlog({ blog }) {
   return (
     <div>
+      {/* class="imb" */}
 
-
+                  
+                      <img src={blog.blogimg} alt="img" />
+                  
 
       <div className="written">
         {/* <p>{blog.content}</p> */}
