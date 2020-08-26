@@ -160,7 +160,6 @@ class Main extends Component {
 
         return (
             <div>
-                <FeatBlog dishes={this.props.dishes.dishes.filter((data) => data.id === 6)[0]} />
                 <Switch>
 
                     <Route exact path='/' component={BlogPage} />

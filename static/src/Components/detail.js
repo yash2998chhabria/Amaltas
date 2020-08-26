@@ -11,11 +11,8 @@ function RenderBlog({ blog }) {
 
 
       <div className="written">
-        <p>{blog.content}
-
-          <h6 style={{ fontSize: "35px", color: "black" }}>Why digital advertising is so important</h6>
-
-          {blog.content} </p>
+        {/* <p>{blog.content}</p> */}
+       { ReactHtmlParser(blog.content)}
       </div>
     </div>
   )
