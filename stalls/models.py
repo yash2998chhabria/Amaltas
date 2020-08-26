@@ -95,7 +95,7 @@ class Article(models.Model):
 	snippet= models.CharField(max_length=80)
 	content = RichTextUploadingField()
 	featured = models.BooleanField(default=False)
-	date = models.DateTimeField(auto_now_add=True)
+	date = models.DateField(auto_now_add=True)
 	author = models.CharField(max_length=20,default="")
 	blogimg=models.ImageField(upload_to='blogimgs',default="",null=False) 
 
