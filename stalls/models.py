@@ -11,6 +11,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
+#has been changed to stall category
 class product_category(models.Model):
 	categories = models.CharField(max_length=30,default="",null=False)
 	def __str__(self):
@@ -45,7 +46,8 @@ class stall_frame(models.Model):
 	premium = models.BooleanField(default=False,null=False)
 	poweredby_stall = models.BooleanField(default=False,null=False)
 	city = models.ForeignKey(stall_city,on_delete=models.CASCADE,default =1)
-	stall_visible_on_website = models.BooleanField(default=False,null=False) 
+	stall_visible_on_website = models.BooleanField(default=False,null=False)
+	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1) 
 
 	def save(self, *args, **kwargs):
 		if not self.id:
@@ -68,7 +70,6 @@ class stall_products(models.Model):
 	product_name = models.CharField(max_length=50,default="",null=False)
 	price = models.IntegerField(default = 0,null=False)
 	product_image = models.ImageField(upload_to='products_images',default="",null=False)
-	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1)
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE,default=1)
 
 	def save(self, *args, **kwargs):

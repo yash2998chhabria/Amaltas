@@ -9,6 +9,7 @@ class EditStallFrameForm(forms.ModelForm):
 		'name',
 		'cover',
 		'description',
+		'category',
 		'contact_no',
 		'contact_stall',
 		'city',
@@ -34,7 +35,6 @@ class EditStallProductsForm(forms.ModelForm):
 		'product_name',
 		'price',
 		'product_image',
-		'category',
 		'stall_name'
 				]
 		widgets = {

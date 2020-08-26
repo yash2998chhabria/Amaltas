@@ -50,3 +50,12 @@
         width: 50%
     }    
   }
+
+  /* css for pills */
+  .filterDiv {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
