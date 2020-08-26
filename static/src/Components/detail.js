@@ -29,11 +29,9 @@ const BlogDetail = (props) => {
 
   if (props.blogLoading) {
     return (
-      <div className="container">
-        <div className="row">
-          <Loading />
-        </div>
-      </div>
+
+      <Loading />
+
     );
   } else if (props.blogErrMess) {
     return (
