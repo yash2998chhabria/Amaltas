@@ -92,7 +92,7 @@ class stall_products(models.Model):
 class Article(models.Model):
 	title = models.CharField(max_length=80)
 	snippet= models.CharField(max_length=80)
-	content = RichTextUploadingField(blank=True, null=True)
+	content = RichTextUploadingField()
 	featured = models.BooleanField(default=False)
 	date = models.DateTimeField(auto_now_add=True)
 

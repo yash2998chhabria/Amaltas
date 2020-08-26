@@ -35,10 +35,10 @@ urlpatterns = [
     path('exhibitor/', include('exhibitor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
-    # re_path(r'^(?:.*)/?$', TemplateView.as_view(template_name="index.html")),
-    # url(r'^(?:.*)/?$', views.index),
+    re_path(r'.*', include('reactend.urls')),
+    url(r'^(?:.*)/?$',TemplateView.as_view(template_name="index.html")),
    
-
 ]
 urlpatterns = urlpatterns + \
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
