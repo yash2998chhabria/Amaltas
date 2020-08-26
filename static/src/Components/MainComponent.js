@@ -9,7 +9,7 @@ import BlogList from './list'
 import BlogDetail from './detail'
 import { Switch, Route, withRouter } from "react-router-dom";
 import Home from './HomeComponent';
-import FeatBlog from './featuredBlog';
+
 
 
 const mapStateToProps = state => {

@@ -5,45 +5,53 @@ import { Loading } from '../Components/LoadingComponent'
 
 function RFeat({ blog }) {
   return (
-      <div>
+    <div>
 
-          <Link to={`/blog/${blog.id}`}>
-              <div className="cont" style={{ marginBottom: "90px" }}>
-                  <div className="bloghead">
-                      <div className="desc2">
-                          <a href="./blog.html" style={{ textDecoration: "none" }}>
-                              <h6 style={{ fontSize: "25px" }}>{blog.Title}.</h6>
-                          </a>
-  <h6 style={{ fontSize: "30px", color: "black" }}>{blog.snippet}</h6>
-                          <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>Author</h6>
-                      </div>
-                  </div>
-                  <div class="imb">
-                      <img src={blog.blogimg} alt="img" />
-                  </div>
-              </div>
-          </Link>
+      <Link to={`/blog/${blog.id}`}>
+        <div className="cont" style={{ marginBottom: "90px" }}>
+          <div className="bloghead">
+            <div className="desc2">
+              <h6 style={{ fontSize: "15px", color: "black" }}>{blog.date}</h6>
+              <h6 style={{ fontSize: "25px" }}>{blog.title}</h6>
 
-      </div>
+              <h6 style={{ fontSize: "30px", color: "black" }}>{blog.snippet}</h6>
+              <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>Author</h6>
+            </div>
+          </div>
+          <div class="imb">
+            <img src={blog.blogimg} alt="img" />
+          </div>
+        </div>
+      </Link>
+
+    </div>
   )
 }
 
+const snipp = {
+  color: "black", fontSize: "23px",
+  fontWeight: "normal"
+};
+const tit = {
+  textDecoration: "none",
+  fontSize: "20px"
+};
 
 function RenderStall({ blog }) {
-  
+
   return (
-    
+
     <div>
       <Link to={`/blog/${blog.id}`}>
 
         <div className="blog">
           <img src={blog.blogimg} alt="img" />
-         
-          <div className="desc" style={{ marginTop: "2px" }}>
-            <h6 style={{ fontSize: "15px" }}>{blog.date}</h6>
-  <h6 style={{ textDecoration: "none", fontSize: "17px" }}>{blog.title}</h6>
 
-            <h6 style={{ color: "black", fontSize: "22px", fontWeight: "normal" }}>{blog.snippet}</h6>
+          <div className="desc" style={{ marginTop: "2px" }}>
+            <h6 style={{ fontSize: "15px", color: "black" }}>{blog.date}</h6>
+            <h6 style={tit}>{blog.title}</h6>
+
+            <h6 style={snipp}>{blog.snippet}</h6>
             <h6 style={{ fontStyle: "italic", marginTop: "15px" }}>Author</h6>
           </div>
         </div>
@@ -67,35 +75,37 @@ const BlogList = (props) => {
   // })[0];
 
   const feat = props.blogs.map((blog) => {
-    if(blog.featured){
-    return (
-      
+    if (blog.featured) {
+      return (
+
 
         <div key={blog.id}>
-          
+
           <div> <RFeat blog={blog} /></div>
-         
+
         </div>
 
-      
-    );}
+
+      );
+    }
   });
   console.log(props);
   const blogss = props.blogs.map((blog) => {
-    if(!blog.featured){
-    return (
-    
+    if (!blog.featured) {
+      return (
+
 
         <div key={blog.id}>
-        
-         
+
+
           <div><RenderStall blog={blog} /></div>
-         
-          
+
+
         </div>
 
-     
-    );}
+
+      );
+    }
 
   });
 
@@ -122,11 +132,11 @@ const BlogList = (props) => {
   else
     return (
 
-<div>
+      <div>
         {feat}
-      <div className="cont">
-        {blogss}
-      </div>
+        <div className="cont">
+          {blogss}
+        </div>
       </div>
     )
 
