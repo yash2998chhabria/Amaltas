@@ -20,7 +20,7 @@ function RenderBlog({ blog }) {
             <h6 style={{ fontSize: "15px", color: "black" }}>'{blog.date}'</h6>
             <h6 style={{ textDecoration: "none", fontSize: "27px", color: "#71bc42" }}>{blog.title}</h6>
             <h6 style={{ fontSize: "30px", color: "black" }}>{blog.snippet}</h6>
-            <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px", color: "#71bc42" }}>Author: {blog.author}</h6>
+            <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px", color: "#71bc42" }}>{blog.author}</h6>
           </div>
         </div>
         <div className="detimg" style={blohim}>

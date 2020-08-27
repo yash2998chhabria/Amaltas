@@ -3,6 +3,12 @@ import { Card, CardImg, CardBody, CardText, CardTitle, Button } from 'reactstrap
 import { Link } from 'react-router-dom'
 import { Loading } from '../Components/LoadingComponent'
 
+
+const blohim = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+}
 function RFeat({ blog }) {
   return (
     <div>
@@ -12,13 +18,13 @@ function RFeat({ blog }) {
           <div className="bloghead">
             <div className="desc2">
               <h6 style={{ fontSize: "15px", color: "black" }}>'{blog.date}'</h6>
-              <h6 style={{ fontSize: "25px" }}>{blog.title}</h6>
+              <h6 style={{ textDecoration: "none", fontSize: "27px", color: "#71bc42" }}>{blog.title}</h6>
 
               <h6 style={{ fontSize: "30px", color: "black" }}>{blog.snippet}</h6>
               <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>{blog.author}</h6>
             </div>
           </div>
-          <div class="imb">
+          <div className="detimg" style={blohim}>
             <img src={blog.blogimg} alt="img" />
           </div>
         </div>
@@ -33,8 +39,7 @@ const snipp = {
   fontWeight: "normal"
 };
 const tit = {
-  textDecoration: "none",
-  fontSize: "20px"
+  textDecoration: "none", fontSize: "27px", color: "#71bc42"
 };
 
 function RenderStall({ blog }) {
@@ -49,7 +54,7 @@ function RenderStall({ blog }) {
           <img src={blog.blogimg} alt="img" />
 
           <div className="desc" style={{ marginTop: "2px" }}>
-            <h6 style={{ fontSize: "15px", color: "black" }}>'{blog.date}'</h6>
+
             <h6 style={tit}>{blog.title}</h6>
 
             <h6 style={snipp}>{blog.snippet}</h6>
