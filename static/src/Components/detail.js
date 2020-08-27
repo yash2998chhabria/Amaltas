@@ -8,11 +8,7 @@ const blohim = {
   justifyContent: "center",
   alignItems: "center",
 }
-const intim = {
-  height: "210px",
-  width: "240px",
-  margin: "5px",
-}
+
 function RenderBlog({ blog }) {
   return (
     <div>
@@ -21,14 +17,14 @@ function RenderBlog({ blog }) {
       <div className="cont">
         <div className="bloghead">
           <div className="desc2">
-            <h6 style={{ fontSize: "15px", color: "black" }}>{blog.date}</h6>
-            <h6 style={{ textDecoration: "none", fontSize: "27px" }}>{blog.title}</h6>
+            <h6 style={{ fontSize: "15px", color: "black" }}>'{blog.date}'</h6>
+            <h6 style={{ textDecoration: "none", fontSize: "27px", color: "#71bc42" }}>{blog.title}</h6>
             <h6 style={{ fontSize: "30px", color: "black" }}>{blog.snippet}</h6>
-  <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>Author: {blog.author}</h6>
+            <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px", color: "#71bc42" }}>Author: {blog.author}</h6>
           </div>
         </div>
-        <div style={blohim}>
-          <img src={blog.blogimg} style={intim} alt="img" />
+        <div className="detimg" style={blohim}>
+          <img src={blog.blogimg} alt="img" />
         </div>
       </div>
 

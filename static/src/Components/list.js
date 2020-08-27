@@ -11,11 +11,11 @@ function RFeat({ blog }) {
         <div className="cont" style={{ marginBottom: "90px" }}>
           <div className="bloghead">
             <div className="desc2">
-              <h6 style={{ fontSize: "15px", color: "black" }}>{blog.date}</h6>
+              <h6 style={{ fontSize: "15px", color: "black" }}>'{blog.date}'</h6>
               <h6 style={{ fontSize: "25px" }}>{blog.title}</h6>
 
               <h6 style={{ fontSize: "30px", color: "black" }}>{blog.snippet}</h6>
-              <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>Author</h6>
+              <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>{blog.author}</h6>
             </div>
           </div>
           <div class="imb">
@@ -45,14 +45,15 @@ function RenderStall({ blog }) {
       <Link to={`/blog/${blog.id}`}>
 
         <div className="blog">
+
           <img src={blog.blogimg} alt="img" />
 
           <div className="desc" style={{ marginTop: "2px" }}>
-            <h6 style={{ fontSize: "15px", color: "black" }}>{blog.date}</h6>
+            <h6 style={{ fontSize: "15px", color: "black" }}>'{blog.date}'</h6>
             <h6 style={tit}>{blog.title}</h6>
 
             <h6 style={snipp}>{blog.snippet}</h6>
-            <h6 style={{ fontStyle: "italic", marginTop: "15px" }}>Author</h6>
+            <h6 style={{ fontStyle: "italic", marginTop: "15px" }}>{blog.author}</h6>
           </div>
         </div>
 
