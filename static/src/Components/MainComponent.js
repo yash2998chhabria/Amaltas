@@ -163,7 +163,7 @@ class Main extends Component {
                 <Switch>
 
                     <Route exact path='/blog/' component={BlogPage} />
-                    <Route exact path='/blog/:blogId' component={BlogDetailPage} />
+                    <Route path='/blog/:blogId' component={BlogDetailPage} />
                     <Route exact path='/home' component={HomePage} />
 
                 </Switch>

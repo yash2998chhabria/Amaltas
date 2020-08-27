@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
-    path('',views.reactor,name="reactor"),
+    re_path(r'.*',views.reactor,name="reactor"),
 ]
