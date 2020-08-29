@@ -3,7 +3,7 @@ from stalls.models import stall_frame, stall_products, product_category, stall_c
 from accounts.models import EmailData
 from .forms import EmailForm
 from django_user_agents.utils import get_user_agent
-from .models import PageCounter, MakeVisible
+from .models import PageCounter, MakeVisible, Testimonials
 from contactus.forms import ContactForm
 from makeadifference.models import MakeADifference
 # Create your views here.
@@ -36,7 +36,8 @@ def index(request):
         'visibility': visibility,
         'categories': product_category.objects.all(),
         'cities': stall_city.objects.all(),
-        'mads': MakeADifference.objects.all()
+        'mads': MakeADifference.objects.all(),
+        'Testimonials': Testimonials.objects.all()
     }
     user_agent = get_user_agent(request)
     count = PageCounter.objects.all()[0]
