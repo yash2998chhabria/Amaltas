@@ -7,7 +7,7 @@ from ckeditor.fields import RichTextField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from ckeditor_uploader.fields import RichTextUploadingField
-
+from autoslug import AutoSlugField
 
 # Create your models here.
 
@@ -49,6 +49,8 @@ class stall_frame(models.Model):
 	stall_visible_on_website = models.BooleanField(default=False,null=False)
 	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1)
 	position = models.IntegerField(default = 500,null=False)
+	slug = AutoSlugField(populate_from='name',default="")
+
 
 	def save(self, *args, **kwargs):
 		if not self.id:

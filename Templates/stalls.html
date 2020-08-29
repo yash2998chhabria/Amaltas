@@ -79,13 +79,13 @@
 
           <div class="filterDiv {{ stall.city }} {{ stall.category }} col-md-6 col-lg-6 mb-2 mx-auto">
             <div class="media-image bor mx-auto">
-              <a href="/stalls/{{stall.name}}">
+              <a href="/stalls/{{stall.slug}}">
                {% thumbnail stall.cover "540x540" crop="center" as im %}
                <img src="{{ im.url }}"alt="{{stall.name}}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
               </a>
               <div class="media-image-body text-center" style="padding-top: 5px;">
-                <h2 class="font-secondary text-uppercase"><a href="/stalls/{{stall.name}}">{{ stall.name }}</a></h2>
+                <h2 class="font-secondary text-uppercase"><a href="/stalls/{{stall.slug}}">{{ stall.name }}</a></h2>
                 <!-- <p>{{ stall.description }}</p> -->
                 <!-- <p><a href="/stalls/{{stall.name}}">View Products</a></p> -->
               </div>
@@ -114,13 +114,13 @@
           {% if stall.premium %}
           <div class="filterDiv {{ stall.city }} {{ stall.category }} col-6 col-md-6 col-lg-4 mb-2 bor">
             <div class="media-image bor">
-              <a href="/stalls/{{stall.name}}">
+              <a href="/stalls/{{stall.slug}}">
                {% thumbnail stall.cover "360x360" crop="center" as im %}
                <img src="{{ im.url }}"alt="{{stall.name}}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
               </a>
               <div class="media-image-body text-center" style="padding-top: 5px;">
-                <h2 class="font-secondary text-uppercase"><a href="/stalls/{{stall.name}}">{{ stall.name }}</a></h2>
+                <h2 class="font-secondary text-uppercase"><a href="/stalls/{{stall.slug}}">{{ stall.name }}</a></h2>
                 <!-- <p>{{ stall.description }}</p> -->
                 <!-- <p><a href="/stalls/{{stall.name}}">View Products</a></p> -->
               </div>
@@ -146,13 +146,13 @@
           {% if stall.poweredby_stall == False %}
           <div class="filterDiv {{ stall.city }} {{ stall.category }} col-6 col-md-6 col-lg-4 mb-2 bor">
             <div class="media-image bor " >
-              <a href="/stalls/{{stall.name}}">
+              <a href="/stalls/{{stall.slug}}">
                {% thumbnail stall.cover "360x360" crop="center" as im %}
                <img src="{{ im.url }}"alt="{{stall.name}}:{{ stall.description }}" class="img-fluid">
                {% endthumbnail %}
               </a>
               <div class="media-image-body text-center" style="padding-top: 5px;">
-                <h2 class="font-secondary  text-uppercase"><a href="/stalls/{{stall.name}}">{{ stall.name }}</a></h2>
+                <h2 class="font-secondary  text-uppercase"><a href="/stalls/{{stall.slug}}">{{ stall.name }}</a></h2>
                 <!-- <p>{{ stall.description }}</p> -->
                 <!-- <p><a href="/stalls/{{stall.name}}">View Products</a></p> -->
               </div>

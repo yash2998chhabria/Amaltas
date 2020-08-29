@@ -59,8 +59,7 @@ def products(request,name):
 '''
 
 def products(request,stallname):
-	stall = stall_frame.objects.get(name=stallname)
-	print(stall)
+	stall = stall_frame.objects.get(slug=stallname)
 	product = stall_products.objects.all()
 	visibility = MakeVisible.objects.all()[0].start_exhibition
 	current_products = []
