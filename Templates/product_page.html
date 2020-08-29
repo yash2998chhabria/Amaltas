@@ -37,7 +37,7 @@
 {% block base %}
 {% if visibility %}
 
-
+{% if stall.stall_visible_on_website %}
 
     <div class="slant-1"></div>
 
@@ -81,5 +81,9 @@
         </div>
       </div>
     </div>
+{% else %}
+<h1>Hello, This Stall is being made for you! Check again in some time!!</h1>       
+{% endif %}
+ 
 {% endif %}
 {% endblock %}

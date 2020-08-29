@@ -32,6 +32,7 @@
 
 {% block base %}
 {% if visibility %}
+{% if stall.stall_visible_on_website %}
 
    <div class="site-section" style="background:#AFD275; " data-aos="fade"> 
    <div class="container">
@@ -154,7 +155,9 @@
       </div>
     </div> 
  
-
+{% else %}
+<h1>Hello, This Stall is being made for you! Check again in some time!!</h1>       
+{% endif %}
 {% endif %}
 {% endblock %}
 
