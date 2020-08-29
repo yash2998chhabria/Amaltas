@@ -64,7 +64,7 @@ def products(request,stallname):
 	visibility = MakeVisible.objects.all()[0].start_exhibition
 	current_products = []
 	for pro in product:
-		if str(pro.stall_name) == stallname:
+		if str(pro.stall_name) == str(stall.name):
 			current_products.append(pro)
 		prod = {
 			'products': current_products,
