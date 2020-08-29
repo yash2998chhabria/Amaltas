@@ -1,6 +1,8 @@
 from django.db import models
 from PIL import Image
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from io import BytesIO
+import sys
 
 # Create your models here.
 class PageCounter( models.Model ):
