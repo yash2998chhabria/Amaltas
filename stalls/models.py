@@ -47,7 +47,8 @@ class stall_frame(models.Model):
 	poweredby_stall = models.BooleanField(default=False,null=False)
 	city = models.ForeignKey(stall_city,on_delete=models.CASCADE,default =1)
 	stall_visible_on_website = models.BooleanField(default=False,null=False)
-	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1) 
+	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1)
+	position = models.IntegerField(default = 500,null=False)
 
 	def save(self, *args, **kwargs):
 		if not self.id:
@@ -64,7 +65,7 @@ class stall_frame(models.Model):
 		return new_image		
 
 	def __str__(self):
-		return self.name
+		return str('%s, Position :%s' % (self.name, self.position))
 
 class stall_products(models.Model):
 	product_name = models.CharField(max_length=50,default="",null=False)

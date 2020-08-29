@@ -6,6 +6,9 @@ from home.forms import EmailForm
 # Create your views here.
 def stalls(request):
 	stall= stall_frame.objects.all()
+	def get_position(stall):
+		return stall.position
+	stall=sorted(stall,key=get_position)
 	visibility = MakeVisible.objects.all()[0].start_exhibition
 	form = EmailForm(None)
 	message = ''
