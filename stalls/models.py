@@ -47,7 +47,9 @@ class stall_frame(models.Model):
 	poweredby_stall = models.BooleanField(default=False,null=False)
 	city = models.ForeignKey(stall_city,on_delete=models.CASCADE,default =1)
 	stall_visible_on_website = models.BooleanField(default=False,null=False)
-	category = models.ForeignKey(product_category,on_delete=models.CASCADE,default=1)
+	category = models.ForeignKey(product_category, related_name='category',on_delete=models.CASCADE,default=1)
+	second_category = models.ForeignKey(product_category, related_name='second_category',on_delete=models.CASCADE,default=1)
+	third_category = models.ForeignKey(product_category, related_name='third_category',on_delete=models.CASCADE,default=1)
 	position = models.IntegerField(default = 500,null=False)
 	slug = AutoSlugField(populate_from='name',default="")
 

@@ -59,6 +59,7 @@
         <button id="buttoncate" type="button" onclick="filterSelection('{{ city }}')" class="d-inline-block bg-primary text-white btn btn-primary">{{ city }}</button>
         {% endfor %}
         {% for categorie in categories %} 
+        
         <button id="buttoncate" type="button" onclick="filterSelection('{{ categorie }}')" class="d-inline-block bg-primary text-white btn btn-primary">{{ categorie }}</button>
         {% endfor %}
         </div>
@@ -77,7 +78,7 @@
         
         <div class="row mb-2 " style="padding-top: 5px;">
 
-          <div class="filterDiv {{ stall.city }} {{ stall.category }} col-md-6 col-lg-6 mb-2 mx-auto">
+          <div class="filterDiv {{ stall.city }} {{ stall.category }} {{ stall.second_category }} {{ stall.third_category }} col-md-6 col-lg-6 mb-2 mx-auto">
             <div class="media-image bor mx-auto">
               <a href="/stalls/{{stall.slug}}">
                {% thumbnail stall.cover "540x540" crop="center" as im %}
@@ -112,7 +113,7 @@
           {% for stall in stalls %}
           {% if stall.stall_visible_on_website %}
           {% if stall.premium %}
-          <div class="filterDiv {{ stall.city }} {{ stall.category }} col-6 col-md-6 col-lg-4 mb-2 bor">
+          <div class="filterDiv {{ stall.city }} {{ stall.category }} {{ stall.second_category }} {{ stall.third_category }} col-6 col-md-6 col-lg-4 mb-2 bor">
             <div class="media-image bor">
               <a href="/stalls/{{stall.slug}}">
                {% thumbnail stall.cover "360x360" crop="center" as im %}
@@ -144,7 +145,7 @@
           {% if stall.stall_visible_on_website %}
           {% if stall.premium == False %}
           {% if stall.poweredby_stall == False %}
-          <div class="filterDiv {{ stall.city }} {{ stall.category }} col-6 col-md-6 col-lg-4 mb-2 bor">
+          <div class="filterDiv {{ stall.city }} {{ stall.category }} {{ stall.second_category }} {{ stall.third_category }} col-6 col-md-6 col-lg-4 mb-2 bor">
             <div class="media-image bor " >
               <a href="/stalls/{{stall.slug}}">
                {% thumbnail stall.cover "360x360" crop="center" as im %}
