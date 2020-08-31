@@ -180,7 +180,7 @@ def demo(request,name):
 	for pro in product:
 		if str(name) == str(pro.product_name):
 			for stall in stalls:
-				if str(pro.stall_name)==str(stall.name):
+				if str(pro.stall_name.name)==str(stall.name):
 					prod={
 					'product': pro,
 					'stall': stall,
