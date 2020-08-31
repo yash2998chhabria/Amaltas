@@ -10,6 +10,8 @@ class EditStallFrameForm(forms.ModelForm):
 		'cover',
 		'description',
 		'category',
+		'second_category',
+		'third_category',
 		'contact_no',
 		'contact_stall',
 		'city',
