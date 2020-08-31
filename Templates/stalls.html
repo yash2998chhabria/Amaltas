@@ -59,8 +59,9 @@
         <button id="buttoncate" type="button" onclick="filterSelection('{{ city }}')" class="d-inline-block bg-primary text-white btn btn-primary">{{ city }}</button>
         {% endfor %}
         {% for categorie in categories %} 
-        {% if not categorie == 'default' }
-        <button id="buttoncate" type="button" onclick="filterSelection('{{ categorie }}')" class="d-inline-block bg-primary text-white btn btn-primary">{{ categorie }}</button>
+        {% if categorie == 'default' }
+        {% else %}
+        <button id="buttoncate" type="button" onclick="filterSelection('{{ categorie }}')" class="d-inline-block bg-primary text-white btn btn-primary">{{ categorie }}</button>  
         {% endif %}
         {% endfor %}
         </div>
