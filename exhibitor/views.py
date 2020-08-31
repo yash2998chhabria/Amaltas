@@ -168,7 +168,7 @@ def demo(request,name):
 		if str(name) == str(stall.name):			
 			current_products = []
 			for pro in product:
-				if str(pro.stall_name) == str(name):
+				if str(pro.stall_name.name) == str(name):
 					current_products.append(pro)			
 			prod = {
 			'products': current_products,
