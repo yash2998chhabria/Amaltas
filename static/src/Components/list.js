@@ -21,7 +21,7 @@ function RFeat({ blog }) {
               <h6 style={{ textDecoration: "none", fontSize: "27px", color: "#71bc42" }}>{blog.title}</h6>
 
               <h6 style={{ fontSize: "30px", color: "black" }}>{blog.snippet}</h6>
-              <h6 style={{ fontStyle: "italic", marginTop: "20px", fontSize: "20px" }}>{blog.author}</h6>
+              <h6 style={{ fontStyle: "italic", marginTop: "12px", fontSize: "20px" }}>{blog.author}</h6>
             </div>
           </div>
           <div className="detimg" style={blohim}>
@@ -35,11 +35,11 @@ function RFeat({ blog }) {
 }
 
 const snipp = {
-  color: "black", fontSize: "23px",
+  color: "black", fontSize: "13px",
   fontWeight: "normal"
 };
 const tit = {
-  textDecoration: "none", fontSize: "27px", color: "#71bc42"
+  textDecoration: "none", fontSize: "17px", color: "#71bc42", fontWeight: "bold"
 };
 
 function RenderStall({ blog }) {
@@ -57,8 +57,9 @@ function RenderStall({ blog }) {
 
             <h6 style={tit}>{blog.title}</h6>
 
+
             <h6 style={snipp}>{blog.snippet}</h6>
-            <h6 style={{ fontStyle: "italic", marginTop: "15px" }}>{blog.author}</h6>
+            <h6 style={{ fontStyle: "italic", marginTop: "8px", fontSize: "13px", }}>{blog.author}</h6>
           </div>
         </div>
 
