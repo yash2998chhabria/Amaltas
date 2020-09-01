@@ -163,21 +163,17 @@ def deletestallframe(request,stall_name):
 
 @login_required
 def demo(request,name):
-	product = stall_products.objects.all()
 	stalls = stall_frame.objects.all()
 	for stall in stalls:
-		if str(name) == str(stall.name):			
-			current_products = []
-			for pro in product:
-				if str(pro.stall_name.name) == str(name):
-					current_products.append(pro)			
+		if str(name) == str(stall.name):
+			current_products = stall_products.objects.filter(stall_name = stall)			
 			prod = {
 			'products': current_products,
 			'stall': stall,
 			'contactno': int(str(stall.contact_no)[1:])
 			}
 			return render(request,'admin-products.html',prod)	
-			
+	product = stall_products.objects.all()		
 	for pro in product:
 		if str(name) == str(pro.product_name):
 			for stall in stalls:
