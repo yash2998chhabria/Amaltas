@@ -92,15 +92,16 @@ def editstallframe(request):
 def editstallproduct(request,pk):
 	product = stall_products.objects.get(id=pk)
 	form = EditStallProductsForm(instance=product)
+	frame = stall_frame.objects.get(stall_user=request.user.id)
 	if request.method== 'POST':
 		form = EditStallProductsForm(request.POST, request.FILES, instance=product)
 		if form.is_valid():
 			form.save()
-			frame = stall_frame.objects.filter(stall_user=request.user.id)
+			#frame = stall_frame.objects.get(stall_user=request.user.id)
 			#stall_products.objects.filter(id=pk).update(stall_name=frame[0].id)
 			return redirect('login')
 	context= {
-			'stall': stall_frame.objects.get(name=product.stall_name),
+			'stall': frame,
 			'form':form,
 			'heading':'Edit Your Product Information'
 	}
