@@ -9,5 +9,5 @@ class ArticleSerializer(serializers.ModelSerializer):
         # permission_classes = [
         #     permissions.AllowAny
         # ]
-        fields = ['id','title','content','snippet','featured','date','author','blogimg']
+        fields = ['id','title','content','snippet','featured','date','author','blogimg','slug']
 
