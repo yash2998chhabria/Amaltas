@@ -13,7 +13,7 @@ function RFeat({ blog }) {
   return (
     <div>
 
-      <Link to={`/blog/${blog.id}`}>
+      <Link to={`/blog/${blog.slug}`}>
         <div className="cont" style={{ marginBottom: "90px" }}>
           <div className="bloghead">
             <div className="desc2">
@@ -45,9 +45,9 @@ const tit = {
 function RenderStall({ blog }) {
 
   return (
-
+    
     <div>
-      <Link to={`/blog/${blog.id}`}>
+      <Link to={`/blog/${blog.slug}`}>
 
         <div className="blog">
 
