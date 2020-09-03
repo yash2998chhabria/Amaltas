@@ -96,13 +96,15 @@ class stall_products(models.Model):
 			return self.product_name
 
 class Article(models.Model):
-	title = models.CharField(max_length=80)
+	title = models.CharField(max_length=80,unique=True)
 	snippet= models.CharField(max_length=80)
 	content = RichTextUploadingField()
 	featured = models.BooleanField(default=False)
 	date = models.DateField(auto_now_add=True)
 	author = models.CharField(max_length=20,default="")
 	blogimg=models.ImageField(upload_to='blogimgs',default="",null=False) 
+	slug = AutoSlugField(populate_from='title',default="")
+
 
 	def save(self, *args, **kwargs):
 		if not self.id:

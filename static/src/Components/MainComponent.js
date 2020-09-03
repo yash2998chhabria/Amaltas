@@ -122,6 +122,7 @@ class Main extends Component {
         }
 
         const BlogPage = () => {
+            console.log(this.props.dishes.dishes.slug);
             return (
                 <BlogList
                     blogs={this.props.dishes.dishes}
@@ -136,18 +137,19 @@ class Main extends Component {
 
         const BlogDetailPage = ({ match }) => {
             // const z = parseInt(match.params.blogId, 10);
-            // console.log(z);
+            
             return (
                 <div>
 
                     <BlogDetail
                         blog={this.props.dishes.dishes.filter(
-                            blog => blog.id === parseInt(match.params.blogId, 10)
+                            blog => blog.slug === (match.params.blogname)
                         )[0]}
                         blogLoading={this.props.dishes.isLoading}
                         blogErrMess={this.props.dishes.errMess}
 
                     />
+                
                 </div>
 
             );
@@ -163,7 +165,7 @@ class Main extends Component {
                 <Switch>
 
                     <Route exact path='/blog/' component={BlogPage} />
-                    <Route path='/blog/:blogId' component={BlogDetailPage} />
+                    <Route path='/blog/:blogname' component={BlogDetailPage} />
                     <Route exact path='/home' component={HomePage} />
 
                 </Switch>
