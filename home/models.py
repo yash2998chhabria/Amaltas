@@ -4,6 +4,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from io import BytesIO
 import sys
 
+
 # Create your models here.
 class PageCounter( models.Model ):
 	indexcounter = models.IntegerField()
@@ -30,7 +31,6 @@ class Testimonials(models.Model):
 		im_io.seek(0)
 		new_image = InMemoryUploadedFile(im_io,'ImageField', "%s.jpg" % image.name.split('.')[0], 'image/jpeg', sys.getsizeof(im_io), None)
 		return new_image		
-
-
+	
 	def __str__(self):
 			return self.name

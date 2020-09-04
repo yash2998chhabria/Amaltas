@@ -22,5 +22,11 @@ class TestiForm(forms.ModelForm):
 		fields = [
 			'name',
 			'testi_image',
-			'testi'			
+			'testi',
+			#'make_visible'			
 		]
+		labels = {
+					'name': 'NAME',
+					'testi_image':'YOUR IMAGE',
+					'testi':'TESTIMONIAL'
+		}			

@@ -100,7 +100,7 @@
             <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ message }}</span> 
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" form="save_form" value="Submit" class="btn btn-primary text-white px-4 py-2">Send Message</button>  
+            <button type="submit" form="save_form" name="messageform" value="Submit" class="btn btn-primary text-white px-4 py-2">Send Message</button>  
             </form>
           </div>
 
@@ -186,6 +186,7 @@
         <div class="nonloop-block-14 owl-carousel">
         
           {% for testimonial in Testimonials %}
+          {% if testimonial.make_visible %}
             <div class="d-block block-testimony mx-auto text-center">
               <div class="person w-25 mx-auto mb-4">
                 {% thumbnail testimonial.testi_image "360x360" crop="center" as im %}
@@ -197,9 +198,40 @@
                 <blockquote>&ldquo;{{ testimonial.testi }}&rdquo;</blockquote>
               </div>
             </div>
+          {% endif %}  
           {% endfor %}
         </div>
        </div> 
+
+       <div class="mx-auto text-center">
+       <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ messagetesti }}</span> 
+       <button type="button" class="btn btn-primary text-uppercase text-white mb-4" data-toggle="modal" data-target="#exampleModal">
+        Write A testimonial
+       </button>
+       </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="text-uppercase  mb-4 text-center " id="exampleModalLabel">Write a Testimonial</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="POST" class="p-5 bg-white" id="testi_form"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ Testimonialform|crispy }}  
+              </form>              
+            </div>
+            <div class="modal-footer">
+              <button type="submit" form="testi_form" name="testiform" value="Submit" class="btn btn-primary text-white px-4 py-2">Send Testimonial</button>
+              <button type="button" class="btn btn-secondary text-uppercase text-white px-4 py-2" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>       
 
     </div>
   </div>
