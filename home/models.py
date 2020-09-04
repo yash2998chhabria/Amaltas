@@ -15,6 +15,7 @@ class Testimonials(models.Model):
 	name = models.CharField(max_length=30,default="",null=False)
 	testi = models.CharField(max_length=300,default="",null=False)	
 	testi_image = models.ImageField(upload_to='testimonials',default="",null=False)
+	make_visible = models.BooleanField(default=False)
 
 	def save(self, *args, **kwargs):
 		if not self.id:

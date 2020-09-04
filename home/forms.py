@@ -1,5 +1,6 @@
 from django import forms
 from accounts.models import EmailData
+from .models import Testimonials
 
 class EmailForm(forms.ModelForm):
 	class Meta:
@@ -14,3 +15,12 @@ class EmailForm(forms.ModelForm):
 		labels = {
 					'whatsapp': ''
 		}			
+
+class TestiForm(forms.ModelForm):
+	class Meta:
+		model = Testimonials
+		fields = [
+			'name',
+			'testi_image',
+			'testi'			
+		]
