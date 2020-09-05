@@ -30,3 +30,6 @@ class TestiForm(forms.ModelForm):
 					'testi_image':'YOUR IMAGE',
 					'testi':'TESTIMONIAL'
 		}			
+		help_texts = {
+				'testi':'300 characters limit'
+		}
