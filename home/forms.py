@@ -31,5 +31,5 @@ class TestiForm(forms.ModelForm):
 					'testi':'TESTIMONIAL'
 		}			
 		help_texts = {
-				'testi':'300 characters limit'
+				'testi':'500 characters limit'
 		}
