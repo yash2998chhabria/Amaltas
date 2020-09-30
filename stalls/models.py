@@ -76,6 +76,7 @@ class stall_products(models.Model):
 	price = models.IntegerField(default = 0,null=False)
 	product_image = models.ImageField(upload_to='products_images',default="",null=False)
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE,default=1)
+	position =  models.IntegerField(default = 0,null=False)
 
 	def save(self, *args, **kwargs):
 		if not self.id:

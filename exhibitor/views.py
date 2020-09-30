@@ -164,9 +164,12 @@ def deletestallframe(request,stall_name):
 @login_required
 def demo(request,name):
 	stalls = stall_frame.objects.all()
+	def get_position(current_products):
+		return current_products.position	
 	for stall in stalls:
 		if str(name) == str(stall.name):
-			current_products = stall_products.objects.filter(stall_name = stall)			
+			current_products = stall_products.objects.filter(stall_name = stall)
+			current_products=sorted(current_products,key=get_position)						
 			prod = {
 			'products': current_products,
 			'stall': stall,

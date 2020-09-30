@@ -61,6 +61,9 @@ def products(request,name):
 def products(request,stallname):
 	stall = stall_frame.objects.get(slug=stallname)
 	product = stall_products.objects.filter(stall_name = stall)
+	def get_position(product):
+		return product.position
+	product=sorted(product,key=get_position)	
 	visibility = MakeVisible.objects.all()[0].start_exhibition
 	prod = {
 			'products': product,

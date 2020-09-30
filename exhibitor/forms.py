@@ -39,7 +39,8 @@ class EditStallProductsForm(forms.ModelForm):
 		'product_name',
 		'price',
 		'product_image',
-		'stall_name'
+		'stall_name',
+		'position'
 				]
 		widgets = {
 				'stall_name': forms.TextInput({'id':'putstallname','value':'','type':'hidden'}),
@@ -47,5 +48,6 @@ class EditStallProductsForm(forms.ModelForm):
 		help_texts = {
 				'product_name':'please do not to repeat product names. Do not use "/" in the product name ',
 				'price':'if price is not required leave the field as 0',
-				'product_image':'product images must be of a 1:1 sqaure aspect ratio(if not,it will get cropped)'
+				'product_image':'product images must be of a 1:1 sqaure aspect ratio(if not,it will get cropped)',
+				'position':'leave position as 0 if its not neccessary'
 		}
