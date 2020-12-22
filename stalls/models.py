@@ -71,13 +71,14 @@ class stall_frame(models.Model):
 	def __str__(self):
 		return str('%s, Position :%s' % (self.name, self.position))
 
+
 class stall_products(models.Model):
 	product_name = models.CharField(max_length=50,default="",null=False)
 	price = models.IntegerField(default = 0,null=False)
 	product_image = models.ImageField(upload_to='products_images',default="",null=False)
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE,default=1)
 	position =  models.IntegerField(default = 0,null=False)
-
+	weblink = models.URLField(max_length=200,null=True,blank=False)
 	def save(self, *args, **kwargs):
 		if not self.id:
 			self.product_image = self.compress(self.product_image)
@@ -96,6 +97,8 @@ class stall_products(models.Model):
 	def __str__(self):
 			return self.product_name
 
+
+
 class Article(models.Model):
 	title = models.CharField(max_length=80,unique=True)
 	snippet= models.CharField(max_length=80)
@@ -104,7 +107,7 @@ class Article(models.Model):
 	date = models.DateField(auto_now_add=True)
 	author = models.CharField(max_length=20,default="")
 	blogimg=models.ImageField(upload_to='blogimgs',default="",null=False) 
-	slug = AutoSlugField(populate_from='title',default="")
+	slug = AutoSlugField(populate_from='title',default="",always_update=True)
 
 
 	def save(self, *args, **kwargs):
