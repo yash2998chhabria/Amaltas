@@ -78,7 +78,7 @@ class stall_products(models.Model):
 	product_image = models.ImageField(upload_to='products_images',default="",null=False)
 	stall_name = models.ForeignKey(stall_frame,on_delete=models.CASCADE,default=1)
 	position =  models.IntegerField(default = 0,null=False)
-	weblink = models.URLField(max_length=200,null=True,blank=False)
+	weblink = models.URLField(max_length=200,null=True,blank=True)
 	def save(self, *args, **kwargs):
 		if not self.id:
 			self.product_image = self.compress(self.product_image)
