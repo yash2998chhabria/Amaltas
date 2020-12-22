@@ -121,7 +121,11 @@
               <p class="card-text" >{% if product.price == 0 %} {% else %}&#8377;{{ product.price }}{% endif %}</p>
               </div>
               <div style="float:right;">
+              {% if product.weblink %}
+              <a href={{product.weblink}}  class="btn btn-primary text-white"><i class="fa fa-hand-pointer-o" aria-hidden="true" style="font-size:24px"></i> ShopNow</a>
+              {% else %}
               <a href="https://wa.me/{{ contactno }}?text=Hello%20I%20saw%20your%20product:{{ product.product_name }}%20on%20www.amaltas-exhibition.com.%20I%20would%20like%20to%20purchase%20it.The%20link%20to%20the%20image%20of%20the%20product:%20https://www.amaltas-exhibition.com/{{ product.product_image.url }}" class="btn btn-primary text-white"><i class="fa fa-whatsapp" style="font-size:24px"></i> ShopNow</a>
+              {% endif %}
               </div>
             </div>
           </div>

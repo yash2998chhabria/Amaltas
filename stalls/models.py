@@ -52,6 +52,8 @@ class stall_frame(models.Model):
 	third_category = models.ForeignKey(product_category, related_name='third_category',on_delete=models.CASCADE,default=1)
 	position = models.IntegerField(default = 500,null=False)
 	slug = AutoSlugField(populate_from='name',default="",always_update=True)
+	instagram_link = models.URLField(max_length=200,null=True,blank=True)
+	facebook_link = models.URLField(max_length=200,null=True,blank=True)
 
 
 	def save(self, *args, **kwargs):
