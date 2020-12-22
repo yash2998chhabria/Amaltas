@@ -156,6 +156,13 @@
                 <div class="form-group">                
                     <h2 class="site-section-heading text-uppercase font-secondary mb-5">Contact {{ stall.name }} @ <span class="font-secondary" >{{ contactno }}</span></h2>   
                     <h3 lead text-uppercase >Additional Contact details: <span>{{ stall.contact_stall }}</span></h3>
+                 {% if stall.facebook_link %}
+                  <a href={{stall.facebook_link}} class="pb-2 pr-2 pl-0"><span
+                      class="icon-facebook" style="font-size:24px"> Facebook</span></a>
+                 {% endif %}     
+                 {% if stall.instagram_link %}
+                  <a href={{stall.instagram_link}} class="pb-2 pr-2 pl-0"><span class="icon-instagram" style="font-size:24px"> Instagram</span></a>
+                 {% endif %}
                 </div>
               </form>
           </div>

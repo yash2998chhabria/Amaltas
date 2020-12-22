@@ -15,7 +15,9 @@ class EditStallFrameForm(forms.ModelForm):
 		'contact_no',
 		'contact_stall',
 		'city',
-		'stall_visible_on_website'
+		'stall_visible_on_website',
+		'instagram_link',
+		'facebook_link',
 		]
 		widgets={
 				'stall_user': forms.TextInput({'id':'putstallname','value':'','type':'hidden'}),
@@ -29,7 +31,11 @@ class EditStallFrameForm(forms.ModelForm):
 				'stall_visible_on_website': "This will work only during an exhibition",
 				'contact_stall':"Additional Contact Details",
 				'second_category':"If you dont want to choose a second category, leave this field as is",
-				'third_category':"If you dont want to choose a third category, leave this field as is"
+				'third_category':"If you dont want to choose a third category, leave this field as is",
+				'instagram_link':'Optional',
+				'facebook_link':'Optional'
+
+
 		}
 
 class EditStallProductsForm(forms.ModelForm):
