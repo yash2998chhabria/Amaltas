@@ -57,7 +57,7 @@
 
 				{% for product in products %}
 					<tr>
-						{% if product.position != 0 %}
+						{% if product.position != 100 %}
 						<td>{{product.product_name}},{{product.position}}</td>
 						{% else %}
 						<td>{{product.product_name}}</td>

@@ -56,6 +56,6 @@ class EditStallProductsForm(forms.ModelForm):
 				'product_name':'please do not to repeat product names. Do not use "/" in the product name ',
 				'price':'if price is not required leave the field as 0',
 				'product_image':'product images must be of a 1:1 sqaure aspect ratio(if not,it will get cropped)',
-				'position':'leave position as 0 if its not neccessary',
+				'position':'leave position as 100 if its not neccessary',
 				'weblink': "Enter your Product's website link(optional). As an alternative to using the whatsapp to connect to customers"
 		}
