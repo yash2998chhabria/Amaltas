@@ -184,14 +184,42 @@
         </div>  
 
 
-        <div class="row mb-2">
+<!--         <div class="row mb-2">
           <div class="col-md-6 col-lg-6 mb-2 mx-auto">  
             <div class="media-image">
               <a href=""><img src="{% static 'content/banner_d.png' %}" alt="Diwali Special amaltas-exhibition" class="img-fluid"></a>
             </div>
           </div>
         </div>  
+ -->
 
+   <div class="site-section" data-aos="fade">
+      <div class="container">
+          <div class="row">    
+          <div class="col-md-12 col-lg-12 mb-5">
+            <h2 class="site-section-heading text-uppercase text-center font-secondary">Make A difference</h2>
+          </div>
+        </div> 
+        <div class="row mb-5">
+          {% for mad in mads %}
+          <div class="col-md-6 col-lg-6 mb-5 mx-auto">  
+            <div class="media-image">
+              <a>
+               {% thumbnail mad.donation_cover "858x480" crop="center" as im %}
+               <img src="{{ im.url }}"alt="Image" class="img-fluid">
+               {% endthumbnail %}                
+              </a>
+              <div class="media-image-body">
+                <h2 class="font-secondary text-uppercase"><a href="#">{{mad.organisation_name}}</a></h2>
+                <p>{{ mad.description }}</p>
+                <p>Contact details:{{ mad.contact_details }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
     </div>
   </div> 
 
